@@ -186,6 +186,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseUserControl.Designer.cs">
+      <DependentUpon>BaseUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -198,7 +204,11 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Consulta.cs" />
+    <Compile Include="Models\Mascota.cs" />
     <Compile Include="Models\MiDbContext.cs" />
+    <Compile Include="Models\Propietario.cs" />
+    <Compile Include="Models\Raza.cs" />
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Presentacion\Backup.cs">
@@ -326,6 +336,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RJTextBox.resx</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Validaciones.cs" />
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>

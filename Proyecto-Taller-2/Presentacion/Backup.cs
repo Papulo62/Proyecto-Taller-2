@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.IO;
+
 
 namespace Proyecto_Taller_2.Presentacion
 {
@@ -29,18 +32,59 @@ namespace Proyecto_Taller_2.Presentacion
 
         }
 
-       
+
 
         private void customButton2_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBoxBackup.Texts))
+            try
             {
-                MessageBox.Show("Debe Ingresar la ruta de archivo.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBoxBackup.Focus();
-                return;
-            }
+                if (string.IsNullOrWhiteSpace(textBoxBackup.Texts))
+                {
+                    MessageBox.Show("Debe ingresar la ruta del archivo.", "Validación",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    textBoxBackup.Focus();
+                    return;
+                }
 
-            MessageBox.Show("Backuo generado correctamente ✅", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string rutaBackup = textBoxBackup.Texts.Trim();
+                string directorio = Path.GetDirectoryName(rutaBackup);
+                if (!Directory.Exists(directorio))
+                {
+                    MessageBox.Show("La carpeta de destino no existe.",
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string nombreBaseDatos = "My_Vet";
+
+                string connectionString = "Data Source=.;Initial Catalog=" + nombreBaseDatos + ";Integrated Security=True;";
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = $@"
+                BACKUP DATABASE [{nombreBaseDatos}]
+                TO DISK = @rutaBackup
+                WITH FORMAT,
+                     INIT,
+                     NAME = 'Backup de {nombreBaseDatos}',
+                     SKIP, NOREWIND, NOUNLOAD, STATS = 10";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@rutaBackup", rutaBackup);
+                        command.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show(" Backup generado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al generar el backup:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
     }
 }

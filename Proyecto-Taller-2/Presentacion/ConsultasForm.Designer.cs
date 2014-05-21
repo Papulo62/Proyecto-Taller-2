@@ -1,5 +1,5 @@
 ﻿
-namespace Proyecto_Taller_2
+namespace Proyecto_Taller_2.Presentacion
 {
     partial class ConsultasForm
     {
@@ -37,17 +37,17 @@ namespace Proyecto_Taller_2
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.rjTextBox1 = new CustomControls.RJControls.RJTextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.rjTextBox3 = new CustomControls.RJControls.RJTextBox();
-            this.rjTextBox4 = new CustomControls.RJControls.RJTextBox();
+            this.txtMotivo = new CustomControls.RJControls.RJTextBox();
+            this.dateTimePickerProxControl = new System.Windows.Forms.DateTimePicker();
+            this.comboBoxMascota = new System.Windows.Forms.ComboBox();
+            this.comboBoxVeterinario = new System.Windows.Forms.ComboBox();
+            this.dateTimePickerFecha = new System.Windows.Forms.DateTimePicker();
+            this.txtDiagnostico = new CustomControls.RJControls.RJTextBox();
+            this.txtTratamiento = new CustomControls.RJControls.RJTextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.rjTextBox5 = new CustomControls.RJControls.RJTextBox();
+            this.iblArchivoSeleccionado = new CustomControls.RJControls.RJTextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.rjTextBox2 = new CustomControls.RJControls.RJTextBox();
+            this.txtSintomas = new CustomControls.RJControls.RJTextBox();
             this.btnClose = new Proyecto_Taller_2.CustomButton();
             this.btnAdd = new Proyecto_Taller_2.CustomButton();
             this.SuspendLayout();
@@ -125,103 +125,103 @@ namespace Proyecto_Taller_2
             this.label8.TabIndex = 7;
             this.label8.Text = "Mascota:";
             // 
-            // rjTextBox1
+            // txtMotivo
             // 
-            this.rjTextBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox1.BorderColor = System.Drawing.Color.Black;
-            this.rjTextBox1.BorderFocusColor = System.Drawing.Color.Black;
-            this.rjTextBox1.BorderRadius = 8;
-            this.rjTextBox1.BorderSize = 1;
-            this.rjTextBox1.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox1.Location = new System.Drawing.Point(143, 362);
-            this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox1.Multiline = true;
-            this.rjTextBox1.Name = "rjTextBox1";
-            this.rjTextBox1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox1.PasswordChar = false;
-            this.rjTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox1.PlaceholderText = "Ingrese el motivo de la consulta:";
-            this.rjTextBox1.Size = new System.Drawing.Size(250, 51);
-            this.rjTextBox1.TabIndex = 8;
-            this.rjTextBox1.Texts = "";
-            this.rjTextBox1.UnderlinedStyle = false;
+            this.txtMotivo.BackColor = System.Drawing.SystemColors.Window;
+            this.txtMotivo.BorderColor = System.Drawing.Color.Black;
+            this.txtMotivo.BorderFocusColor = System.Drawing.Color.Black;
+            this.txtMotivo.BorderRadius = 8;
+            this.txtMotivo.BorderSize = 1;
+            this.txtMotivo.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMotivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtMotivo.Location = new System.Drawing.Point(143, 362);
+            this.txtMotivo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMotivo.Multiline = true;
+            this.txtMotivo.Name = "txtMotivo";
+            this.txtMotivo.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtMotivo.PasswordChar = false;
+            this.txtMotivo.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtMotivo.PlaceholderText = "Ingrese el motivo de la consulta:";
+            this.txtMotivo.Size = new System.Drawing.Size(250, 51);
+            this.txtMotivo.TabIndex = 8;
+            this.txtMotivo.Texts = "";
+            this.txtMotivo.UnderlinedStyle = false;
             // 
-            // dateTimePicker1
+            // dateTimePickerProxControl
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(501, 403);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(250, 34);
-            this.dateTimePicker1.TabIndex = 10;
+            this.dateTimePickerProxControl.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerProxControl.Location = new System.Drawing.Point(501, 403);
+            this.dateTimePickerProxControl.Name = "dateTimePickerProxControl";
+            this.dateTimePickerProxControl.Size = new System.Drawing.Size(250, 34);
+            this.dateTimePickerProxControl.TabIndex = 10;
             // 
-            // comboBox1
+            // comboBoxMascota
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(143, 120);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(250, 26);
-            this.comboBox1.TabIndex = 11;
+            this.comboBoxMascota.FormattingEnabled = true;
+            this.comboBoxMascota.Location = new System.Drawing.Point(143, 120);
+            this.comboBoxMascota.Name = "comboBoxMascota";
+            this.comboBoxMascota.Size = new System.Drawing.Size(250, 26);
+            this.comboBoxMascota.TabIndex = 11;
             // 
-            // comboBox4
+            // comboBoxVeterinario
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(143, 196);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(250, 26);
-            this.comboBox4.TabIndex = 14;
+            this.comboBoxVeterinario.FormattingEnabled = true;
+            this.comboBoxVeterinario.Location = new System.Drawing.Point(143, 196);
+            this.comboBoxVeterinario.Name = "comboBoxVeterinario";
+            this.comboBoxVeterinario.Size = new System.Drawing.Size(250, 26);
+            this.comboBoxVeterinario.TabIndex = 14;
             // 
-            // dateTimePicker2
+            // dateTimePickerFecha
             // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(143, 276);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(250, 34);
-            this.dateTimePicker2.TabIndex = 15;
+            this.dateTimePickerFecha.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerFecha.Location = new System.Drawing.Point(143, 276);
+            this.dateTimePickerFecha.Name = "dateTimePickerFecha";
+            this.dateTimePickerFecha.Size = new System.Drawing.Size(250, 34);
+            this.dateTimePickerFecha.TabIndex = 15;
             // 
-            // rjTextBox3
+            // txtDiagnostico
             // 
-            this.rjTextBox3.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox3.BorderColor = System.Drawing.Color.Black;
-            this.rjTextBox3.BorderFocusColor = System.Drawing.Color.Black;
-            this.rjTextBox3.BorderRadius = 8;
-            this.rjTextBox3.BorderSize = 1;
-            this.rjTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox3.Location = new System.Drawing.Point(501, 213);
-            this.rjTextBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox3.Multiline = true;
-            this.rjTextBox3.Name = "rjTextBox3";
-            this.rjTextBox3.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox3.PasswordChar = false;
-            this.rjTextBox3.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox3.PlaceholderText = "Ingrese el diagnostico:";
-            this.rjTextBox3.Size = new System.Drawing.Size(250, 51);
-            this.rjTextBox3.TabIndex = 16;
-            this.rjTextBox3.Texts = "";
-            this.rjTextBox3.UnderlinedStyle = false;
+            this.txtDiagnostico.BackColor = System.Drawing.SystemColors.Window;
+            this.txtDiagnostico.BorderColor = System.Drawing.Color.Black;
+            this.txtDiagnostico.BorderFocusColor = System.Drawing.Color.Black;
+            this.txtDiagnostico.BorderRadius = 8;
+            this.txtDiagnostico.BorderSize = 1;
+            this.txtDiagnostico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiagnostico.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtDiagnostico.Location = new System.Drawing.Point(501, 213);
+            this.txtDiagnostico.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDiagnostico.Multiline = true;
+            this.txtDiagnostico.Name = "txtDiagnostico";
+            this.txtDiagnostico.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtDiagnostico.PasswordChar = false;
+            this.txtDiagnostico.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtDiagnostico.PlaceholderText = "Ingrese el diagnostico:";
+            this.txtDiagnostico.Size = new System.Drawing.Size(250, 51);
+            this.txtDiagnostico.TabIndex = 16;
+            this.txtDiagnostico.Texts = "";
+            this.txtDiagnostico.UnderlinedStyle = false;
             // 
-            // rjTextBox4
+            // txtTratamiento
             // 
-            this.rjTextBox4.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox4.BorderColor = System.Drawing.Color.Black;
-            this.rjTextBox4.BorderFocusColor = System.Drawing.Color.Black;
-            this.rjTextBox4.BorderRadius = 8;
-            this.rjTextBox4.BorderSize = 1;
-            this.rjTextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox4.Location = new System.Drawing.Point(501, 308);
-            this.rjTextBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox4.Multiline = true;
-            this.rjTextBox4.Name = "rjTextBox4";
-            this.rjTextBox4.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox4.PasswordChar = false;
-            this.rjTextBox4.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox4.PlaceholderText = "Ingrese el tratamiento:";
-            this.rjTextBox4.Size = new System.Drawing.Size(250, 51);
-            this.rjTextBox4.TabIndex = 17;
-            this.rjTextBox4.Texts = "";
-            this.rjTextBox4.UnderlinedStyle = false;
+            this.txtTratamiento.BackColor = System.Drawing.SystemColors.Window;
+            this.txtTratamiento.BorderColor = System.Drawing.Color.Black;
+            this.txtTratamiento.BorderFocusColor = System.Drawing.Color.Black;
+            this.txtTratamiento.BorderRadius = 8;
+            this.txtTratamiento.BorderSize = 1;
+            this.txtTratamiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTratamiento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtTratamiento.Location = new System.Drawing.Point(501, 308);
+            this.txtTratamiento.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTratamiento.Multiline = true;
+            this.txtTratamiento.Name = "txtTratamiento";
+            this.txtTratamiento.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtTratamiento.PasswordChar = false;
+            this.txtTratamiento.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtTratamiento.PlaceholderText = "Ingrese el tratamiento:";
+            this.txtTratamiento.Size = new System.Drawing.Size(250, 51);
+            this.txtTratamiento.TabIndex = 17;
+            this.txtTratamiento.Texts = "";
+            this.txtTratamiento.UnderlinedStyle = false;
             // 
             // label9
             // 
@@ -232,27 +232,27 @@ namespace Proyecto_Taller_2
             this.label9.TabIndex = 18;
             this.label9.Text = "Proxima consulta:";
             // 
-            // rjTextBox5
+            // iblArchivoSeleccionado
             // 
-            this.rjTextBox5.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox5.BorderColor = System.Drawing.Color.Black;
-            this.rjTextBox5.BorderFocusColor = System.Drawing.Color.Black;
-            this.rjTextBox5.BorderRadius = 8;
-            this.rjTextBox5.BorderSize = 1;
-            this.rjTextBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox5.Location = new System.Drawing.Point(143, 472);
-            this.rjTextBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox5.Multiline = true;
-            this.rjTextBox5.Name = "rjTextBox5";
-            this.rjTextBox5.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox5.PasswordChar = false;
-            this.rjTextBox5.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox5.PlaceholderText = "Ingrese el historial clinico:";
-            this.rjTextBox5.Size = new System.Drawing.Size(250, 30);
-            this.rjTextBox5.TabIndex = 19;
-            this.rjTextBox5.Texts = "";
-            this.rjTextBox5.UnderlinedStyle = false;
+            this.iblArchivoSeleccionado.BackColor = System.Drawing.SystemColors.Window;
+            this.iblArchivoSeleccionado.BorderColor = System.Drawing.Color.Black;
+            this.iblArchivoSeleccionado.BorderFocusColor = System.Drawing.Color.Black;
+            this.iblArchivoSeleccionado.BorderRadius = 8;
+            this.iblArchivoSeleccionado.BorderSize = 1;
+            this.iblArchivoSeleccionado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iblArchivoSeleccionado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.iblArchivoSeleccionado.Location = new System.Drawing.Point(143, 472);
+            this.iblArchivoSeleccionado.Margin = new System.Windows.Forms.Padding(4);
+            this.iblArchivoSeleccionado.Multiline = true;
+            this.iblArchivoSeleccionado.Name = "iblArchivoSeleccionado";
+            this.iblArchivoSeleccionado.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.iblArchivoSeleccionado.PasswordChar = false;
+            this.iblArchivoSeleccionado.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.iblArchivoSeleccionado.PlaceholderText = "Ingrese el historial clinico:";
+            this.iblArchivoSeleccionado.Size = new System.Drawing.Size(250, 30);
+            this.iblArchivoSeleccionado.TabIndex = 19;
+            this.iblArchivoSeleccionado.Texts = "";
+            this.iblArchivoSeleccionado.UnderlinedStyle = false;
             // 
             // label10
             // 
@@ -263,27 +263,27 @@ namespace Proyecto_Taller_2
             this.label10.TabIndex = 20;
             this.label10.Text = "Historial clínico:";
             // 
-            // rjTextBox2
+            // txtSintomas
             // 
-            this.rjTextBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox2.BorderColor = System.Drawing.Color.Black;
-            this.rjTextBox2.BorderFocusColor = System.Drawing.Color.Black;
-            this.rjTextBox2.BorderRadius = 8;
-            this.rjTextBox2.BorderSize = 1;
-            this.rjTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox2.Location = new System.Drawing.Point(501, 120);
-            this.rjTextBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox2.Multiline = true;
-            this.rjTextBox2.Name = "rjTextBox2";
-            this.rjTextBox2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox2.PasswordChar = false;
-            this.rjTextBox2.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox2.PlaceholderText = "Ingrese los sintomas:";
-            this.rjTextBox2.Size = new System.Drawing.Size(250, 51);
-            this.rjTextBox2.TabIndex = 21;
-            this.rjTextBox2.Texts = "";
-            this.rjTextBox2.UnderlinedStyle = false;
+            this.txtSintomas.BackColor = System.Drawing.SystemColors.Window;
+            this.txtSintomas.BorderColor = System.Drawing.Color.Black;
+            this.txtSintomas.BorderFocusColor = System.Drawing.Color.Black;
+            this.txtSintomas.BorderRadius = 8;
+            this.txtSintomas.BorderSize = 1;
+            this.txtSintomas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSintomas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtSintomas.Location = new System.Drawing.Point(501, 120);
+            this.txtSintomas.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSintomas.Multiline = true;
+            this.txtSintomas.Name = "txtSintomas";
+            this.txtSintomas.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtSintomas.PasswordChar = false;
+            this.txtSintomas.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtSintomas.PlaceholderText = "Ingrese los sintomas:";
+            this.txtSintomas.Size = new System.Drawing.Size(250, 51);
+            this.txtSintomas.TabIndex = 21;
+            this.txtSintomas.Texts = "";
+            this.txtSintomas.UnderlinedStyle = false;
             // 
             // btnClose
             // 
@@ -329,17 +329,17 @@ namespace Proyecto_Taller_2
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.rjTextBox2);
+            this.Controls.Add(this.txtSintomas);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.rjTextBox5);
+            this.Controls.Add(this.iblArchivoSeleccionado);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.rjTextBox4);
-            this.Controls.Add(this.rjTextBox3);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.rjTextBox1);
+            this.Controls.Add(this.txtTratamiento);
+            this.Controls.Add(this.txtDiagnostico);
+            this.Controls.Add(this.dateTimePickerFecha);
+            this.Controls.Add(this.comboBoxVeterinario);
+            this.Controls.Add(this.comboBoxMascota);
+            this.Controls.Add(this.dateTimePickerProxControl);
+            this.Controls.Add(this.txtMotivo);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -368,17 +368,17 @@ namespace Proyecto_Taller_2
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private CustomControls.RJControls.RJTextBox rjTextBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private CustomControls.RJControls.RJTextBox rjTextBox3;
-        private CustomControls.RJControls.RJTextBox rjTextBox4;
+        private CustomControls.RJControls.RJTextBox txtMotivo;
+        private System.Windows.Forms.DateTimePicker dateTimePickerProxControl;
+        private System.Windows.Forms.ComboBox comboBoxMascota;
+        private System.Windows.Forms.ComboBox comboBoxVeterinario;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFecha;
+        private CustomControls.RJControls.RJTextBox txtDiagnostico;
+        private CustomControls.RJControls.RJTextBox txtTratamiento;
         private System.Windows.Forms.Label label9;
-        private CustomControls.RJControls.RJTextBox rjTextBox5;
+        private CustomControls.RJControls.RJTextBox iblArchivoSeleccionado;
         private System.Windows.Forms.Label label10;
-        private CustomControls.RJControls.RJTextBox rjTextBox2;
+        private CustomControls.RJControls.RJTextBox txtSintomas;
         private CustomButton btnClose;
         private CustomButton btnAdd;
     }

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Proyecto_Taller_2
 {
-    public partial class Turnos : UserControl
+    public partial class Turnos : BaseUserControl
     {
         public Turnos()
         {
@@ -32,9 +32,7 @@ namespace Proyecto_Taller_2
 
         private void btnAgregarTurno_Click(object sender, EventArgs e)
         {
-            Form2 formPrincipal = (Form2)this.ParentForm;
-
-            formPrincipal.CargarUserControl(new TurnosForm());
+            Navegar<TurnosForm>();
         }
 
         private void dataGridViewTurnos_CellContentClick(object sender, DataGridViewCellEventArgs e)

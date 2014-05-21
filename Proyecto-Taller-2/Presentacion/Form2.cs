@@ -76,9 +76,14 @@ namespace Proyecto_Taller_2
             panelContainer.Controls.Clear();
             control.Dock = DockStyle.Fill;
             panelContainer.Controls.Add(control);
+
+            if (control is BaseUserControl baseControl)
+            {
+                baseControl.SolicitarNavegacion += CargarUserControl;
+            }
         }
 
-      
+
         private void Form2_Load(object sender, EventArgs e)
         {
             CargarUserControl(new Dashboard());
@@ -100,20 +105,17 @@ namespace Proyecto_Taller_2
 
         private void iconButton10_Click(object sender, EventArgs e)
         {
-            var usuariosControl = new Usuarios();
-            CargarUserControl(usuariosControl);
-            usuariosControl.CargarNuevoUsuario += () => CargarUserControl(new UsuariosForm());
-            usuariosControl.EditarUsuario += (idUsuario) => CargarUserControl(new UsuariosForm(idUsuario));
+            CargarUserControl(new Usuarios());
             
         }
 
-        public void CargarUsuariosConEventos()
+        /*public void CargarUsuariosConEventos()
         {
             var usuariosControl = new Usuarios();
             CargarUserControl(usuariosControl);
             usuariosControl.CargarNuevoUsuario += () => CargarUserControl(new UsuariosForm());
             usuariosControl.EditarUsuario += (idUsuario) => CargarUserControl(new UsuariosForm(idUsuario));
-        }
+        }*/
 
         private void iconButton6_Click_1(object sender, EventArgs e)
         {

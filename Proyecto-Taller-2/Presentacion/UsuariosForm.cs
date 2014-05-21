@@ -11,7 +11,7 @@ using Proyecto_Taller_2.Models;
 
 namespace Proyecto_Taller_2.Presentacion
 {
-    public partial class UsuariosForm : UserControl
+    public partial class UsuariosForm : BaseUserControl
     {
         private MiDbContext _context;
         private int _idUsuario;
@@ -66,7 +66,7 @@ namespace Proyecto_Taller_2.Presentacion
 
                 MessageBox.Show("Usuario creado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                VolverAListaUsuarios();
+                Navegar<Usuarios>();
             }
             catch (Exception ex)
             {
@@ -133,7 +133,7 @@ namespace Proyecto_Taller_2.Presentacion
                     _context.SaveChanges();
                     MessageBox.Show("Usuario actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    VolverAListaUsuarios();
+                    Navegar<Usuarios>();
                 }
                 else
                 {
@@ -213,11 +213,7 @@ namespace Proyecto_Taller_2.Presentacion
             }
         }
 
-        private void VolverAListaUsuarios()
-        {
-            Form2 formPrincipal = (Form2)this.ParentForm;
-            formPrincipal.CargarUsuariosConEventos();
-        }
+       
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -274,7 +270,7 @@ namespace Proyecto_Taller_2.Presentacion
 
             if (result == DialogResult.Yes)
             {
-                VolverAListaUsuarios();
+                Navegar<Usuarios>();
             }
         }
     }

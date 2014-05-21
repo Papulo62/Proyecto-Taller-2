@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Proyecto_Taller_2
 {
-    public partial class TurnosForm : UserControl
+    public partial class TurnosForm : BaseUserControl
     {
         public TurnosForm()
         {
@@ -80,9 +80,7 @@ namespace Proyecto_Taller_2
 
             if (result == DialogResult.Yes)
             {
-                Form2 formPrincipal = (Form2)this.ParentForm;
-
-                formPrincipal.CargarUserControl(new TurnosForm());
+                Navegar<TurnosForm>();
             }
         }
     }

@@ -12,12 +12,11 @@ using Proyecto_Taller_2.Presentacion;
 
 namespace Proyecto_Taller_2
 {
-    public partial class Usuarios : UserControl
+    public partial class Usuarios : BaseUserControl
     {
         private MiDbContext _context;
         private int _idUsuario;
-        public event Action CargarNuevoUsuario;
-        public event Action<int> EditarUsuario;
+     
 
         public Usuarios()
         {
@@ -43,8 +42,11 @@ namespace Proyecto_Taller_2
             try
             {
                 var usuarios = _context.Usuario.Where(u => u.activo == true).ToList();
+
+               
                 customDataGridView1.DataSource = usuarios;
 
+                customDataGridView1.Columns["Id"].Visible = false;
                 if (customDataGridView1.Columns["imagen_perfil"] != null)
                     customDataGridView1.Columns["imagen_perfil"].Visible = false;
 
@@ -82,7 +84,7 @@ namespace Proyecto_Taller_2
 
         private void btnUserAdd_Click(object sender, EventArgs e)
         {
-            CargarNuevoUsuario?.Invoke();
+            Navegar<UsuariosForm>();
         }
 
         private void customDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -95,7 +97,7 @@ namespace Proyecto_Taller_2
 
                 if (e.ColumnIndex == 0)
                 {
-                    EditarUsuario?.Invoke(idUsuario);
+                    Navegar(new UsuariosForm(idUsuario));
                 }
                 else if (e.ColumnIndex == 1)
                 {

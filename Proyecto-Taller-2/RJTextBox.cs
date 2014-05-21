@@ -154,8 +154,10 @@ namespace CustomControls.RJControls
             }
             set
             {
-                textBox1.Text = value;
-                SetPlaceholder();
+                isPlaceholder = false;  
+                textBox1.ForeColor = this.ForeColor; 
+                textBox1.UseSystemPasswordChar = isPasswordChar;
+                textBox1.Text = value;  
             }
         }
 

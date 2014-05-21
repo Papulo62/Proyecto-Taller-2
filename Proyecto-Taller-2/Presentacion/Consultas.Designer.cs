@@ -1,4 +1,4 @@
-﻿namespace Proyecto_Taller_2
+﻿namespace Proyecto_Taller_2.Presentacion
 {
     partial class Consultas
     {
@@ -33,7 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
-            this.customDataGridView1 = new Proyecto_Taller_2.CustomDataGridView();
+            this.dataGridViewConsultas = new Proyecto_Taller_2.CustomDataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,13 +42,13 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customButton1 = new Proyecto_Taller_2.CustomButton();
+            this.btnConsultasAdd = new Proyecto_Taller_2.CustomButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.rjTextBox1 = new CustomControls.RJControls.RJTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.customDataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsultas)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -62,18 +62,18 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Consultas";
             // 
-            // customDataGridView1
+            // dataGridViewConsultas
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Inter", 10F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightGray;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.customDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.customDataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.customDataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.customDataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.customDataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewConsultas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewConsultas.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewConsultas.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewConsultas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataGridViewConsultas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Inter", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -81,9 +81,9 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.customDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.customDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.customDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewConsultas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewConsultas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewConsultas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
@@ -99,11 +99,11 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightGray;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.customDataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.customDataGridView1.EnableHeadersVisualStyles = false;
-            this.customDataGridView1.Location = new System.Drawing.Point(31, 241);
-            this.customDataGridView1.Name = "customDataGridView1";
-            this.customDataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewConsultas.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewConsultas.EnableHeadersVisualStyles = false;
+            this.dataGridViewConsultas.Location = new System.Drawing.Point(31, 241);
+            this.dataGridViewConsultas.Name = "dataGridViewConsultas";
+            this.dataGridViewConsultas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightGray;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Inter", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -111,10 +111,10 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LightGray;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.customDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.customDataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.customDataGridView1.Size = new System.Drawing.Size(844, 150);
-            this.customDataGridView1.TabIndex = 1;
+            this.dataGridViewConsultas.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewConsultas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridViewConsultas.Size = new System.Drawing.Size(844, 150);
+            this.dataGridViewConsultas.TabIndex = 1;
             // 
             // Column1
             // 
@@ -156,25 +156,25 @@
             this.Column8.HeaderText = "Proximo control";
             this.Column8.Name = "Column8";
             // 
-            // customButton1
+            // btnConsultasAdd
             // 
-            this.customButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.customButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.customButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.customButton1.BorderRadius = 8;
-            this.customButton1.BorderSize = 0;
-            this.customButton1.FlatAppearance.BorderSize = 0;
-            this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.customButton1.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customButton1.ForeColor = System.Drawing.Color.White;
-            this.customButton1.Location = new System.Drawing.Point(650, 172);
-            this.customButton1.Name = "customButton1";
-            this.customButton1.Size = new System.Drawing.Size(150, 40);
-            this.customButton1.TabIndex = 2;
-            this.customButton1.Text = "nueva consulta";
-            this.customButton1.TextColor = System.Drawing.Color.White;
-            this.customButton1.UseVisualStyleBackColor = false;
-            this.customButton1.Click += new System.EventHandler(this.customButton1_Click);
+            this.btnConsultasAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnConsultasAdd.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnConsultasAdd.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnConsultasAdd.BorderRadius = 8;
+            this.btnConsultasAdd.BorderSize = 0;
+            this.btnConsultasAdd.FlatAppearance.BorderSize = 0;
+            this.btnConsultasAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultasAdd.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultasAdd.ForeColor = System.Drawing.Color.White;
+            this.btnConsultasAdd.Location = new System.Drawing.Point(650, 172);
+            this.btnConsultasAdd.Name = "btnConsultasAdd";
+            this.btnConsultasAdd.Size = new System.Drawing.Size(150, 40);
+            this.btnConsultasAdd.TabIndex = 2;
+            this.btnConsultasAdd.Text = "nueva consulta";
+            this.btnConsultasAdd.TextColor = System.Drawing.Color.White;
+            this.btnConsultasAdd.UseVisualStyleBackColor = false;
+            this.btnConsultasAdd.Click += new System.EventHandler(this.btnConsultasAdd_Click);
             // 
             // iconButton1
             // 
@@ -256,14 +256,14 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.rjTextBox1);
-            this.Controls.Add(this.customButton1);
-            this.Controls.Add(this.customDataGridView1);
+            this.Controls.Add(this.btnConsultasAdd);
+            this.Controls.Add(this.dataGridViewConsultas);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Inter", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Consultas";
             this.Size = new System.Drawing.Size(896, 599);
-            ((System.ComponentModel.ISupportInitialize)(this.customDataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsultas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,7 +272,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private CustomDataGridView customDataGridView1;
+        private CustomDataGridView dataGridViewConsultas;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -281,7 +281,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private CustomButton customButton1;
+        private CustomButton btnConsultasAdd;
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
