@@ -22,6 +22,18 @@ namespace Proyecto_Taller_2
         {
             InitializeComponent();
             _context = new MiDbContext();
+
+            // Eventos
+            txtBuscar.Controls[0].KeyDown += txtBuscar_KeyDown;
+            btnBuscar.Click += btnBuscar_Click;
+            cmbRol.SelectedIndexChanged += Filtro_SelectedIndexChanged;
+            cmbCreación.SelectedIndexChanged += Filtro_SelectedIndexChanged;
+        }
+
+        private void Filtro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Este método se llama cuando el Rol o el Orden de Fecha cambian.
+            AplicarFiltros();
         }
 
         public Usuarios(int idUsuario)
@@ -85,6 +97,101 @@ namespace Proyecto_Taller_2
         private void btnUserAdd_Click(object sender, EventArgs e)
         {
             Navegar<UsuariosForm>();
+        }
+
+        // ===========================================
+        // APLICAR FILTROS COMBINADOS (NOMBRE, ROL, Creación)
+        // ===========================================
+        private void AplicarFiltros()
+        {
+            string textoBusqueda = txtBuscar.Texts.Trim();
+
+            // 1. OBTENER VALORES LIMPIOS Y ESTANDARIZADOS
+            // Asumo que cmbRol y cmbOrdenFecha existen en el diseñador
+            string rolSeleccionadoLimpio = cmbRol.SelectedItem?.ToString().Trim().ToUpper();
+            string ordenFecha = cmbCreación.SelectedItem?.ToString();
+
+            try
+            {
+                IQueryable<Usuario> query = _context.Usuario.Where(u => u.activo == true);
+
+                // A. APLICAR FILTRO DE ROL
+                if (rolSeleccionadoLimpio != "VER TODO")
+                {
+                    // Asumo que puedes filtrar por el nombre del rol (RolName) si tienes la navegación.
+                    // Si solo tienes el ID del rol (rolId), esto es un ejemplo que DEBE SER AJUSTADO
+                    // para acceder al nombre del rol a través de la relación de navegación.
+                    query = query.Where(u => u.Rol.nombre.ToUpper() == rolSeleccionadoLimpio); // 👈 AJUSTE DE RELACIÓN
+                }
+
+                // B. APLICAR BÚSQUEDA DE TEXTO (Nombre, Apellido, Correo)
+                if (!string.IsNullOrEmpty(textoBusqueda))
+                {
+                    string busquedaUpper = textoBusqueda.ToUpper();
+
+                    // 🟢 CORRECCIÓN: Usar nombres exactos del modelo (nombre, apellido, correo)
+                    query = query.Where(u => u.nombre.ToUpper().Contains(busquedaUpper) ||
+                                             u.apellido.ToUpper().Contains(busquedaUpper) ||
+                                             u.correo.ToUpper().Contains(busquedaUpper));
+                }
+
+                // C. APLICAR ORDENACIÓN POR FECHA DE CREACIÓN
+                // 🟢 CORRECCIÓN: Usar el nombre exacto del modelo (fecha_creacion)
+                if (ordenFecha == "Más Nuevo")
+                {
+                    query = query.OrderByDescending(u => u.fecha_creacion);
+                }
+                else if (ordenFecha == "Más Antiguo")
+                {
+                    query = query.OrderBy(u => u.fecha_creacion);
+                }
+
+                // 3. Asignar resultados al DataGridView (Proyectar solo lo necesario)
+                var listaUsuarios = query.Select(u => new
+                {
+                    u.Id,
+                    NombreCompleto = u.nombre + " " + u.apellido, // Combinamos Nombre y Apellido
+                    u.correo,
+                    // 🚨 Requerirá la relación de navegación: RolName = u.Rol.Nombre,
+                    u.fecha_creacion,
+                    u.activo,
+                    u.contraseña // Dejamos la contraseña para ocultarla después
+                }).ToList();
+
+                customDataGridView1.DataSource = listaUsuarios;
+
+                // 4. Ocultar columnas de seguridad
+                if (customDataGridView1.Columns["contraseña"] != null)
+                    customDataGridView1.Columns["contraseña"].Visible = false;
+
+                // Asumo que ya ocultaste 'imagen_perfil' en CargarUsuarios o en otro lugar
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al aplicar filtros: " + ex.Message);
+            }
+        }
+
+        // ===============================
+        //  BOTÓN BUSCAR
+        // ===============================
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            // Llama al método de filtrado combinado
+            AplicarFiltros();
+        }
+
+        // ===============================
+        //  BUSCAR CON ENTER
+        // ===============================
+        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                // Llama al método de filtrado combinado
+                AplicarFiltros();
+            }
         }
 
         private void customDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
