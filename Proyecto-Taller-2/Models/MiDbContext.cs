@@ -16,18 +16,6 @@ namespace Proyecto_Taller_2.Models
 
         public DbSet<Rol> Rol { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
-
-        public DbSet<Consulta> Consulta{ get; set; }
-        public DbSet<Mascota> Mascota { get; set; }
-        public DbSet<Propietario> Propietario { get; set; }
-       public DbSet<Raza> Raza { get; set; }
-        /*
-        public DbSet<Turno> Turno { get; set; }
-        public DbSet<Estado> Estado { get; set; }
-        public DbSet<Especie> Especie { get; set; }*/
-        //public DbSet<Veterinario> Veterinario { get; set; }
-        //public DbSet<Especialidad> Especialidad { get; set; }
-
     }
 
     public sealed class Configuration : System.Data.Entity.Migrations.DbMigrationsConfiguration<MiDbContext>
