@@ -14,6 +14,8 @@ namespace Proyecto_Taller_2
 {
     public partial class MascotasForm : UserControl
     {
+
+        private MiDbContext _context;
         public MascotasForm()
         {
             InitializeComponent();
@@ -21,13 +23,23 @@ namespace Proyecto_Taller_2
             txtPeso.KeyPress += txtPeso_KeyPress;
             this.btnAgregarFoto.Click += new System.EventHandler(this.btnAgregarFoto_Click);
             cmbVivo.SelectedIndex = 0;
+            _context = new MiDbContext();
+            mostrarCombobox();
         }
 
-        private MiDbContext _context;
         private int _idMascota;
         private bool _esEdicion = false;
         private string rutaImagenSeleccionada = "";
 
+        private void mostrarCombobox()
+        {
+            var razas = _context.Raza.ToList();
+            MessageBox.Show($"Se encontraron {razas.Count} razas");
+            cmbRaza.DataSource = razas;
+            cmbRaza.DisplayMember = "nombre_raza"; 
+            cmbRaza.ValueMember = "id_raza";
+            cmbRaza.SelectedIndex = -1;
+        }
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
@@ -66,13 +78,6 @@ namespace Proyecto_Taller_2
             {
                 MessageBox.Show("El nombre solo puede contener letras.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtNombre.Focus();
-                return;
-            }
-
-            if (cmbEspecie.SelectedIndex == -1)
-            {
-                MessageBox.Show("Debe seleccionar una especie.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                cmbEspecie.Focus();
                 return;
             }
 
@@ -131,17 +136,15 @@ namespace Proyecto_Taller_2
                     Mascota nuevaMascota = new Mascota
                     {
                         Nombre = txtNombre.Texts.Trim(),
-                        Especie = cmbEspecie.SelectedItem.ToString(),
-                        Raza = cmbRaza.Text.Trim(),
+                        id_raza = int.Parse(cmbRaza.Text.Trim()),
                         Sexo = cmbSexo.SelectedItem.ToString(),
                         EstadoReproductivo = cmbEstadoReproductivo.SelectedItem.ToString(),
-                        Peso = decimal.Parse(txtPeso.Texts),
+                        Peso = float.Parse(txtPeso.Texts),
                         FechaNacimiento = dptNacimiento.Value.Date,
-                        EstaVivo = (cmbVivo.SelectedItem.ToString() == "Sí" || cmbVivo.SelectedItem.ToString() == "Vivo"),
                         Activo = true
                     };
 
-                    context.Set<Mascota>().Add(nuevaMascota);
+                    _context.Mascota.Add(nuevaMascota);
                     context.SaveChanges();
                 }
 

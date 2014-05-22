@@ -204,6 +204,9 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Consulta.cs" />
+    <Compile Include="Models\Especie.cs" />
+    <Compile Include="Models\Mascota.cs" />
     <Compile Include="Models\MiDbContext.cs" />
     <Compile Include="Models\Propietario.cs" />
     <Compile Include="Models\Raza.cs" />

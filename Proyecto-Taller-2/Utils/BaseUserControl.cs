@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Proyecto_Taller_2
+{
+    public partial  class BaseUserControl : UserControl
+    {
+        public event Action<UserControl> SolicitarNavegacion;
+
+        protected void Navegar<T>() where T : UserControl, new()
+        {
+            SolicitarNavegacion?.Invoke(new T());
+        }
+
+        protected void Navegar(UserControl vista)
+        {
+            SolicitarNavegacion?.Invoke(vista);
+        }
+    }
+}

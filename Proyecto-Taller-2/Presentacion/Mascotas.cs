@@ -100,41 +100,50 @@ namespace Proyecto_Taller_2
         private void AplicarFiltros()
         {
             string textoBusqueda = txtBuscar.Texts.Trim();
-
-            // OBTENEMOS LOS VALORES LIMPIOS Y ESTANDARIZADOS UNA SOLA VEZ
             string sexoSeleccionadoLimpio = cmbFiltroSexo.SelectedItem?.ToString().Trim().ToUpper();
             string especieSeleccionadaLimpio = cmbFiltroEspecie.SelectedItem?.ToString().Trim().ToUpper();
 
             try
             {
-                IQueryable<Mascota> query = _context.Mascota.Where(m => m.Activo);
+                // 🔹 Unimos Mascota → Raza → Especie en una sola consulta
+                var consulta =
+                    from m in _context.Mascota
+                    join r in _context.Raza on m.id_raza equals r.id_raza
+                    join e in _context.Especie on r.id_especie equals e.id_especie
+                    where m.Activo
+                    select new
+                    {
+                        IdMascota = m.IdMascota,
+                        Nombre = m.Nombre,
+                        Sexo = m.Sexo,
+                        Raza = r.nombre_raza,
+                        Especie = e.nombre_especie
+                    };
 
-                // A. APLICAR FILTRO DE SEXO
-                // Usamos la variable ya limpia (sexoSeleccionadoLimpio)
+                // 🔹 A. Filtrar por sexo
                 if (sexoSeleccionadoLimpio != "VER TODO")
                 {
-                    // ⬇️ USAR VALOR LIMPIO DIRECTAMENTE EN LA COMPARACIÓN ⬇️
-                    query = query.Where(m => m.Sexo.Trim().ToUpper() == sexoSeleccionadoLimpio);
+                    consulta = consulta.Where(m => m.Sexo.ToUpper() == sexoSeleccionadoLimpio);
                 }
 
-                // B. APLICAR FILTRO DE ESPECIE
-                // Usamos la variable ya limpia (especieSeleccionadaLimpio)
+                // 🔹 B. Filtrar por especie
                 if (especieSeleccionadaLimpio != "VER TODO")
                 {
-                    // Si la base de datos es sensible a mayúsculas, la comparamos con UPPER
-                    query = query.Where(m => m.Especie.ToUpper() == especieSeleccionadaLimpio);
+                    consulta = consulta.Where(m => m.Especie.ToUpper() == especieSeleccionadaLimpio);
                 }
 
-                // C. APLICAR BÚSQUEDA DE TEXTO
+                // 🔹 C. Filtro de texto
                 if (!string.IsNullOrEmpty(textoBusqueda))
                 {
                     string busquedaUpper = textoBusqueda.ToUpper();
-                    query = query.Where(m => m.Nombre.ToUpper().Contains(busquedaUpper) ||
-                                             m.Raza.ToUpper().Contains(busquedaUpper));
+                    consulta = consulta.Where(m =>
+                        m.Nombre.ToUpper().Contains(busquedaUpper) ||
+                        m.Raza.ToUpper().Contains(busquedaUpper) ||
+                        m.Especie.ToUpper().Contains(busquedaUpper));
                 }
 
-                // Asignar resultados al DataGridView
-                customDataGridView1.DataSource = query.ToList();
+                // 🔹 Mostrar resultados
+                customDataGridView1.DataSource = consulta.ToList();
 
                 if (customDataGridView1.Columns["IdMascota"] != null)
                     customDataGridView1.Columns["IdMascota"].Visible = false;
@@ -144,6 +153,7 @@ namespace Proyecto_Taller_2
                 MessageBox.Show("Error al aplicar filtros: " + ex.Message);
             }
         }
+
 
         // ===============================
         //  ELIMINAR (LÓGICO)

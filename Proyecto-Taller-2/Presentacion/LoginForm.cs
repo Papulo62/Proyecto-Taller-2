@@ -54,8 +54,12 @@ namespace Proyecto_Taller_2
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al iniciar sesión: {ex.Message}", "Error del sistema",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+       (ex.InnerException != null ? ex.InnerException.Message : ex.Message),
+       "Error al abrir la conexión",
+       MessageBoxButtons.OK,
+       MessageBoxIcon.Error
+   );
             }
         }
 

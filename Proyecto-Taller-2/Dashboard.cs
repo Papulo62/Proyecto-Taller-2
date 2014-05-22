@@ -208,8 +208,8 @@ namespace Proyecto_Taller_2
 
                 foreach (var cita in citas)
                 {
-                    var mascota = _context.Mascota.FirstOrDefault(m => m.Id == cita.IdMascota);
-                    string nombreMascota = mascota?.nombre ?? "Desconocida";
+                    var mascota = _context.Mascota.FirstOrDefault(m => m.IdMascota == cita.IdMascota);
+                    string nombreMascota = mascota?.Nombre ?? "Desconocida";
 
                     string propietario = "N/D";
                     if (mascota != null && int.TryParse(mascota.id_propietario, out int idProp))
