@@ -212,8 +212,9 @@ namespace Proyecto_Taller_2
                     string nombreMascota = mascota?.Nombre ?? "Desconocida";
 
                     string propietario = "N/D";
-                    if (mascota != null && int.TryParse(mascota.id_propietario, out int idProp))
+                    if (mascota != null)
                     {
+                        int idProp = mascota.id_propietario;
                         var prop = _context.Propietario.FirstOrDefault(p => p.Id == idProp);
                         if (prop != null)
                             propietario = $"{prop.nombre} {prop.apellido}";

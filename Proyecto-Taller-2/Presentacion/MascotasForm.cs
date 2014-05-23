@@ -34,11 +34,23 @@ namespace Proyecto_Taller_2
         private void mostrarCombobox()
         {
             var razas = _context.Raza.ToList();
-            MessageBox.Show($"Se encontraron {razas.Count} razas");
             cmbRaza.DataSource = razas;
             cmbRaza.DisplayMember = "nombre_raza"; 
             cmbRaza.ValueMember = "id_raza";
             cmbRaza.SelectedIndex = -1;
+
+            var propietarios = _context.Propietario
+        .Select(p => new
+        {
+            p.Id,
+            NombreCompleto = p.nombre + " " + p.apellido
+        })
+        .ToList();
+
+            cmbPropietario.DataSource = propietarios;
+            cmbPropietario.DisplayMember = "NombreCompleto";
+            cmbPropietario.ValueMember = "Id";  
+            cmbPropietario.SelectedIndex = -1;
         }
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -136,16 +148,17 @@ namespace Proyecto_Taller_2
                     Mascota nuevaMascota = new Mascota
                     {
                         Nombre = txtNombre.Texts.Trim(),
-                        id_raza = int.Parse(cmbRaza.Text.Trim()),
+                        id_raza = (int)cmbRaza.SelectedValue,
                         Sexo = cmbSexo.SelectedItem.ToString(),
                         EstadoReproductivo = cmbEstadoReproductivo.SelectedItem.ToString(),
                         Peso = float.Parse(txtPeso.Texts),
                         FechaNacimiento = dptNacimiento.Value.Date,
+                        id_propietario = (int)cmbPropietario.SelectedValue,
                         Activo = true
                     };
 
                     _context.Mascota.Add(nuevaMascota);
-                    context.SaveChanges();
+                    _context.SaveChanges();
                 }
 
                 MessageBox.Show("Mascota registrada correctamente ✅", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -163,8 +176,9 @@ namespace Proyecto_Taller_2
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al guardar la mascota: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al guardar la mascota: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
 
         }
 

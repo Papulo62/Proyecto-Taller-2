@@ -17,7 +17,7 @@ namespace Proyecto_Taller_2.Models
         public int IdMascota { get; set; }
 
         [Column("id_propietario")]
-        public string id_propietario { get; set; }
+        public int id_propietario { get; set; }
 
 
         [Column("id_raza")]

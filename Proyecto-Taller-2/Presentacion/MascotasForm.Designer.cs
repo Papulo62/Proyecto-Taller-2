@@ -48,6 +48,8 @@ namespace Proyecto_Taller_2
             this.btnGuardar = new Proyecto_Taller_2.CustomButton();
             this.btnAgregarFoto = new Proyecto_Taller_2.CustomButton();
             this.txtNombre = new CustomControls.RJControls.RJTextBox();
+            this.cmbPropietario = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -306,12 +308,34 @@ namespace Proyecto_Taller_2
             this.txtNombre.Texts = "";
             this.txtNombre.UnderlinedStyle = false;
             // 
+            // cmbPropietario
+            // 
+            this.cmbPropietario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPropietario.FormattingEnabled = true;
+            this.cmbPropietario.Location = new System.Drawing.Point(134, 493);
+            this.cmbPropietario.Name = "cmbPropietario";
+            this.cmbPropietario.Size = new System.Drawing.Size(250, 24);
+            this.cmbPropietario.TabIndex = 36;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(131, 461);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(89, 16);
+            this.label2.TabIndex = 37;
+            this.label2.Text = "Propietario:";
+            // 
             // MascotasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cmbPropietario);
             this.Controls.Add(this.cmbVivo);
             this.Controls.Add(this.txtPeso);
             this.Controls.Add(this.label9);
@@ -360,5 +384,7 @@ namespace Proyecto_Taller_2
         private System.Windows.Forms.Label label9;
         private CustomControls.RJControls.RJTextBox txtPeso;
         private System.Windows.Forms.ComboBox cmbVivo;
+        private System.Windows.Forms.ComboBox cmbPropietario;
+        private System.Windows.Forms.Label label2;
     }
 }
