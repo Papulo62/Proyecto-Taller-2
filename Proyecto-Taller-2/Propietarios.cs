@@ -47,7 +47,7 @@ namespace Proyecto_Taller_2
 
         private void customButton1_Click(object sender, EventArgs e)
         {
-            Propietarios nuevoPro = new Form3();
+            PropietariosForm nuevoPro = new Form3();
 
             nuevoPro.Show();
         }
