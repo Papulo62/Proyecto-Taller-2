@@ -17,7 +17,7 @@ namespace Proyecto_Taller_2
             InitializeComponent();
         }
 
-        private void CargarUserControl(UserControl control)
+        public void CargarUserControl(UserControl control)
         {
             panelContainer.Controls.Clear();
             control.Dock = DockStyle.Fill;
@@ -50,6 +50,11 @@ namespace Proyecto_Taller_2
         private void iconButton12_Click(object sender, EventArgs e)
         {
             CargarUserControl(new Propietarios());
+        }
+
+        private void iconButton10_Click(object sender, EventArgs e)
+        {
+            CargarUserControl(new Usuarios());
         }
     }
 }

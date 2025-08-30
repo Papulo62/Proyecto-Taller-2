@@ -71,11 +71,23 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mascotas.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Mascotas.Designer.cs">
       <DependentUpon>Mascotas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MascotasForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MascotasForm.Designer.cs">
+      <DependentUpon>MascotasForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,14 +101,31 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="RJTextBox.Designer.cs" />
+    <Compile Include="RJTextBox1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RJTextBox.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Usuarios.Designer.cs">
+      <DependentUpon>Usuarios.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mascotas.resx">
       <DependentUpon>Mascotas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MascotasForm.resx">
+      <DependentUpon>MascotasForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -111,7 +140,13 @@
     <EmbeddedResource Include="Propietarios.resx">
       <DependentUpon>Propietarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RJTextBox.resx" />
+    <EmbeddedResource Include="RJTextBox.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RJTextBox1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios.resx">
+      <DependentUpon>Usuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

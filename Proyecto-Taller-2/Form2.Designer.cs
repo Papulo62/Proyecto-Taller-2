@@ -30,10 +30,11 @@ namespace Proyecto_Taller_2
         private void InitializeComponent()
         {
             this.navbar = new System.Windows.Forms.Panel();
+            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panelContainer = new System.Windows.Forms.Panel();
             this.iconButton12 = new FontAwesome.Sharp.IconButton();
             this.btnMascotas = new FontAwesome.Sharp.IconButton();
             this.iconButton10 = new FontAwesome.Sharp.IconButton();
@@ -44,13 +45,10 @@ namespace Proyecto_Taller_2
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.customDataGrid1 = new Proyecto_Taller_2.CustomDataGridView();
+            this.panelContainer = new System.Windows.Forms.Panel();
             this.navbar.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // navbar
@@ -63,8 +61,21 @@ namespace Proyecto_Taller_2
             this.navbar.Dock = System.Windows.Forms.DockStyle.Top;
             this.navbar.Location = new System.Drawing.Point(0, 0);
             this.navbar.Name = "navbar";
-            this.navbar.Size = new System.Drawing.Size(1184, 62);
+            this.navbar.Size = new System.Drawing.Size(1167, 62);
             this.navbar.TabIndex = 0;
+            // 
+            // iconPictureBox1
+            // 
+            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.NotesMedical;
+            this.iconPictureBox1.IconColor = System.Drawing.Color.White;
+            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox1.IconSize = 50;
+            this.iconPictureBox1.Location = new System.Drawing.Point(17, 12);
+            this.iconPictureBox1.Name = "iconPictureBox1";
+            this.iconPictureBox1.Size = new System.Drawing.Size(57, 50);
+            this.iconPictureBox1.TabIndex = 4;
+            this.iconPictureBox1.TabStop = false;
             // 
             // label2
             // 
@@ -88,6 +99,21 @@ namespace Proyecto_Taller_2
             this.label1.TabIndex = 2;
             this.label1.Text = "Veterinary Software";
             // 
+            // iconButton2
+            // 
+            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
+            this.iconButton2.IconColor = System.Drawing.Color.White;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 30;
+            this.iconButton2.Location = new System.Drawing.Point(1103, 12);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(58, 44);
+            this.iconButton2.TabIndex = 1;
+            this.iconButton2.UseVisualStyleBackColor = false;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
@@ -104,18 +130,9 @@ namespace Proyecto_Taller_2
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 62);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(288, 599);
+            this.panel1.Size = new System.Drawing.Size(288, 540);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // panelContainer
-            // 
-            this.panelContainer.Controls.Add(this.customDataGrid1);
-            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelContainer.Location = new System.Drawing.Point(288, 62);
-            this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(896, 599);
-            this.panelContainer.TabIndex = 2;
             // 
             // iconButton12
             // 
@@ -127,7 +144,7 @@ namespace Proyecto_Taller_2
             this.iconButton12.IconColor = System.Drawing.Color.White;
             this.iconButton12.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton12.IconSize = 30;
-            this.iconButton12.Location = new System.Drawing.Point(17, 127);
+            this.iconButton12.Location = new System.Drawing.Point(17, 125);
             this.iconButton12.Name = "iconButton12";
             this.iconButton12.Size = new System.Drawing.Size(171, 36);
             this.iconButton12.TabIndex = 12;
@@ -172,6 +189,7 @@ namespace Proyecto_Taller_2
             this.iconButton10.Text = "Usuarios";
             this.iconButton10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton10.UseVisualStyleBackColor = true;
+            this.iconButton10.Click += new System.EventHandler(this.iconButton10_Click);
             // 
             // iconButton9
             // 
@@ -183,7 +201,7 @@ namespace Proyecto_Taller_2
             this.iconButton9.IconColor = System.Drawing.Color.White;
             this.iconButton9.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton9.IconSize = 30;
-            this.iconButton9.Location = new System.Drawing.Point(17, 180);
+            this.iconButton9.Location = new System.Drawing.Point(12, 180);
             this.iconButton9.Name = "iconButton9";
             this.iconButton9.Size = new System.Drawing.Size(138, 36);
             this.iconButton9.TabIndex = 9;
@@ -201,7 +219,7 @@ namespace Proyecto_Taller_2
             this.iconButton8.IconColor = System.Drawing.Color.White;
             this.iconButton8.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton8.IconSize = 30;
-            this.iconButton8.Location = new System.Drawing.Point(17, 242);
+            this.iconButton8.Location = new System.Drawing.Point(17, 240);
             this.iconButton8.Name = "iconButton8";
             this.iconButton8.Size = new System.Drawing.Size(138, 36);
             this.iconButton8.TabIndex = 8;
@@ -299,58 +317,32 @@ namespace Proyecto_Taller_2
             this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton3.UseVisualStyleBackColor = true;
             // 
-            // iconPictureBox1
+            // panelContainer
             // 
-            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.NotesMedical;
-            this.iconPictureBox1.IconColor = System.Drawing.Color.White;
-            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.IconSize = 50;
-            this.iconPictureBox1.Location = new System.Drawing.Point(17, 12);
-            this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(57, 50);
-            this.iconPictureBox1.TabIndex = 4;
-            this.iconPictureBox1.TabStop = false;
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
-            this.iconButton2.IconColor = System.Drawing.Color.White;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 30;
-            this.iconButton2.Location = new System.Drawing.Point(1103, 12);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(58, 44);
-            this.iconButton2.TabIndex = 1;
-            this.iconButton2.UseVisualStyleBackColor = false;
-            // 
-            // customDataGrid1
-            // 
-            this.customDataGrid1.Location = new System.Drawing.Point(0, 0);
-            this.customDataGrid1.Name = "customDataGrid1";
-            this.customDataGrid1.Size = new System.Drawing.Size(620, 362);
-            this.customDataGrid1.TabIndex = 0;
+            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelContainer.Location = new System.Drawing.Point(288, 62);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Size = new System.Drawing.Size(879, 599);
+            this.panelContainer.TabIndex = 2;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1184, 661);
+            this.ClientSize = new System.Drawing.Size(1167, 602);
             this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.navbar);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaximizeBox = false;
             this.Name = "Form2";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.navbar.ResumeLayout(false);
             this.navbar.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -374,6 +366,5 @@ namespace Proyecto_Taller_2
         private FontAwesome.Sharp.IconButton iconButton8;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private System.Windows.Forms.Panel panelContainer;
-        private CustomDataGridView customDataGrid1;
     }
 }

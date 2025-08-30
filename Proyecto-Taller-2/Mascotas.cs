@@ -35,5 +35,13 @@ namespace Proyecto_Taller_2
         {
 
         }
+
+       
+
+        private void customButton1_Click(object sender, EventArgs e)
+        {
+            Form2 formPrincipal = (Form2)this.ParentForm;
+            formPrincipal.CargarUserControl(new MascotasForm());
+        }
     }
 }

@@ -14,9 +14,17 @@ namespace Proyecto_Taller_2
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form2());
-        }
+          
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+
+                LoginForm loginForm = new LoginForm();
+                DialogResult result = loginForm.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    Application.Run(new Form2());
+                }
+         }
     }
 }
