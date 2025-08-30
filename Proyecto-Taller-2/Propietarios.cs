@@ -47,9 +47,9 @@ namespace Proyecto_Taller_2
 
         private void customButton1_Click(object sender, EventArgs e)
         {
-            PropietariosForm nuevoPro = new PropietariosForm();
+            Form2 formPrincipal = (Form2)this.ParentForm;
 
-            nuevoPro.Show();
+            formPrincipal.CargarUserControl(new PropietariosForm());
         }
     }
 }

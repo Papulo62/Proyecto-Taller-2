@@ -71,11 +71,29 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MascotasForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MascotasForm.Designer.cs">
+      <DependentUpon>MascotasForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PropietariosForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="PropietariosForm.Designer.cs">
       <DependentUpon>PropietariosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Usuarios.Designer.cs">
+      <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="VeterinariosForm.cs">
       <SubType>UserControl</SubType>
@@ -118,8 +136,17 @@
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MascotasForm.resx">
+      <DependentUpon>MascotasForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PropietariosForm.resx">
       <DependentUpon>PropietariosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios.resx">
+      <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VeterinariosForm.resx">
       <DependentUpon>VeterinariosForm.cs</DependentUpon>

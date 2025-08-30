@@ -32,10 +32,10 @@ namespace Proyecto_Taller_2
 
         private void customButton1_Click(object sender, EventArgs e)
         {
-           
-            VeterinariosForm nuevoVet = new VeterinariosForm();
 
-            nuevoVet.Show();
+            Form2 formPrincipal = (Form2)this.ParentForm;
+
+            formPrincipal.CargarUserControl(new VeterinariosForm());
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

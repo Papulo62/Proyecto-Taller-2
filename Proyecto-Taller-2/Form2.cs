@@ -56,5 +56,11 @@ namespace Proyecto_Taller_2
         {
             CargarUserControl(new Usuarios());
         }
+
+	
+        private void iconButton6_Click_1(object sender, EventArgs e)
+        {
+            CargarUserControl(new Veterinario());
+        }
     }
 }
