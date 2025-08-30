@@ -50,7 +50,9 @@ namespace Proyecto_Taller_2
             this.customButton1 = new Proyecto_Taller_2.CustomButton();
             this.rjTextBox1 = new CustomControls.RJControls.RJTextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -60,7 +62,7 @@ namespace Proyecto_Taller_2
             this.label1.Location = new System.Drawing.Point(517, 325);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 16);
+            this.label1.Size = new System.Drawing.Size(63, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "Especie";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -72,7 +74,7 @@ namespace Proyecto_Taller_2
             this.label2.Location = new System.Drawing.Point(517, 223);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 18);
+            this.label2.Size = new System.Drawing.Size(40, 18);
             this.label2.TabIndex = 3;
             this.label2.Text = "Raza";
             // 
@@ -100,7 +102,7 @@ namespace Proyecto_Taller_2
             this.label3.Location = new System.Drawing.Point(79, 420);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(160, 16);
+            this.label3.Size = new System.Drawing.Size(159, 16);
             this.label3.TabIndex = 9;
             this.label3.Text = "Fecha de Nacimiento";
             // 
@@ -112,7 +114,7 @@ namespace Proyecto_Taller_2
             this.label4.Location = new System.Drawing.Point(517, 135);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 18);
+            this.label4.Size = new System.Drawing.Size(59, 18);
             this.label4.TabIndex = 10;
             this.label4.Text = "Nombre";
             // 
@@ -123,7 +125,7 @@ namespace Proyecto_Taller_2
             this.label5.Location = new System.Drawing.Point(517, 420);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 16);
+            this.label5.Size = new System.Drawing.Size(42, 16);
             this.label5.TabIndex = 11;
             this.label5.Text = "Peso";
             // 
@@ -142,7 +144,7 @@ namespace Proyecto_Taller_2
             this.label6.Location = new System.Drawing.Point(517, 514);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(155, 16);
+            this.label6.Size = new System.Drawing.Size(154, 16);
             this.label6.TabIndex = 13;
             this.label6.Text = "Estado reproductivo";
             // 
@@ -153,7 +155,7 @@ namespace Proyecto_Taller_2
             this.label7.Location = new System.Drawing.Point(88, 514);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 16);
+            this.label7.Size = new System.Drawing.Size(43, 16);
             this.label7.TabIndex = 14;
             this.label7.Text = "Sexo";
             this.label7.Click += new System.EventHandler(this.label7_Click);
@@ -206,7 +208,7 @@ namespace Proyecto_Taller_2
             this.label8.Font = new System.Drawing.Font("Inter", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(329, 34);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(268, 45);
+            this.label8.Size = new System.Drawing.Size(265, 45);
             this.label8.TabIndex = 19;
             this.label8.Text = "Nueva Mascota";
             // 
@@ -264,7 +266,7 @@ namespace Proyecto_Taller_2
             this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.customButton1.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customButton1.ForeColor = System.Drawing.Color.White;
-            this.customButton1.Location = new System.Drawing.Point(81, 296);
+            this.customButton1.Location = new System.Drawing.Point(81, 292);
             this.customButton1.Name = "customButton1";
             this.customButton1.Size = new System.Drawing.Size(212, 40);
             this.customButton1.TabIndex = 20;
@@ -303,6 +305,11 @@ namespace Proyecto_Taller_2
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 26;
             // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -337,6 +344,7 @@ namespace Proyecto_Taller_2
             this.Text = "Nueva Mascota";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -364,6 +372,7 @@ namespace Proyecto_Taller_2
         private CustomControls.RJControls.RJTextBox rjTextBox2;
         private CustomControls.RJControls.RJTextBox rjTextBox1;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.IO.FileSystemWatcher fileSystemWatcher1;
     }
 }
 

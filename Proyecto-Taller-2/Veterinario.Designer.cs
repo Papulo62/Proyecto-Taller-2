@@ -1,7 +1,6 @@
-﻿
-namespace Proyecto_Taller_2
+﻿namespace Proyecto_Taller_2
 {
-    partial class Propietarios
+    partial class Veterinario
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -35,7 +34,6 @@ namespace Proyecto_Taller_2
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.customButton1 = new Proyecto_Taller_2.CustomButton();
             this.labelTitle = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,40 +42,20 @@ namespace Proyecto_Taller_2
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.customButton1 = new Proyecto_Taller_2.CustomButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // customButton1
-            // 
-            this.customButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.customButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.customButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.customButton1.BorderRadius = 8;
-            this.customButton1.BorderSize = 0;
-            this.customButton1.FlatAppearance.BorderSize = 0;
-            this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.customButton1.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customButton1.ForeColor = System.Drawing.Color.White;
-            this.customButton1.Location = new System.Drawing.Point(624, 77);
-            this.customButton1.Name = "customButton1";
-            this.customButton1.Size = new System.Drawing.Size(150, 40);
-            this.customButton1.TabIndex = 1;
-            this.customButton1.Text = "Agregar Propietario";
-            this.customButton1.TextColor = System.Drawing.Color.White;
-            this.customButton1.UseVisualStyleBackColor = false;
-            this.customButton1.Click += new System.EventHandler(this.customButton1_Click);
             // 
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Inter", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.ForeColor = System.Drawing.Color.Black;
-            this.labelTitle.Location = new System.Drawing.Point(326, 28);
+            this.labelTitle.Location = new System.Drawing.Point(301, 29);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(243, 53);
-            this.labelTitle.TabIndex = 2;
-            this.labelTitle.Text = "Propietarios";
-            this.labelTitle.Click += new System.EventHandler(this.labelTitle_Click);
+            this.labelTitle.Size = new System.Drawing.Size(245, 53);
+            this.labelTitle.TabIndex = 3;
+            this.labelTitle.Text = "Veterinarios";
             // 
             // dataGridView1
             // 
@@ -117,7 +95,7 @@ namespace Proyecto_Taller_2
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.LightGray;
-            this.dataGridView1.Location = new System.Drawing.Point(131, 163);
+            this.dataGridView1.Location = new System.Drawing.Point(97, 157);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -130,7 +108,7 @@ namespace Proyecto_Taller_2
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView1.Size = new System.Drawing.Size(643, 308);
-            this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Column1
@@ -145,12 +123,12 @@ namespace Proyecto_Taller_2
             // 
             // Column3
             // 
-            this.Column3.HeaderText = "Dirección";
+            this.Column3.HeaderText = "Especialidad";
             this.Column3.Name = "Column3";
             // 
             // Column4
             // 
-            this.Column4.HeaderText = "Teléfono";
+            this.Column4.HeaderText = "Matricula";
             this.Column4.Name = "Column4";
             // 
             // btnEditar
@@ -184,16 +162,37 @@ namespace Proyecto_Taller_2
             this.Eliminar.Text = "Eliminar";
             this.Eliminar.UseColumnTextForButtonValue = true;
             // 
-            // Propietarios
+            // customButton1
+            // 
+            this.customButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.customButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.customButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.customButton1.BorderRadius = 8;
+            this.customButton1.BorderSize = 0;
+            this.customButton1.FlatAppearance.BorderSize = 0;
+            this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.customButton1.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customButton1.ForeColor = System.Drawing.Color.White;
+            this.customButton1.Location = new System.Drawing.Point(590, 78);
+            this.customButton1.Name = "customButton1";
+            this.customButton1.Size = new System.Drawing.Size(150, 40);
+            this.customButton1.TabIndex = 5;
+            this.customButton1.Text = "Agregar Veterinario";
+            this.customButton1.TextColor = System.Drawing.Color.White;
+            this.customButton1.UseVisualStyleBackColor = false;
+            this.customButton1.Click += new System.EventHandler(this.customButton1_Click);
+            // 
+            // Veterinario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.customButton1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.labelTitle);
-            this.Controls.Add(this.customButton1);
-            this.Name = "Propietarios";
-            this.Size = new System.Drawing.Size(896, 599);
-            this.Load += new System.EventHandler(this.Propietarios_Load);
+            this.Name = "Veterinario";
+            this.Size = new System.Drawing.Size(884, 572);
+            this.Load += new System.EventHandler(this.Veterinario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -201,9 +200,10 @@ namespace Proyecto_Taller_2
         }
 
         #endregion
-        private CustomButton customButton1;
+
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private CustomButton customButton1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
