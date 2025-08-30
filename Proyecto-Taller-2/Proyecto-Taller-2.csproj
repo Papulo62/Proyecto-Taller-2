@@ -71,23 +71,23 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="PropietariosForm.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <Compile Include="PropietariosForm.Designer.cs">
+      <DependentUpon>PropietariosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VeterinariosForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VeterinariosForm.Designer.cs">
+      <DependentUpon>VeterinariosForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Mascotas.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Mascotas.Designer.cs">
       <DependentUpon>Mascotas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MascotasForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="MascotasForm.Designer.cs">
-      <DependentUpon>MascotasForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,11 +106,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RJTextBox.resx</DependentUpon>
     </Compile>
-    <Compile Include="Usuarios.cs">
+    <Compile Include="Veterinario.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Usuarios.Designer.cs">
-      <DependentUpon>Usuarios.cs</DependentUpon>
+    <Compile Include="Veterinario.Designer.cs">
+      <DependentUpon>Veterinario.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -118,14 +118,14 @@
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <EmbeddedResource Include="PropietariosForm.resx">
+      <DependentUpon>PropietariosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VeterinariosForm.resx">
+      <DependentUpon>VeterinariosForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mascotas.resx">
       <DependentUpon>Mascotas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MascotasForm.resx">
-      <DependentUpon>MascotasForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -144,8 +144,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>RJTextBox1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Usuarios.resx">
-      <DependentUpon>Usuarios.cs</DependentUpon>
+    <EmbeddedResource Include="Veterinario.resx">
+      <DependentUpon>Veterinario.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -166,6 +166,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="icons\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconovete.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

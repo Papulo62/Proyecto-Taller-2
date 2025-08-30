@@ -1,6 +1,6 @@
 ﻿namespace Proyecto_Taller_2
 {
-    partial class Form3
+    partial class PropietariosForm
     {
         /// <summary>
         /// Required designer variable.
@@ -266,12 +266,11 @@
             this.rjTextBox1._TextChanged += new System.EventHandler(this.rjTextBox1__TextChanged);
             this.rjTextBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rjTextBox1_KeyPress);
             // 
-            // Form3
+            // PropietariosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(827, 470);
             this.Controls.Add(this.customButton3);
             this.Controls.Add(this.customButton1);
             this.Controls.Add(this.label5);
@@ -285,11 +284,8 @@
             this.Controls.Add(this.rjTextBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label8);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "Form3";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form3";
+            this.Name = "PropietariosForm";
+            this.Size = new System.Drawing.Size(827, 470);
             this.Load += new System.EventHandler(this.Form3_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -33,7 +33,7 @@ namespace Proyecto_Taller_2
         private void customButton1_Click(object sender, EventArgs e)
         {
            
-            Form4 nuevoVet = new Form4();
+            VeterinariosForm nuevoVet = new VeterinariosForm();
 
             nuevoVet.Show();
         }
