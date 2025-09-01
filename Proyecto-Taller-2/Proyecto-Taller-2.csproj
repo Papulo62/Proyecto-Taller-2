@@ -53,6 +53,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consultas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Consultas.Designer.cs">
+      <DependentUpon>Consultas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultasForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ConsultasForm.Designer.cs">
+      <DependentUpon>ConsultasForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -95,6 +107,18 @@
     <Compile Include="Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vacunacion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Vacunacion.Designer.cs">
+      <DependentUpon>Vacunacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VacunacionForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VacunacionForm.Designer.cs">
+      <DependentUpon>VacunacionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="VeterinariosForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -130,6 +154,12 @@
     <Compile Include="Veterinario.Designer.cs">
       <DependentUpon>Veterinario.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Consultas.resx">
+      <DependentUpon>Consultas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultasForm.resx">
+      <DependentUpon>ConsultasForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +177,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vacunacion.resx">
+      <DependentUpon>Vacunacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VacunacionForm.resx">
+      <DependentUpon>VacunacionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VeterinariosForm.resx">
       <DependentUpon>VeterinariosForm.cs</DependentUpon>
