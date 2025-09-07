@@ -18,13 +18,14 @@ namespace Proyecto_Taller_2
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
 
-                LoginForm loginForm = new LoginForm();
-                DialogResult result = loginForm.ShowDialog();
 
-                if (result == DialogResult.OK)
+            using (var loginForm = new LoginForm())
+            {
+                if (loginForm.ShowDialog() == DialogResult.OK)
                 {
-                    Application.Run(new Form2());
+                    Application.Run(new Form2(loginForm.UsuarioLogueado));
                 }
-         }
+            }
+        }
     }
 }

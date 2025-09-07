@@ -78,7 +78,7 @@ namespace Proyecto_Taller_2
 
             if (result == DialogResult.Yes)
             {
-                this.Parent.Controls.Remove(this); // quita el UserControl de su contenedor
+                this.Parent.Controls.Remove(this);
             }
         }
     }
