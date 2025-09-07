@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace Proyecto_Taller_2
 {
-    public partial class Consultas : UserControl
+    public partial class Dashboard : UserControl
     {
-        public Consultas()
+        public Dashboard()
         {
             InitializeComponent();
-        }
-
-        private void customButton1_Click(object sender, EventArgs e)
-        {
-            Form2 formPrincipal = (Form2)this.ParentForm;
-
-            formPrincipal.CargarUserControl(new ConsultasForm());
         }
     }
 }

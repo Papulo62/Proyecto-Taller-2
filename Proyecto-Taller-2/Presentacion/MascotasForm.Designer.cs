@@ -31,25 +31,25 @@ namespace Proyecto_Taller_2
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.cmbEspecie = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbRaza = new System.Windows.Forms.ComboBox();
+            this.cmbSexo = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dptNacimiento = new System.Windows.Forms.DateTimePicker();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cmbEstadoReproductivo = new System.Windows.Forms.ComboBox();
             this.customButton3 = new Proyecto_Taller_2.CustomButton();
-            this.customButton2 = new Proyecto_Taller_2.CustomButton();
+            this.btnGuardar = new Proyecto_Taller_2.CustomButton();
             this.customButton1 = new Proyecto_Taller_2.CustomButton();
-            this.rjTextBox1 = new CustomControls.RJControls.RJTextBox();
+            this.txtNombre = new CustomControls.RJControls.RJTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.rjTextBox2 = new CustomControls.RJControls.RJTextBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.txtPeso = new CustomControls.RJControls.RJTextBox();
+            this.cmbVivo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +60,7 @@ namespace Proyecto_Taller_2
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(300, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(288, 50);
+            this.label1.Size = new System.Drawing.Size(293, 50);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nueva Mascota";
             // 
@@ -71,18 +71,18 @@ namespace Proyecto_Taller_2
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(131, 93);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 18);
+            this.label4.Size = new System.Drawing.Size(69, 18);
             this.label4.TabIndex = 4;
             this.label4.Text = "Nombre:";
             // 
-            // comboBox4
+            // cmbEspecie
             // 
-            this.comboBox4.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(134, 197);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(250, 26);
-            this.comboBox4.TabIndex = 16;
+            this.cmbEspecie.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbEspecie.FormattingEnabled = true;
+            this.cmbEspecie.Location = new System.Drawing.Point(134, 197);
+            this.cmbEspecie.Name = "cmbEspecie";
+            this.cmbEspecie.Size = new System.Drawing.Size(250, 26);
+            this.cmbEspecie.TabIndex = 16;
             // 
             // label2
             // 
@@ -91,7 +91,7 @@ namespace Proyecto_Taller_2
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(131, 166);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 18);
+            this.label2.Size = new System.Drawing.Size(69, 18);
             this.label2.TabIndex = 18;
             this.label2.Text = "Especie:";
             // 
@@ -102,27 +102,27 @@ namespace Proyecto_Taller_2
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(131, 239);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 18);
+            this.label3.Size = new System.Drawing.Size(46, 18);
             this.label3.TabIndex = 19;
             this.label3.Text = "Raza:";
             // 
-            // comboBox1
+            // cmbRaza
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(134, 269);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(250, 26);
-            this.comboBox1.TabIndex = 20;
+            this.cmbRaza.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbRaza.FormattingEnabled = true;
+            this.cmbRaza.Location = new System.Drawing.Point(134, 269);
+            this.cmbRaza.Name = "cmbRaza";
+            this.cmbRaza.Size = new System.Drawing.Size(250, 26);
+            this.cmbRaza.TabIndex = 20;
             // 
-            // comboBox2
+            // cmbSexo
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(134, 341);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(250, 26);
-            this.comboBox2.TabIndex = 21;
+            this.cmbSexo.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSexo.FormattingEnabled = true;
+            this.cmbSexo.Location = new System.Drawing.Point(134, 341);
+            this.cmbSexo.Name = "cmbSexo";
+            this.cmbSexo.Size = new System.Drawing.Size(250, 26);
+            this.cmbSexo.TabIndex = 21;
             // 
             // label5
             // 
@@ -131,18 +131,17 @@ namespace Proyecto_Taller_2
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(131, 311);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 18);
+            this.label5.Size = new System.Drawing.Size(48, 18);
             this.label5.TabIndex = 22;
             this.label5.Text = "Sexo:";
             // 
-            // dateTimePicker1
+            // dptNacimiento
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(502, 420);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(250, 20);
-            this.dateTimePicker1.TabIndex = 24;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.dptNacimiento.CalendarFont = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dptNacimiento.Location = new System.Drawing.Point(502, 420);
+            this.dptNacimiento.Name = "dptNacimiento";
+            this.dptNacimiento.Size = new System.Drawing.Size(250, 20);
+            this.dptNacimiento.TabIndex = 24;
             // 
             // pictureBox1
             // 
@@ -154,7 +153,6 @@ namespace Proyecto_Taller_2
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 25;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label6
             // 
@@ -163,10 +161,9 @@ namespace Proyecto_Taller_2
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(499, 386);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(146, 18);
+            this.label6.Size = new System.Drawing.Size(160, 18);
             this.label6.TabIndex = 26;
             this.label6.Text = "Fecha de nacimiento:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
@@ -175,19 +172,18 @@ namespace Proyecto_Taller_2
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(131, 386);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(142, 18);
+            this.label7.Size = new System.Drawing.Size(157, 18);
             this.label7.TabIndex = 27;
             this.label7.Text = "Estado reproductivo:";
             // 
-            // comboBox3
+            // cmbEstadoReproductivo
             // 
-            this.comboBox3.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(134, 420);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(250, 26);
-            this.comboBox3.TabIndex = 28;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            this.cmbEstadoReproductivo.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbEstadoReproductivo.FormattingEnabled = true;
+            this.cmbEstadoReproductivo.Location = new System.Drawing.Point(134, 420);
+            this.cmbEstadoReproductivo.Name = "cmbEstadoReproductivo";
+            this.cmbEstadoReproductivo.Size = new System.Drawing.Size(250, 26);
+            this.cmbEstadoReproductivo.TabIndex = 28;
             // 
             // customButton3
             // 
@@ -209,24 +205,24 @@ namespace Proyecto_Taller_2
             this.customButton3.UseVisualStyleBackColor = false;
             this.customButton3.Click += new System.EventHandler(this.customButton3_Click);
             // 
-            // customButton2
+            // btnGuardar
             // 
-            this.customButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.customButton2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.customButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.customButton2.BorderRadius = 8;
-            this.customButton2.BorderSize = 0;
-            this.customButton2.FlatAppearance.BorderSize = 0;
-            this.customButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.customButton2.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customButton2.ForeColor = System.Drawing.Color.White;
-            this.customButton2.Location = new System.Drawing.Point(637, 545);
-            this.customButton2.Name = "customButton2";
-            this.customButton2.Size = new System.Drawing.Size(115, 35);
-            this.customButton2.TabIndex = 30;
-            this.customButton2.Text = "Guardar";
-            this.customButton2.TextColor = System.Drawing.Color.White;
-            this.customButton2.UseVisualStyleBackColor = false;
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnGuardar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnGuardar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnGuardar.BorderRadius = 8;
+            this.btnGuardar.BorderSize = 0;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.White;
+            this.btnGuardar.Location = new System.Drawing.Point(637, 545);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(115, 35);
+            this.btnGuardar.TabIndex = 30;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TextColor = System.Drawing.Color.White;
+            this.btnGuardar.UseVisualStyleBackColor = false;
             // 
             // customButton1
             // 
@@ -247,28 +243,27 @@ namespace Proyecto_Taller_2
             this.customButton1.TextColor = System.Drawing.Color.White;
             this.customButton1.UseVisualStyleBackColor = false;
             // 
-            // rjTextBox1
+            // txtNombre
             // 
-            this.rjTextBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox1.BorderColor = System.Drawing.Color.Black;
-            this.rjTextBox1.BorderFocusColor = System.Drawing.Color.Black;
-            this.rjTextBox1.BorderRadius = 8;
-            this.rjTextBox1.BorderSize = 1;
-            this.rjTextBox1.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox1.Location = new System.Drawing.Point(134, 122);
-            this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox1.Multiline = true;
-            this.rjTextBox1.Name = "rjTextBox1";
-            this.rjTextBox1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox1.PasswordChar = false;
-            this.rjTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox1.PlaceholderText = "Ingrese el nombre de la mascota:";
-            this.rjTextBox1.Size = new System.Drawing.Size(250, 30);
-            this.rjTextBox1.TabIndex = 10;
-            this.rjTextBox1.Texts = "";
-            this.rjTextBox1.UnderlinedStyle = false;
-            this.rjTextBox1._TextChanged += new System.EventHandler(this.rjTextBox1__TextChanged);
+            this.txtNombre.BackColor = System.Drawing.SystemColors.Window;
+            this.txtNombre.BorderColor = System.Drawing.Color.Black;
+            this.txtNombre.BorderFocusColor = System.Drawing.Color.Black;
+            this.txtNombre.BorderRadius = 8;
+            this.txtNombre.BorderSize = 1;
+            this.txtNombre.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtNombre.Location = new System.Drawing.Point(134, 122);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNombre.Multiline = true;
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtNombre.PasswordChar = false;
+            this.txtNombre.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtNombre.PlaceholderText = "Ingrese el nombre de la mascota:";
+            this.txtNombre.Size = new System.Drawing.Size(250, 30);
+            this.txtNombre.TabIndex = 10;
+            this.txtNombre.Texts = "";
+            this.txtNombre.UnderlinedStyle = false;
             // 
             // label8
             // 
@@ -277,10 +272,9 @@ namespace Proyecto_Taller_2
             this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(131, 461);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 18);
+            this.label8.Size = new System.Drawing.Size(48, 18);
             this.label8.TabIndex = 32;
             this.label8.Text = "Peso:";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -289,40 +283,40 @@ namespace Proyecto_Taller_2
             this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(503, 461);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(81, 18);
+            this.label9.Size = new System.Drawing.Size(90, 18);
             this.label9.TabIndex = 33;
             this.label9.Text = "Está vivo?: ";
             // 
-            // rjTextBox2
+            // txtPeso
             // 
-            this.rjTextBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox2.BorderColor = System.Drawing.Color.Black;
-            this.rjTextBox2.BorderFocusColor = System.Drawing.Color.Black;
-            this.rjTextBox2.BorderRadius = 8;
-            this.rjTextBox2.BorderSize = 1;
-            this.rjTextBox2.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox2.Location = new System.Drawing.Point(134, 493);
-            this.rjTextBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox2.Multiline = true;
-            this.rjTextBox2.Name = "rjTextBox2";
-            this.rjTextBox2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox2.PasswordChar = false;
-            this.rjTextBox2.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox2.PlaceholderText = "Ingrese el  peso de la mascota:";
-            this.rjTextBox2.Size = new System.Drawing.Size(250, 30);
-            this.rjTextBox2.TabIndex = 34;
-            this.rjTextBox2.Texts = "";
-            this.rjTextBox2.UnderlinedStyle = false;
+            this.txtPeso.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPeso.BorderColor = System.Drawing.Color.Black;
+            this.txtPeso.BorderFocusColor = System.Drawing.Color.Black;
+            this.txtPeso.BorderRadius = 8;
+            this.txtPeso.BorderSize = 1;
+            this.txtPeso.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPeso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtPeso.Location = new System.Drawing.Point(134, 493);
+            this.txtPeso.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPeso.Multiline = true;
+            this.txtPeso.Name = "txtPeso";
+            this.txtPeso.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtPeso.PasswordChar = false;
+            this.txtPeso.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtPeso.PlaceholderText = "Ingrese el  peso de la mascota:";
+            this.txtPeso.Size = new System.Drawing.Size(250, 30);
+            this.txtPeso.TabIndex = 34;
+            this.txtPeso.Texts = "";
+            this.txtPeso.UnderlinedStyle = false;
             // 
-            // comboBox5
+            // cmbVivo
             // 
-            this.comboBox5.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(502, 493);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(250, 26);
-            this.comboBox5.TabIndex = 35;
+            this.cmbVivo.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbVivo.FormattingEnabled = true;
+            this.cmbVivo.Location = new System.Drawing.Point(502, 493);
+            this.cmbVivo.Name = "cmbVivo";
+            this.cmbVivo.Size = new System.Drawing.Size(250, 26);
+            this.cmbVivo.TabIndex = 35;
             // 
             // MascotasForm
             // 
@@ -330,25 +324,25 @@ namespace Proyecto_Taller_2
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.Controls.Add(this.comboBox5);
-            this.Controls.Add(this.rjTextBox2);
+            this.Controls.Add(this.cmbVivo);
+            this.Controls.Add(this.txtPeso);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.customButton3);
-            this.Controls.Add(this.customButton2);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.customButton1);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.cmbEstadoReproductivo);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dptNacimiento);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbSexo);
+            this.Controls.Add(this.cmbRaza);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.rjTextBox1);
+            this.Controls.Add(this.cmbEspecie);
+            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Name = "MascotasForm";
@@ -363,24 +357,24 @@ namespace Proyecto_Taller_2
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
-        private CustomControls.RJControls.RJTextBox rjTextBox1;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private CustomControls.RJControls.RJTextBox txtNombre;
+        private System.Windows.Forms.ComboBox cmbEspecie;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbRaza;
+        private System.Windows.Forms.ComboBox cmbSexo;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dptNacimiento;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cmbEstadoReproductivo;
         private CustomButton customButton1;
-        private CustomButton customButton2;
+        private CustomButton btnGuardar;
         private CustomButton customButton3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private CustomControls.RJControls.RJTextBox rjTextBox2;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private CustomControls.RJControls.RJTextBox txtPeso;
+        private System.Windows.Forms.ComboBox cmbVivo;
     }
 }

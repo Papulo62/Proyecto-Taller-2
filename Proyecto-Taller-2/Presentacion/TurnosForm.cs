@@ -55,11 +55,13 @@ namespace Proyecto_Taller_2
                 MessageBox.Show("Debe seleccionar un veterinario.");
                 return;
             }
-            if (string.IsNullOrWhiteSpace(txtMotivo.Text))
+            if (string.IsNullOrWhiteSpace(txtMotivo.Texts))
             {
                 MessageBox.Show("Debe ingresar el motivo de la consulta.");
                 return;
             }
+
+            MessageBox.Show("Turno registrado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void txtMotivo__TextChanged(object sender, EventArgs e)
@@ -70,15 +72,17 @@ namespace Proyecto_Taller_2
         private void btnCerrarTurno_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
-        "¿Seguro que desea salir sin guardar el turno?",
-        "Confirmar salida",
-        MessageBoxButtons.YesNo,
-        MessageBoxIcon.Question
-    );
+                "¿Seguro que desea salir sin guardar el turno?",
+                "Confirmar salida",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
 
             if (result == DialogResult.Yes)
             {
-                this.Parent.Controls.Remove(this);
+                Form2 formPrincipal = (Form2)this.ParentForm;
+
+                formPrincipal.CargarUserControl(new TurnosForm());
             }
         }
     }

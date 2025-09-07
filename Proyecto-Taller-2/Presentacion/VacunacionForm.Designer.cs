@@ -31,21 +31,21 @@ namespace Proyecto_Taller_2
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.rjTextBox1 = new CustomControls.RJControls.RJTextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtObservaciones = new CustomControls.RJControls.RJTextBox();
+            this.comboBoxMascota = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.rjTextBox2 = new CustomControls.RJControls.RJTextBox();
-            this.rjTextBox3 = new CustomControls.RJControls.RJTextBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.comboBoxVeterinario = new System.Windows.Forms.ComboBox();
+            this.txtLote = new CustomControls.RJControls.RJTextBox();
+            this.txtLaboratorio = new CustomControls.RJControls.RJTextBox();
+            this.comboBoxVacuna = new System.Windows.Forms.ComboBox();
+            this.dateTimeVacuna = new System.Windows.Forms.DateTimePicker();
+            this.btnGuardar = new Proyecto_Taller_2.CustomButton();
             this.btnClose = new Proyecto_Taller_2.CustomButton();
-            this.btnAdd = new Proyecto_Taller_2.CustomButton();
             this.SuspendLayout();
             // 
             // label1
@@ -67,35 +67,35 @@ namespace Proyecto_Taller_2
             this.label2.TabIndex = 1;
             this.label2.Text = "Nueva Vacunación";
             // 
-            // rjTextBox1
+            // txtObservaciones
             // 
-            this.rjTextBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox1.BorderColor = System.Drawing.Color.Black;
-            this.rjTextBox1.BorderFocusColor = System.Drawing.Color.Black;
-            this.rjTextBox1.BorderRadius = 8;
-            this.rjTextBox1.BorderSize = 1;
-            this.rjTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox1.Location = new System.Drawing.Point(489, 241);
-            this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox1.Multiline = true;
-            this.rjTextBox1.Name = "rjTextBox1";
-            this.rjTextBox1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox1.PasswordChar = false;
-            this.rjTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox1.PlaceholderText = "";
-            this.rjTextBox1.Size = new System.Drawing.Size(250, 96);
-            this.rjTextBox1.TabIndex = 2;
-            this.rjTextBox1.Texts = "";
-            this.rjTextBox1.UnderlinedStyle = false;
+            this.txtObservaciones.BackColor = System.Drawing.SystemColors.Window;
+            this.txtObservaciones.BorderColor = System.Drawing.Color.Black;
+            this.txtObservaciones.BorderFocusColor = System.Drawing.Color.Black;
+            this.txtObservaciones.BorderRadius = 8;
+            this.txtObservaciones.BorderSize = 1;
+            this.txtObservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtObservaciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtObservaciones.Location = new System.Drawing.Point(489, 241);
+            this.txtObservaciones.Margin = new System.Windows.Forms.Padding(4);
+            this.txtObservaciones.Multiline = true;
+            this.txtObservaciones.Name = "txtObservaciones";
+            this.txtObservaciones.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtObservaciones.PasswordChar = false;
+            this.txtObservaciones.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtObservaciones.PlaceholderText = "";
+            this.txtObservaciones.Size = new System.Drawing.Size(250, 96);
+            this.txtObservaciones.TabIndex = 2;
+            this.txtObservaciones.Texts = "";
+            this.txtObservaciones.UnderlinedStyle = false;
             // 
-            // comboBox1
+            // comboBoxMascota
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(125, 142);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(250, 26);
-            this.comboBox1.TabIndex = 3;
+            this.comboBoxMascota.FormattingEnabled = true;
+            this.comboBoxMascota.Location = new System.Drawing.Point(125, 142);
+            this.comboBoxMascota.Name = "comboBoxMascota";
+            this.comboBoxMascota.Size = new System.Drawing.Size(250, 26);
+            this.comboBoxMascota.TabIndex = 3;
             // 
             // label3
             // 
@@ -151,75 +151,93 @@ namespace Proyecto_Taller_2
             this.label8.TabIndex = 9;
             this.label8.Text = "Mascota:";
             // 
-            // comboBox2
+            // comboBoxVeterinario
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(125, 343);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(250, 26);
-            this.comboBox2.TabIndex = 10;
+            this.comboBoxVeterinario.FormattingEnabled = true;
+            this.comboBoxVeterinario.Location = new System.Drawing.Point(125, 343);
+            this.comboBoxVeterinario.Name = "comboBoxVeterinario";
+            this.comboBoxVeterinario.Size = new System.Drawing.Size(250, 26);
+            this.comboBoxVeterinario.TabIndex = 10;
             // 
-            // rjTextBox2
+            // txtLote
             // 
-            this.rjTextBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox2.BorderColor = System.Drawing.Color.Black;
-            this.rjTextBox2.BorderFocusColor = System.Drawing.Color.Black;
-            this.rjTextBox2.BorderRadius = 8;
-            this.rjTextBox2.BorderSize = 1;
-            this.rjTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox2.Location = new System.Drawing.Point(489, 138);
-            this.rjTextBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox2.Multiline = true;
-            this.rjTextBox2.Name = "rjTextBox2";
-            this.rjTextBox2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox2.PasswordChar = false;
-            this.rjTextBox2.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox2.PlaceholderText = "";
-            this.rjTextBox2.Size = new System.Drawing.Size(250, 30);
-            this.rjTextBox2.TabIndex = 11;
-            this.rjTextBox2.Texts = "";
-            this.rjTextBox2.UnderlinedStyle = false;
+            this.txtLote.BackColor = System.Drawing.SystemColors.Window;
+            this.txtLote.BorderColor = System.Drawing.Color.Black;
+            this.txtLote.BorderFocusColor = System.Drawing.Color.Black;
+            this.txtLote.BorderRadius = 8;
+            this.txtLote.BorderSize = 1;
+            this.txtLote.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtLote.Location = new System.Drawing.Point(489, 138);
+            this.txtLote.Margin = new System.Windows.Forms.Padding(4);
+            this.txtLote.Multiline = true;
+            this.txtLote.Name = "txtLote";
+            this.txtLote.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtLote.PasswordChar = false;
+            this.txtLote.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtLote.PlaceholderText = "";
+            this.txtLote.Size = new System.Drawing.Size(250, 30);
+            this.txtLote.TabIndex = 11;
+            this.txtLote.Texts = "";
+            this.txtLote.UnderlinedStyle = false;
             // 
-            // rjTextBox3
+            // txtLaboratorio
             // 
-            this.rjTextBox3.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox3.BorderColor = System.Drawing.Color.Black;
-            this.rjTextBox3.BorderFocusColor = System.Drawing.Color.Black;
-            this.rjTextBox3.BorderRadius = 8;
-            this.rjTextBox3.BorderSize = 1;
-            this.rjTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox3.Location = new System.Drawing.Point(125, 449);
-            this.rjTextBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox3.Multiline = true;
-            this.rjTextBox3.Name = "rjTextBox3";
-            this.rjTextBox3.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox3.PasswordChar = false;
-            this.rjTextBox3.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox3.PlaceholderText = "";
-            this.rjTextBox3.Size = new System.Drawing.Size(250, 30);
-            this.rjTextBox3.TabIndex = 12;
-            this.rjTextBox3.Texts = "";
-            this.rjTextBox3.UnderlinedStyle = false;
+            this.txtLaboratorio.BackColor = System.Drawing.SystemColors.Window;
+            this.txtLaboratorio.BorderColor = System.Drawing.Color.Black;
+            this.txtLaboratorio.BorderFocusColor = System.Drawing.Color.Black;
+            this.txtLaboratorio.BorderRadius = 8;
+            this.txtLaboratorio.BorderSize = 1;
+            this.txtLaboratorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLaboratorio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtLaboratorio.Location = new System.Drawing.Point(125, 449);
+            this.txtLaboratorio.Margin = new System.Windows.Forms.Padding(4);
+            this.txtLaboratorio.Multiline = true;
+            this.txtLaboratorio.Name = "txtLaboratorio";
+            this.txtLaboratorio.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtLaboratorio.PasswordChar = false;
+            this.txtLaboratorio.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtLaboratorio.PlaceholderText = "";
+            this.txtLaboratorio.Size = new System.Drawing.Size(250, 30);
+            this.txtLaboratorio.TabIndex = 12;
+            this.txtLaboratorio.Texts = "";
+            this.txtLaboratorio.UnderlinedStyle = false;
             // 
-            // comboBox3
+            // comboBoxVacuna
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(125, 241);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(250, 26);
-            this.comboBox3.TabIndex = 13;
+            this.comboBoxVacuna.FormattingEnabled = true;
+            this.comboBoxVacuna.Location = new System.Drawing.Point(125, 241);
+            this.comboBoxVacuna.Name = "comboBoxVacuna";
+            this.comboBoxVacuna.Size = new System.Drawing.Size(250, 26);
+            this.comboBoxVacuna.TabIndex = 13;
             // 
-            // dateTimePicker1
+            // dateTimeVacuna
             // 
-            this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.Black;
-            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.Color.White;
-            this.dateTimePicker1.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(489, 445);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(250, 34);
-            this.dateTimePicker1.TabIndex = 14;
+            this.dateTimeVacuna.CalendarForeColor = System.Drawing.Color.Black;
+            this.dateTimeVacuna.CalendarMonthBackground = System.Drawing.Color.White;
+            this.dateTimeVacuna.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeVacuna.Location = new System.Drawing.Point(489, 445);
+            this.dateTimeVacuna.Name = "dateTimeVacuna";
+            this.dateTimeVacuna.Size = new System.Drawing.Size(250, 34);
+            this.dateTimeVacuna.TabIndex = 14;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnGuardar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnGuardar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnGuardar.BorderRadius = 8;
+            this.btnGuardar.BorderSize = 0;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.ForeColor = System.Drawing.Color.White;
+            this.btnGuardar.Location = new System.Drawing.Point(619, 512);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(120, 40);
+            this.btnGuardar.TabIndex = 16;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TextColor = System.Drawing.Color.White;
+            this.btnGuardar.UseVisualStyleBackColor = false;
             // 
             // btnClose
             // 
@@ -238,49 +256,32 @@ namespace Proyecto_Taller_2
             this.btnClose.Text = "Cerrar";
             this.btnClose.TextColor = System.Drawing.Color.Black;
             this.btnClose.UseVisualStyleBackColor = false;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnAdd.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnAdd.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnAdd.BorderRadius = 8;
-            this.btnAdd.BorderSize = 0;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(619, 512);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(120, 40);
-            this.btnAdd.TabIndex = 16;
-            this.btnAdd.Text = "Guardar";
-            this.btnAdd.TextColor = System.Drawing.Color.White;
-            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // VacunacionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.rjTextBox3);
-            this.Controls.Add(this.rjTextBox2);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.dateTimeVacuna);
+            this.Controls.Add(this.comboBoxVacuna);
+            this.Controls.Add(this.txtLaboratorio);
+            this.Controls.Add(this.txtLote);
+            this.Controls.Add(this.comboBoxVeterinario);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.rjTextBox1);
+            this.Controls.Add(this.comboBoxMascota);
+            this.Controls.Add(this.txtObservaciones);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VacunacionForm";
             this.Size = new System.Drawing.Size(896, 599);
             this.ResumeLayout(false);
@@ -292,20 +293,20 @@ namespace Proyecto_Taller_2
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private CustomControls.RJControls.RJTextBox rjTextBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private CustomControls.RJControls.RJTextBox txtObservaciones;
+        private System.Windows.Forms.ComboBox comboBoxMascota;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private CustomControls.RJControls.RJTextBox rjTextBox2;
-        private CustomControls.RJControls.RJTextBox rjTextBox3;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox comboBoxVeterinario;
+        private CustomControls.RJControls.RJTextBox txtLote;
+        private CustomControls.RJControls.RJTextBox txtLaboratorio;
+        private System.Windows.Forms.ComboBox comboBoxVacuna;
+        private System.Windows.Forms.DateTimePicker dateTimeVacuna;
         private CustomButton btnClose;
-        private CustomButton btnAdd;
+        private CustomButton btnGuardar;
     }
 }

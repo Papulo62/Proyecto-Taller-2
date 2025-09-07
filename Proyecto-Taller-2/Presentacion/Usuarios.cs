@@ -44,6 +44,12 @@ namespace Proyecto_Taller_2
             {
                 var usuarios = _context.Usuario.Where(u => u.activo == true).ToList();
                 customDataGridView1.DataSource = usuarios;
+
+                if (customDataGridView1.Columns["imagen_perfil"] != null)
+                    customDataGridView1.Columns["imagen_perfil"].Visible = false;
+
+                if (customDataGridView1.Columns["contraseña"] != null)
+                    customDataGridView1.Columns["contraseña"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -55,23 +61,13 @@ namespace Proyecto_Taller_2
         {
             try
             {
-                var result = MessageBox.Show("¿Está seguro de que desea desactivar este usuario?",
-                    "Confirmar desactivación",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question,
-                    MessageBoxDefaultButton.Button2);
-
-                if (result == DialogResult.No)
-                    return;
-
                 var usuario = _context.Usuario.Find(idUsuario);
-
                 if (usuario != null)
                 {
-                    usuario.activo = false;  
+                    usuario.activo = false;
                     _context.SaveChanges();
                     MessageBox.Show("Usuario desactivado correctamente.");
-                    CargarUsuarios(); 
+                    CargarUsuarios();
                 }
                 else
                 {
@@ -93,7 +89,7 @@ namespace Proyecto_Taller_2
         {
             try
             {
-                if (e.RowIndex < 0) return;
+        
 
                 int idUsuario = (int)customDataGridView1.Rows[e.RowIndex].Cells["Id"].Value;
 
@@ -103,7 +99,16 @@ namespace Proyecto_Taller_2
                 }
                 else if (e.ColumnIndex == 1)
                 {
-                    EliminarUsuario(idUsuario);
+                    var result = MessageBox.Show("¿Está seguro de que desea desactivar este usuario?",
+                        "Confirmar desactivación",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question,
+                        MessageBoxDefaultButton.Button2);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        EliminarUsuario(idUsuario);
+                    }
                 }
             }
             catch (Exception ex)

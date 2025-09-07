@@ -16,5 +16,12 @@ namespace Proyecto_Taller_2
         {
             InitializeComponent();
         }
+
+        private void btnVacunacion_Click(object sender, EventArgs e)
+        {
+            Form2 formPrincipal = (Form2)this.ParentForm;
+
+            formPrincipal.CargarUserControl(new VacunacionForm());
+        }
     }
 }

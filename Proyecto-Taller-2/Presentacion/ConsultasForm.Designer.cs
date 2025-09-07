@@ -302,6 +302,7 @@ namespace Proyecto_Taller_2
             this.btnClose.Text = "Cerrar";
             this.btnClose.TextColor = System.Drawing.Color.Black;
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnAdd
             // 
@@ -349,7 +350,7 @@ namespace Proyecto_Taller_2
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ConsultasForm";
             this.Size = new System.Drawing.Size(896, 599);
             this.ResumeLayout(false);

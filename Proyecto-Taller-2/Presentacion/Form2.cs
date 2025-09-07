@@ -78,8 +78,10 @@ namespace Proyecto_Taller_2
       
         private void Form2_Load(object sender, EventArgs e)
         {
-          
+            CargarUserControl(new Dashboard());
             PersonalizarSidebar();
+            labelUser.Text = usuarioLogueado.nombre;
+            
         }
 
        
@@ -102,6 +104,14 @@ namespace Proyecto_Taller_2
             
         }
 
+        public void CargarUsuariosConEventos()
+        {
+            var usuariosControl = new Usuarios();
+            CargarUserControl(usuariosControl);
+            usuariosControl.CargarNuevoUsuario += () => CargarUserControl(new UsuariosForm());
+            usuariosControl.EditarUsuario += (idUsuario) => CargarUserControl(new UsuariosForm(idUsuario));
+        }
+
         private void iconButton6_Click_1(object sender, EventArgs e)
         {
             CargarUserControl(new Veterinario());
@@ -115,6 +125,50 @@ namespace Proyecto_Taller_2
         private void iconButton3_Click(object sender, EventArgs e)
         {
             CargarUserControl(new Reportes());
+        }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show(
+                "¿Está seguro que desea cerrar sesión?",
+                "Confirmar cierre de sesión",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (resultado == DialogResult.Yes)
+            {
+                
+                this.Hide();
+                LoginForm loginForm = new LoginForm();
+                loginForm.ShowDialog();
+                this.Close();
+            }
+        }
+
+        private void labelUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            CargarUserControl(new Dashboard());
+        }
+
+        private void btnConsultas_Click(object sender, EventArgs e)
+        {
+            CargarUserControl(new Consultas());
+        }
+
+        private void btnVacunas_Click(object sender, EventArgs e)
+        {
+            CargarUserControl(new Vacunacion());
+        }
+
+        private void btnBackup_Click(object sender, EventArgs e)
+        {
+            CargarUserControl(new Backup());
         }
     }
 }

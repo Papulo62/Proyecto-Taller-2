@@ -16,17 +16,15 @@ namespace Proyecto_Taller_2.Presentacion
         private MiDbContext _context;
         private int _idUsuario;
         private bool _esEdicion = false;
+        private string _rutaImagenSeleccionada = ""; 
 
-   
         public UsuariosForm()
         {
             InitializeComponent();
             _context = new MiDbContext();
             _esEdicion = false;
-        
         }
 
-      
         public UsuariosForm(int idUsuario) : this()
         {
             _idUsuario = idUsuario;
@@ -38,7 +36,6 @@ namespace Proyecto_Taller_2.Presentacion
         {
             try
             {
-               
                 if (!ValidarCampos())
                     return;
 
@@ -49,12 +46,16 @@ namespace Proyecto_Taller_2.Presentacion
                     contraseña = txtContraseña.Texts,
                     rolId = (int)comboBoxRol.SelectedValue,
                     fecha_creacion = DateTime.Now,
+                    imagen_perfil = _rutaImagenSeleccionada, 
+                    activo = true 
                 };
 
                 _context.Usuario.Add(nuevoUsuario);
                 _context.SaveChanges();
 
                 MessageBox.Show("Usuario creado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                VolverAListaUsuarios();
             }
             catch (Exception ex)
             {
@@ -73,6 +74,21 @@ namespace Proyecto_Taller_2.Presentacion
                     txtCorreo.Texts = usuario.correo;
                     txtContraseña.Texts = usuario.contraseña;
                     comboBoxRol.SelectedValue = usuario.rolId;
+
+                    if (!string.IsNullOrEmpty(usuario.imagen_perfil))
+                    {
+                        _rutaImagenSeleccionada = usuario.imagen_perfil;
+                        try
+                        {
+                            if (System.IO.File.Exists(usuario.imagen_perfil))
+                            {
+                                pictureBoxPerfil.Image = Image.FromFile(usuario.imagen_perfil);
+                            }
+                        }
+                        catch
+                        {
+                        }
+                    }
                 }
                 else
                 {
@@ -89,7 +105,6 @@ namespace Proyecto_Taller_2.Presentacion
         {
             try
             {
-                
                 if (!ValidarCampos())
                     return;
 
@@ -100,9 +115,12 @@ namespace Proyecto_Taller_2.Presentacion
                     usuario.correo = txtCorreo.Texts.Trim();
                     usuario.contraseña = txtContraseña.Texts;
                     usuario.rolId = (int)comboBoxRol.SelectedValue;
+                    usuario.imagen_perfil = _rutaImagenSeleccionada; 
 
                     _context.SaveChanges();
                     MessageBox.Show("Usuario actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    VolverAListaUsuarios();
                 }
                 else
                 {
@@ -175,8 +193,11 @@ namespace Proyecto_Taller_2.Presentacion
             }
         }
 
-
-
+        private void VolverAListaUsuarios()
+        {
+            Form2 formPrincipal = (Form2)this.ParentForm;
+            formPrincipal.CargarUsuariosConEventos();
+        }
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -204,16 +225,37 @@ namespace Proyecto_Taller_2.Presentacion
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+                openFileDialog.Title = "Seleccionar imagen de perfil";
+
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
+                    try
+                    {
+                        _rutaImagenSeleccionada = openFileDialog.FileName;
 
-                    pictureBoxPerfil.Image = Image.FromFile(openFileDialog.FileName);
+                        pictureBoxPerfil.Image = Image.FromFile(openFileDialog.FileName);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al cargar la imagen: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
 
         private void customButton2_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show(
+                "¿Seguro que desea salir sin guardar el usuario?",
+                "Confirmar salida",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                VolverAListaUsuarios();
+            }
         }
     }
 }

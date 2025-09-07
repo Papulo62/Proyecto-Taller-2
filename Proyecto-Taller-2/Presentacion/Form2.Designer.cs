@@ -31,10 +31,11 @@ namespace Proyecto_Taller_2
         {
             this.navbar = new System.Windows.Forms.Panel();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelUser = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCerrarSesion = new FontAwesome.Sharp.IconButton();
             this.btnPropietarios = new FontAwesome.Sharp.IconButton();
             this.btnMascotas = new FontAwesome.Sharp.IconButton();
             this.btnUsuarios = new FontAwesome.Sharp.IconButton();
@@ -55,7 +56,7 @@ namespace Proyecto_Taller_2
             // 
             this.navbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.navbar.Controls.Add(this.iconPictureBox1);
-            this.navbar.Controls.Add(this.label2);
+            this.navbar.Controls.Add(this.labelUser);
             this.navbar.Controls.Add(this.label1);
             this.navbar.Controls.Add(this.iconButton2);
             this.navbar.Dock = System.Windows.Forms.DockStyle.Top;
@@ -77,16 +78,17 @@ namespace Proyecto_Taller_2
             this.iconPictureBox1.TabIndex = 4;
             this.iconPictureBox1.TabStop = false;
             // 
-            // label2
+            // labelUser
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(982, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 23);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Welcome, Dr.";
+            this.labelUser.AutoSize = true;
+            this.labelUser.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUser.ForeColor = System.Drawing.Color.White;
+            this.labelUser.Location = new System.Drawing.Point(960, 24);
+            this.labelUser.Name = "labelUser";
+            this.labelUser.Size = new System.Drawing.Size(124, 23);
+            this.labelUser.TabIndex = 3;
+            this.labelUser.Text = "Welcome, Dr.";
+            this.labelUser.Click += new System.EventHandler(this.labelUser_Click);
             // 
             // label1
             // 
@@ -117,6 +119,7 @@ namespace Proyecto_Taller_2
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.panel1.Controls.Add(this.btnCerrarSesion);
             this.panel1.Controls.Add(this.btnPropietarios);
             this.panel1.Controls.Add(this.btnMascotas);
             this.panel1.Controls.Add(this.btnUsuarios);
@@ -133,6 +136,19 @@ namespace Proyecto_Taller_2
             this.panel1.Size = new System.Drawing.Size(288, 599);
             this.panel1.TabIndex = 1;
             // 
+            // btnCerrarSesion
+            // 
+            this.btnCerrarSesion.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnCerrarSesion.IconColor = System.Drawing.Color.Black;
+            this.btnCerrarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCerrarSesion.Location = new System.Drawing.Point(63, 536);
+            this.btnCerrarSesion.Name = "btnCerrarSesion";
+            this.btnCerrarSesion.Size = new System.Drawing.Size(75, 23);
+            this.btnCerrarSesion.TabIndex = 13;
+            this.btnCerrarSesion.Text = "Cerrar Sesión";
+            this.btnCerrarSesion.UseVisualStyleBackColor = true;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
+            // 
             // btnPropietarios
             // 
             this.btnPropietarios.FlatAppearance.BorderSize = 0;
@@ -143,7 +159,7 @@ namespace Proyecto_Taller_2
             this.btnPropietarios.IconColor = System.Drawing.Color.White;
             this.btnPropietarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPropietarios.IconSize = 30;
-            this.btnPropietarios.Location = new System.Drawing.Point(17, 125);
+            this.btnPropietarios.Location = new System.Drawing.Point(12, 100);
             this.btnPropietarios.Name = "btnPropietarios";
             this.btnPropietarios.Size = new System.Drawing.Size(171, 36);
             this.btnPropietarios.TabIndex = 12;
@@ -162,7 +178,7 @@ namespace Proyecto_Taller_2
             this.btnMascotas.IconColor = System.Drawing.Color.White;
             this.btnMascotas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMascotas.IconSize = 30;
-            this.btnMascotas.Location = new System.Drawing.Point(17, 72);
+            this.btnMascotas.Location = new System.Drawing.Point(17, 48);
             this.btnMascotas.Name = "btnMascotas";
             this.btnMascotas.Size = new System.Drawing.Size(138, 36);
             this.btnMascotas.TabIndex = 11;
@@ -181,7 +197,7 @@ namespace Proyecto_Taller_2
             this.btnUsuarios.IconColor = System.Drawing.Color.White;
             this.btnUsuarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnUsuarios.IconSize = 30;
-            this.btnUsuarios.Location = new System.Drawing.Point(17, 426);
+            this.btnUsuarios.Location = new System.Drawing.Point(17, 356);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(138, 36);
             this.btnUsuarios.TabIndex = 10;
@@ -200,7 +216,7 @@ namespace Proyecto_Taller_2
             this.btnTurnos.IconColor = System.Drawing.Color.White;
             this.btnTurnos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnTurnos.IconSize = 30;
-            this.btnTurnos.Location = new System.Drawing.Point(12, 180);
+            this.btnTurnos.Location = new System.Drawing.Point(12, 142);
             this.btnTurnos.Name = "btnTurnos";
             this.btnTurnos.Size = new System.Drawing.Size(138, 36);
             this.btnTurnos.TabIndex = 9;
@@ -219,13 +235,14 @@ namespace Proyecto_Taller_2
             this.btnConsultas.IconColor = System.Drawing.Color.White;
             this.btnConsultas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnConsultas.IconSize = 30;
-            this.btnConsultas.Location = new System.Drawing.Point(17, 240);
+            this.btnConsultas.Location = new System.Drawing.Point(12, 193);
             this.btnConsultas.Name = "btnConsultas";
             this.btnConsultas.Size = new System.Drawing.Size(138, 36);
             this.btnConsultas.TabIndex = 8;
             this.btnConsultas.Text = "Consultas";
             this.btnConsultas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConsultas.UseVisualStyleBackColor = true;
+            this.btnConsultas.Click += new System.EventHandler(this.btnConsultas_Click);
             // 
             // btnBackup
             // 
@@ -237,13 +254,14 @@ namespace Proyecto_Taller_2
             this.btnBackup.IconColor = System.Drawing.Color.White;
             this.btnBackup.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBackup.IconSize = 30;
-            this.btnBackup.Location = new System.Drawing.Point(12, 539);
+            this.btnBackup.Location = new System.Drawing.Point(12, 466);
             this.btnBackup.Name = "btnBackup";
             this.btnBackup.Size = new System.Drawing.Size(138, 36);
             this.btnBackup.TabIndex = 7;
             this.btnBackup.Text = "Backup";
             this.btnBackup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBackup.UseVisualStyleBackColor = true;
+            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
             // 
             // btnVeterinario
             // 
@@ -255,7 +273,7 @@ namespace Proyecto_Taller_2
             this.btnVeterinario.IconColor = System.Drawing.Color.White;
             this.btnVeterinario.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnVeterinario.IconSize = 30;
-            this.btnVeterinario.Location = new System.Drawing.Point(17, 371);
+            this.btnVeterinario.Location = new System.Drawing.Point(17, 300);
             this.btnVeterinario.Name = "btnVeterinario";
             this.btnVeterinario.Size = new System.Drawing.Size(147, 36);
             this.btnVeterinario.TabIndex = 6;
@@ -274,13 +292,14 @@ namespace Proyecto_Taller_2
             this.btnVacunas.IconColor = System.Drawing.Color.White;
             this.btnVacunas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnVacunas.IconSize = 30;
-            this.btnVacunas.Location = new System.Drawing.Point(17, 305);
+            this.btnVacunas.Location = new System.Drawing.Point(12, 244);
             this.btnVacunas.Name = "btnVacunas";
             this.btnVacunas.Size = new System.Drawing.Size(138, 36);
             this.btnVacunas.TabIndex = 5;
             this.btnVacunas.Text = "Vacunas";
             this.btnVacunas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnVacunas.UseVisualStyleBackColor = true;
+            this.btnVacunas.Click += new System.EventHandler(this.btnVacunas_Click);
             // 
             // btnDashboard
             // 
@@ -292,13 +311,14 @@ namespace Proyecto_Taller_2
             this.btnDashboard.IconColor = System.Drawing.Color.White;
             this.btnDashboard.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDashboard.IconSize = 30;
-            this.btnDashboard.Location = new System.Drawing.Point(12, 20);
+            this.btnDashboard.Location = new System.Drawing.Point(12, 6);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(157, 36);
             this.btnDashboard.TabIndex = 4;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // btnReportes
             // 
@@ -310,7 +330,7 @@ namespace Proyecto_Taller_2
             this.btnReportes.IconColor = System.Drawing.Color.White;
             this.btnReportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnReportes.IconSize = 30;
-            this.btnReportes.Location = new System.Drawing.Point(12, 488);
+            this.btnReportes.Location = new System.Drawing.Point(12, 413);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(149, 36);
             this.btnReportes.TabIndex = 2;
@@ -321,7 +341,6 @@ namespace Proyecto_Taller_2
             // 
             // panelContainer
             // 
-            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelContainer.Location = new System.Drawing.Point(288, 62);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(873, 599);
@@ -353,7 +372,7 @@ namespace Proyecto_Taller_2
 
         private System.Windows.Forms.Panel navbar;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelUser;
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconButton iconButton2;
         private FontAwesome.Sharp.IconButton btnReportes;
@@ -367,6 +386,7 @@ namespace Proyecto_Taller_2
         private FontAwesome.Sharp.IconButton btnTurnos;
         private FontAwesome.Sharp.IconButton btnConsultas;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
+        private FontAwesome.Sharp.IconButton btnCerrarSesion;
         private System.Windows.Forms.Panel panelContainer;
     }
 }

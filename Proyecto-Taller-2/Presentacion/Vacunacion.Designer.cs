@@ -35,7 +35,6 @@ namespace Proyecto_Taller_2
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.customDataGridView1 = new Proyecto_Taller_2.CustomDataGridView();
-            this.btnVacunacion = new Proyecto_Taller_2.CustomButton();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +44,12 @@ namespace Proyecto_Taller_2
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnVacunacion = new Proyecto_Taller_2.CustomButton();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.rjTextBox1 = new CustomControls.RJControls.RJTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.customDataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,7 +104,7 @@ namespace Proyecto_Taller_2
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.customDataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.customDataGridView1.EnableHeadersVisualStyles = false;
-            this.customDataGridView1.Location = new System.Drawing.Point(3, 168);
+            this.customDataGridView1.Location = new System.Drawing.Point(3, 250);
             this.customDataGridView1.Name = "customDataGridView1";
             this.customDataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -113,25 +118,6 @@ namespace Proyecto_Taller_2
             this.customDataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.customDataGridView1.Size = new System.Drawing.Size(890, 150);
             this.customDataGridView1.TabIndex = 1;
-            // 
-            // btnVacunacion
-            // 
-            this.btnVacunacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnVacunacion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnVacunacion.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnVacunacion.BorderRadius = 8;
-            this.btnVacunacion.BorderSize = 0;
-            this.btnVacunacion.FlatAppearance.BorderSize = 0;
-            this.btnVacunacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVacunacion.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVacunacion.ForeColor = System.Drawing.Color.White;
-            this.btnVacunacion.Location = new System.Drawing.Point(621, 85);
-            this.btnVacunacion.Name = "btnVacunacion";
-            this.btnVacunacion.Size = new System.Drawing.Size(150, 40);
-            this.btnVacunacion.TabIndex = 2;
-            this.btnVacunacion.Text = "nueva vacunación";
-            this.btnVacunacion.TextColor = System.Drawing.Color.White;
-            this.btnVacunacion.UseVisualStyleBackColor = false;
             // 
             // Column1
             // 
@@ -178,11 +164,106 @@ namespace Proyecto_Taller_2
             this.Column9.HeaderText = "";
             this.Column9.Name = "Column9";
             // 
+            // btnVacunacion
+            // 
+            this.btnVacunacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnVacunacion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnVacunacion.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnVacunacion.BorderRadius = 8;
+            this.btnVacunacion.BorderSize = 0;
+            this.btnVacunacion.FlatAppearance.BorderSize = 0;
+            this.btnVacunacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVacunacion.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVacunacion.ForeColor = System.Drawing.Color.White;
+            this.btnVacunacion.Location = new System.Drawing.Point(633, 174);
+            this.btnVacunacion.Name = "btnVacunacion";
+            this.btnVacunacion.Size = new System.Drawing.Size(150, 40);
+            this.btnVacunacion.TabIndex = 2;
+            this.btnVacunacion.Text = "nueva vacunación";
+            this.btnVacunacion.TextColor = System.Drawing.Color.White;
+            this.btnVacunacion.UseVisualStyleBackColor = false;
+            this.btnVacunacion.Click += new System.EventHandler(this.btnVacunacion_Click);
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Font = new System.Drawing.Font("Inter", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton1.ForeColor = System.Drawing.Color.White;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Searchengin;
+            this.iconButton1.IconColor = System.Drawing.Color.White;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 25;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.Location = new System.Drawing.Point(368, 112);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(93, 30);
+            this.iconButton1.TabIndex = 13;
+            this.iconButton1.Text = "Buscar";
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.iconButton1.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(119, 74);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 18);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Buscar:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(549, 74);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(84, 18);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Filtrar Por:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(533, 112);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(250, 28);
+            this.comboBox1.TabIndex = 10;
+            // 
+            // rjTextBox1
+            // 
+            this.rjTextBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.rjTextBox1.BorderColor = System.Drawing.Color.Black;
+            this.rjTextBox1.BorderFocusColor = System.Drawing.Color.Black;
+            this.rjTextBox1.BorderRadius = 8;
+            this.rjTextBox1.BorderSize = 1;
+            this.rjTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.rjTextBox1.Location = new System.Drawing.Point(111, 112);
+            this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.rjTextBox1.Multiline = true;
+            this.rjTextBox1.Name = "rjTextBox1";
+            this.rjTextBox1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.rjTextBox1.PasswordChar = false;
+            this.rjTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.rjTextBox1.PlaceholderText = "";
+            this.rjTextBox1.Size = new System.Drawing.Size(250, 30);
+            this.rjTextBox1.TabIndex = 9;
+            this.rjTextBox1.Texts = "";
+            this.rjTextBox1.UnderlinedStyle = false;
+            // 
             // Vacunacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.iconButton1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.rjTextBox1);
             this.Controls.Add(this.btnVacunacion);
             this.Controls.Add(this.customDataGridView1);
             this.Controls.Add(this.label1);
@@ -210,5 +291,10 @@ namespace Proyecto_Taller_2
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private CustomButton btnVacunacion;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private CustomControls.RJControls.RJTextBox rjTextBox1;
     }
 }
