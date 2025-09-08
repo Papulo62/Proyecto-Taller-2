@@ -53,9 +53,9 @@ namespace Proyecto_Taller_2
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Inter", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.ForeColor = System.Drawing.Color.Black;
-            this.labelTitle.Location = new System.Drawing.Point(360, 24);
+            this.labelTitle.Location = new System.Drawing.Point(339, 31);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(201, 53);
+            this.labelTitle.Size = new System.Drawing.Size(200, 53);
             this.labelTitle.TabIndex = 1;
             this.labelTitle.Text = "Mascotas";
             // 
@@ -154,7 +154,7 @@ namespace Proyecto_Taller_2
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.LightGray;
-            this.dataGridView1.Location = new System.Drawing.Point(64, 163);
+            this.dataGridView1.Location = new System.Drawing.Point(64, 160);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -188,6 +188,7 @@ namespace Proyecto_Taller_2
             this.customButton1.Text = "Nueva mascota";
             this.customButton1.TextColor = System.Drawing.Color.White;
             this.customButton1.UseVisualStyleBackColor = false;
+            this.customButton1.Click += new System.EventHandler(this.customButton1_Click);
             // 
             // Mascotas
             // 

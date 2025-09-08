@@ -19,10 +19,10 @@ namespace Proyecto_Taller_2
 
         private void CargarDatosDePrueba()
         {
+            dataGridView1.Rows.Add("Juan Pérez", "40256321", "Calle belgrano 123", "1122334455");
+            dataGridView1.Rows.Add("Javier Milei", "37894562", "Av. Perón 742", "1144556677");
+            dataGridView1.Rows.Add("Leo Messi", "31567890", "San Martín 456", "1199887766");
 
-            customDataGridView1.Rows.Add("Firulais", "Perro", "5 años");
-            customDataGridView1.Rows.Add("Michi", "Gato", "3 años");
-            customDataGridView1.Rows.Add("Toby", "Conejo", "2 años");
         }
 
         private void customDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -33,6 +33,23 @@ namespace Proyecto_Taller_2
         private void Propietarios_Load(object sender, EventArgs e)
         {
             CargarDatosDePrueba();
+        }
+
+        private void labelTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void customButton1_Click(object sender, EventArgs e)
+        {
+            Form3 nuevoPro = new Form3();
+
+            nuevoPro.Show();
         }
     }
 }

@@ -29,11 +29,16 @@ namespace Proyecto_Taller_2
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.navbar = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelContainer = new System.Windows.Forms.Panel();
+            this.customDataGrid1 = new Proyecto_Taller_2.CustomDataGridView();
             this.iconButton12 = new FontAwesome.Sharp.IconButton();
             this.btnMascotas = new FontAwesome.Sharp.IconButton();
             this.iconButton10 = new FontAwesome.Sharp.IconButton();
@@ -46,10 +51,10 @@ namespace Proyecto_Taller_2
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.customDataGrid1 = new Proyecto_Taller_2.CustomDataGridView();
             this.navbar.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customDataGrid1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,7 +78,7 @@ namespace Proyecto_Taller_2
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(982, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 23);
+            this.label2.Size = new System.Drawing.Size(116, 23);
             this.label2.TabIndex = 3;
             this.label2.Text = "Welcome, Dr.";
             // 
@@ -84,7 +89,7 @@ namespace Proyecto_Taller_2
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(80, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(208, 27);
+            this.label1.Size = new System.Drawing.Size(197, 27);
             this.label1.TabIndex = 2;
             this.label1.Text = "Veterinary Software";
             // 
@@ -116,6 +121,50 @@ namespace Proyecto_Taller_2
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(896, 599);
             this.panelContainer.TabIndex = 2;
+            // 
+            // customDataGrid1
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Inter", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.customDataGrid1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.customDataGrid1.BackgroundColor = System.Drawing.Color.White;
+            this.customDataGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.customDataGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.customDataGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Inter", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.customDataGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Inter", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.customDataGrid1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.customDataGrid1.EnableHeadersVisualStyles = false;
+            this.customDataGrid1.Location = new System.Drawing.Point(0, 0);
+            this.customDataGrid1.Name = "customDataGrid1";
+            this.customDataGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Inter", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.customDataGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.customDataGrid1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.customDataGrid1.Size = new System.Drawing.Size(620, 362);
+            this.customDataGrid1.TabIndex = 0;
             // 
             // iconButton12
             // 
@@ -244,6 +293,7 @@ namespace Proyecto_Taller_2
             this.iconButton6.Text = "Veterinario";
             this.iconButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton6.UseVisualStyleBackColor = true;
+            this.iconButton6.Click += new System.EventHandler(this.iconButton6_Click);
             // 
             // iconButton4
             // 
@@ -327,13 +377,6 @@ namespace Proyecto_Taller_2
             this.iconButton2.TabIndex = 1;
             this.iconButton2.UseVisualStyleBackColor = false;
             // 
-            // customDataGrid1
-            // 
-            this.customDataGrid1.Location = new System.Drawing.Point(0, 0);
-            this.customDataGrid1.Name = "customDataGrid1";
-            this.customDataGrid1.Size = new System.Drawing.Size(620, 362);
-            this.customDataGrid1.TabIndex = 0;
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -350,6 +393,7 @@ namespace Proyecto_Taller_2
             this.navbar.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panelContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.customDataGrid1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.ResumeLayout(false);
 
