@@ -34,6 +34,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtApellido = new CustomControls.RJControls.RJTextBox();
             this.customButton3 = new Proyecto_Taller_2.CustomButton();
             this.customButton1 = new Proyecto_Taller_2.CustomButton();
             this.rjTextBox5 = new CustomControls.RJControls.RJTextBox();
@@ -57,7 +59,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(268, 67);
+            this.label2.Location = new System.Drawing.Point(90, 64);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 18);
@@ -69,7 +71,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(268, 133);
+            this.label1.Location = new System.Drawing.Point(460, 64);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(33, 18);
@@ -80,7 +82,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(268, 198);
+            this.label3.Location = new System.Drawing.Point(460, 152);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 18);
@@ -91,7 +93,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(268, 263);
+            this.label4.Location = new System.Drawing.Point(90, 252);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 18);
@@ -102,13 +104,47 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(268, 328);
+            this.label5.Location = new System.Drawing.Point(460, 252);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(232, 18);
             this.label5.TabIndex = 34;
             this.label5.Text = "Teléfono Alternativo (Opcional)";
             this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(94, 152);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(71, 18);
+            this.label6.TabIndex = 42;
+            this.label6.Text = "Apellido:";
+            // 
+            // txtApellido
+            // 
+            this.txtApellido.BackColor = System.Drawing.SystemColors.Window;
+            this.txtApellido.BorderColor = System.Drawing.Color.Black;
+            this.txtApellido.BorderFocusColor = System.Drawing.Color.Black;
+            this.txtApellido.BorderRadius = 8;
+            this.txtApellido.BorderSize = 1;
+            this.txtApellido.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtApellido.Location = new System.Drawing.Point(93, 192);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(4);
+            this.txtApellido.Multiline = true;
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtApellido.PasswordChar = false;
+            this.txtApellido.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtApellido.PlaceholderText = "Ingrese el apellido:";
+            this.txtApellido.Size = new System.Drawing.Size(250, 30);
+            this.txtApellido.TabIndex = 43;
+            this.txtApellido.Texts = "";
+            this.txtApellido.UnderlinedStyle = false;
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // customButton3
             // 
@@ -120,7 +156,7 @@
             this.customButton3.FlatAppearance.BorderSize = 0;
             this.customButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.customButton3.ForeColor = System.Drawing.Color.Black;
-            this.customButton3.Location = new System.Drawing.Point(237, 411);
+            this.customButton3.Location = new System.Drawing.Point(463, 370);
             this.customButton3.Name = "customButton3";
             this.customButton3.Size = new System.Drawing.Size(96, 31);
             this.customButton3.TabIndex = 41;
@@ -139,7 +175,7 @@
             this.customButton1.FlatAppearance.BorderSize = 0;
             this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.customButton1.ForeColor = System.Drawing.Color.White;
-            this.customButton1.Location = new System.Drawing.Point(478, 411);
+            this.customButton1.Location = new System.Drawing.Point(617, 370);
             this.customButton1.Name = "customButton1";
             this.customButton1.Size = new System.Drawing.Size(96, 31);
             this.customButton1.TabIndex = 37;
@@ -157,7 +193,7 @@
             this.rjTextBox5.BorderSize = 1;
             this.rjTextBox5.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTextBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox5.Location = new System.Drawing.Point(271, 350);
+            this.rjTextBox5.Location = new System.Drawing.Point(463, 294);
             this.rjTextBox5.Margin = new System.Windows.Forms.Padding(4);
             this.rjTextBox5.Multiline = true;
             this.rjTextBox5.Name = "rjTextBox5";
@@ -181,7 +217,7 @@
             this.rjTextBox4.BorderSize = 1;
             this.rjTextBox4.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTextBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox4.Location = new System.Drawing.Point(271, 285);
+            this.rjTextBox4.Location = new System.Drawing.Point(93, 294);
             this.rjTextBox4.Margin = new System.Windows.Forms.Padding(4);
             this.rjTextBox4.Multiline = true;
             this.rjTextBox4.Name = "rjTextBox4";
@@ -205,7 +241,7 @@
             this.rjTextBox3.BorderSize = 1;
             this.rjTextBox3.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTextBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox3.Location = new System.Drawing.Point(271, 220);
+            this.rjTextBox3.Location = new System.Drawing.Point(463, 192);
             this.rjTextBox3.Margin = new System.Windows.Forms.Padding(4);
             this.rjTextBox3.Multiline = true;
             this.rjTextBox3.Name = "rjTextBox3";
@@ -229,7 +265,7 @@
             this.rjTextBox2.BorderSize = 1;
             this.rjTextBox2.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox2.Location = new System.Drawing.Point(271, 155);
+            this.rjTextBox2.Location = new System.Drawing.Point(463, 99);
             this.rjTextBox2.Margin = new System.Windows.Forms.Padding(4);
             this.rjTextBox2.Multiline = true;
             this.rjTextBox2.Name = "rjTextBox2";
@@ -253,7 +289,7 @@
             this.rjTextBox1.BorderSize = 1;
             this.rjTextBox1.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox1.Location = new System.Drawing.Point(271, 89);
+            this.rjTextBox1.Location = new System.Drawing.Point(93, 99);
             this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.rjTextBox1.Multiline = true;
             this.rjTextBox1.Name = "rjTextBox1";
@@ -273,6 +309,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.txtApellido);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.customButton3);
             this.Controls.Add(this.customButton1);
             this.Controls.Add(this.label5);
@@ -309,5 +347,7 @@
         private System.Windows.Forms.Label label5;
         private CustomButton customButton1;
         private CustomButton customButton3;
+        private System.Windows.Forms.Label label6;
+        private CustomControls.RJControls.RJTextBox txtApellido;
     }
 }

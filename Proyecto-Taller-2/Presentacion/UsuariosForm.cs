@@ -16,13 +16,15 @@ namespace Proyecto_Taller_2.Presentacion
         private MiDbContext _context;
         private int _idUsuario;
         private bool _esEdicion = false;
-        private string _rutaImagenSeleccionada = ""; 
+        private string _rutaImagenSeleccionada = "";
 
         public UsuariosForm()
         {
             InitializeComponent();
             _context = new MiDbContext();
             _esEdicion = false;
+            txtNombre.KeyPress += SoloLetras_KeyPress;
+            txtApellido.KeyPress += SoloLetras_KeyPress;
         }
 
         public UsuariosForm(int idUsuario) : this()
@@ -30,6 +32,14 @@ namespace Proyecto_Taller_2.Presentacion
             _idUsuario = idUsuario;
             _esEdicion = true;
             CargarDatosUsuario();
+        }
+
+        private void SoloLetras_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
+            {
+                e.Handled = true; 
+            }
         }
 
         private void CrearUsuario()
@@ -42,12 +52,13 @@ namespace Proyecto_Taller_2.Presentacion
                 var nuevoUsuario = new Usuario
                 {
                     nombre = txtNombre.Texts.Trim(),
+                    apellido = txtApellido.Texts.Trim(),
                     correo = txtCorreo.Texts.Trim(),
                     contraseña = txtContraseña.Texts,
                     rolId = (int)comboBoxRol.SelectedValue,
                     fecha_creacion = DateTime.Now,
-                    imagen_perfil = _rutaImagenSeleccionada, 
-                    activo = true 
+                    imagen_perfil = _rutaImagenSeleccionada,
+                    activo = true
                 };
 
                 _context.Usuario.Add(nuevoUsuario);
@@ -71,6 +82,7 @@ namespace Proyecto_Taller_2.Presentacion
                 if (usuario != null)
                 {
                     txtNombre.Texts = usuario.nombre;
+                    txtApellido.Texts = usuario.apellido;
                     txtCorreo.Texts = usuario.correo;
                     txtContraseña.Texts = usuario.contraseña;
                     comboBoxRol.SelectedValue = usuario.rolId;
@@ -112,10 +124,11 @@ namespace Proyecto_Taller_2.Presentacion
                 if (usuario != null)
                 {
                     usuario.nombre = txtNombre.Texts.Trim();
+                    usuario.apellido = txtApellido.Texts.Trim();
                     usuario.correo = txtCorreo.Texts.Trim();
                     usuario.contraseña = txtContraseña.Texts;
                     usuario.rolId = (int)comboBoxRol.SelectedValue;
-                    usuario.imagen_perfil = _rutaImagenSeleccionada; 
+                    usuario.imagen_perfil = _rutaImagenSeleccionada;
 
                     _context.SaveChanges();
                     MessageBox.Show("Usuario actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -139,6 +152,13 @@ namespace Proyecto_Taller_2.Presentacion
             {
                 MessageBox.Show("El nombre es obligatorio.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtNombre.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtApellido.Texts))
+            {
+                MessageBox.Show("El apellido es obligatorio.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtApellido.Focus();
                 return false;
             }
 

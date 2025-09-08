@@ -22,9 +22,6 @@ namespace Proyecto_Taller_2
             txtPeso.KeyPress += txtPeso_KeyPress;
         }
 
-
-
-
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
@@ -35,9 +32,20 @@ namespace Proyecto_Taller_2
 
         private void txtPeso_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            TextBox textBox = sender as TextBox;
+
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
             {
                 e.Handled = true;
+                return;
+            }
+
+            if (e.KeyChar == '.' && textBox != null)
+            {
+                if (textBox.Text.Contains("."))
+                {
+                    e.Handled = true; 
+                }
             }
         }
         private void btnGuardar_Click(object sender, EventArgs e)

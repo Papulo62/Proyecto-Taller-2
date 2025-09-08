@@ -34,7 +34,6 @@ namespace Proyecto_Taller_2
 
         private void customButton1_Click(object sender, EventArgs e)
         {
-            // Validar Nombre
             if (string.IsNullOrWhiteSpace(rjTextBox1.Texts))
             {
                 MessageBox.Show("Por favor, ingrese el nombre del propietario.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -42,7 +41,13 @@ namespace Proyecto_Taller_2
                 return;
             }
 
-            // Validar DNI
+            if (string.IsNullOrWhiteSpace(txtApellido.Texts))
+            {
+                MessageBox.Show("Por favor, ingrese el apellido del propietario.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtApellido.Focus();
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(rjTextBox2.Texts) || !long.TryParse(rjTextBox2.Texts, out _) || rjTextBox2.Texts.Length < 7)
             {
                 MessageBox.Show("Ingrese un DNI válido (solo números, mínimo 7 dígitos).", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -50,7 +55,6 @@ namespace Proyecto_Taller_2
                 return;
             }
 
-            // Validar Teléfono
             if (string.IsNullOrWhiteSpace(rjTextBox3.Texts))
             {
                 MessageBox.Show("Ingrese el numero de teléfono del propietario.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -58,7 +62,6 @@ namespace Proyecto_Taller_2
                 return;
             }
 
-            // Validar Dirección
             if (string.IsNullOrWhiteSpace(rjTextBox4.Texts) || !int.TryParse(rjTextBox4.Texts, out _))
             {
                 MessageBox.Show("Ingrese una dirección válida .", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -66,7 +69,6 @@ namespace Proyecto_Taller_2
                 return;
             }
 
-            // Si pasa todas las validaciones
             MessageBox.Show("✅ Propietario registrado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -99,9 +101,18 @@ namespace Proyecto_Taller_2
         {
             if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
             {
-                e.Handled = true; // Bloquea el caracter
+                e.Handled = true;
             }
         }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
+            {
+                e.Handled = true;
+            }
+        }
+
 
         private void rjTextBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -156,5 +167,6 @@ namespace Proyecto_Taller_2
                 formPrincipal.CargarUserControl(new Propietarios());
             }
         }
+
     }
 }

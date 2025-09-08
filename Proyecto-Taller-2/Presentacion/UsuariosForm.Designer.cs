@@ -44,6 +44,8 @@ namespace Proyecto_Taller_2.Presentacion
             this.txtNombre = new CustomControls.RJControls.RJTextBox();
             this.txtCorreo = new CustomControls.RJControls.RJTextBox();
             this.pictureBoxPerfil = new System.Windows.Forms.PictureBox();
+            this.labelApellido = new System.Windows.Forms.Label();
+            this.txtApellido = new CustomControls.RJControls.RJTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPerfil)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +73,7 @@ namespace Proyecto_Taller_2.Presentacion
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(168, 367);
+            this.label2.Location = new System.Drawing.Point(168, 452);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 18);
             this.label2.TabIndex = 3;
@@ -82,7 +84,7 @@ namespace Proyecto_Taller_2.Presentacion
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(168, 175);
+            this.label4.Location = new System.Drawing.Point(168, 272);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 18);
             this.label4.TabIndex = 4;
@@ -92,7 +94,7 @@ namespace Proyecto_Taller_2.Presentacion
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(168, 272);
+            this.label5.Location = new System.Drawing.Point(168, 367);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 18);
             this.label5.TabIndex = 5;
@@ -112,7 +114,7 @@ namespace Proyecto_Taller_2.Presentacion
             // 
             this.comboBoxRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxRol.FormattingEnabled = true;
-            this.comboBoxRol.Location = new System.Drawing.Point(171, 416);
+            this.comboBoxRol.Location = new System.Drawing.Point(171, 489);
             this.comboBoxRol.Name = "comboBoxRol";
             this.comboBoxRol.Size = new System.Drawing.Size(250, 24);
             this.comboBoxRol.TabIndex = 11;
@@ -127,7 +129,7 @@ namespace Proyecto_Taller_2.Presentacion
             this.btnGuardar.FlatAppearance.BorderSize = 0;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(629, 463);
+            this.btnGuardar.Location = new System.Drawing.Point(629, 521);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(94, 40);
             this.btnGuardar.TabIndex = 13;
@@ -146,7 +148,7 @@ namespace Proyecto_Taller_2.Presentacion
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.Color.Black;
-            this.btnClose.Location = new System.Drawing.Point(535, 463);
+            this.btnClose.Location = new System.Drawing.Point(535, 521);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(88, 40);
             this.btnClose.TabIndex = 12;
@@ -183,7 +185,7 @@ namespace Proyecto_Taller_2.Presentacion
             this.txtContraseña.BorderSize = 1;
             this.txtContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContraseña.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtContraseña.Location = new System.Drawing.Point(171, 311);
+            this.txtContraseña.Location = new System.Drawing.Point(171, 402);
             this.txtContraseña.Margin = new System.Windows.Forms.Padding(4);
             this.txtContraseña.Multiline = true;
             this.txtContraseña.Name = "txtContraseña";
@@ -227,7 +229,7 @@ namespace Proyecto_Taller_2.Presentacion
             this.txtCorreo.BorderSize = 1;
             this.txtCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCorreo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtCorreo.Location = new System.Drawing.Point(171, 212);
+            this.txtCorreo.Location = new System.Drawing.Point(171, 308);
             this.txtCorreo.Margin = new System.Windows.Forms.Padding(4);
             this.txtCorreo.Multiline = true;
             this.txtCorreo.Name = "txtCorreo";
@@ -250,11 +252,45 @@ namespace Proyecto_Taller_2.Presentacion
             this.pictureBoxPerfil.TabIndex = 15;
             this.pictureBoxPerfil.TabStop = false;
             // 
+            // labelApellido
+            // 
+            this.labelApellido.AutoSize = true;
+            this.labelApellido.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelApellido.Location = new System.Drawing.Point(168, 168);
+            this.labelApellido.Name = "labelApellido";
+            this.labelApellido.Size = new System.Drawing.Size(71, 18);
+            this.labelApellido.TabIndex = 16;
+            this.labelApellido.Text = "Apellido:";
+            // 
+            // txtApellido
+            // 
+            this.txtApellido.BackColor = System.Drawing.SystemColors.Window;
+            this.txtApellido.BorderColor = System.Drawing.Color.Black;
+            this.txtApellido.BorderFocusColor = System.Drawing.Color.Black;
+            this.txtApellido.BorderRadius = 8;
+            this.txtApellido.BorderSize = 1;
+            this.txtApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtApellido.Location = new System.Drawing.Point(171, 203);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(4);
+            this.txtApellido.Multiline = true;
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtApellido.PasswordChar = false;
+            this.txtApellido.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtApellido.PlaceholderText = "";
+            this.txtApellido.Size = new System.Drawing.Size(250, 30);
+            this.txtApellido.TabIndex = 17;
+            this.txtApellido.Texts = "";
+            this.txtApellido.UnderlinedStyle = false;
+            // 
             // UsuariosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.txtApellido);
+            this.Controls.Add(this.labelApellido);
             this.Controls.Add(this.pictureBoxPerfil);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnClose);
@@ -294,5 +330,7 @@ namespace Proyecto_Taller_2.Presentacion
         private CustomButton btnClose;
         private CustomButton btnGuardar;
         private System.Windows.Forms.PictureBox pictureBoxPerfil;
+        private System.Windows.Forms.Label labelApellido;
+        private CustomControls.RJControls.RJTextBox txtApellido;
     }
 }

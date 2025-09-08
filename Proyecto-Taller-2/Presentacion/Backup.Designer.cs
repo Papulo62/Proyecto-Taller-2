@@ -30,7 +30,6 @@ namespace Proyecto_Taller_2.Presentacion
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.customButton1 = new Proyecto_Taller_2.CustomButton();
             this.label2 = new System.Windows.Forms.Label();
             this.customButton2 = new Proyecto_Taller_2.CustomButton();
             this.textBoxBackup = new CustomControls.RJControls.RJTextBox();
@@ -45,24 +44,6 @@ namespace Proyecto_Taller_2.Presentacion
             this.label1.Size = new System.Drawing.Size(152, 50);
             this.label1.TabIndex = 0;
             this.label1.Text = "Backup";
-            // 
-            // customButton1
-            // 
-            this.customButton1.BackColor = System.Drawing.Color.DarkGray;
-            this.customButton1.BackgroundColor = System.Drawing.Color.DarkGray;
-            this.customButton1.BorderColor = System.Drawing.Color.Silver;
-            this.customButton1.BorderRadius = 8;
-            this.customButton1.BorderSize = 0;
-            this.customButton1.FlatAppearance.BorderSize = 0;
-            this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.customButton1.ForeColor = System.Drawing.Color.Black;
-            this.customButton1.Location = new System.Drawing.Point(308, 269);
-            this.customButton1.Name = "customButton1";
-            this.customButton1.Size = new System.Drawing.Size(113, 40);
-            this.customButton1.TabIndex = 1;
-            this.customButton1.Text = "Cancelar";
-            this.customButton1.TextColor = System.Drawing.Color.Black;
-            this.customButton1.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
@@ -84,13 +65,14 @@ namespace Proyecto_Taller_2.Presentacion
             this.customButton2.FlatAppearance.BorderSize = 0;
             this.customButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.customButton2.ForeColor = System.Drawing.Color.White;
-            this.customButton2.Location = new System.Drawing.Point(154, 269);
+            this.customButton2.Location = new System.Drawing.Point(428, 138);
             this.customButton2.Name = "customButton2";
-            this.customButton2.Size = new System.Drawing.Size(124, 40);
+            this.customButton2.Size = new System.Drawing.Size(124, 30);
             this.customButton2.TabIndex = 4;
             this.customButton2.Text = "Backup";
             this.customButton2.TextColor = System.Drawing.Color.White;
             this.customButton2.UseVisualStyleBackColor = false;
+            this.customButton2.Click += new System.EventHandler(this.customButton2_Click);
             // 
             // textBoxBackup
             // 
@@ -122,12 +104,12 @@ namespace Proyecto_Taller_2.Presentacion
             this.Controls.Add(this.textBoxBackup);
             this.Controls.Add(this.customButton2);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.customButton1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Inter", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Backup";
             this.Size = new System.Drawing.Size(1045, 737);
+            this.Load += new System.EventHandler(this.Backup_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,7 +118,6 @@ namespace Proyecto_Taller_2.Presentacion
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private CustomButton customButton1;
         private System.Windows.Forms.Label label2;
         private CustomButton customButton2;
         private CustomControls.RJControls.RJTextBox textBoxBackup;

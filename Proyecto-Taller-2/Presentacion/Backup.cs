@@ -17,7 +17,21 @@ namespace Proyecto_Taller_2.Presentacion
             InitializeComponent();
         }
 
-        private void customButton1_Click(object sender, EventArgs e)
+       
+
+        private void rjTextBox1__TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Backup_Load(object sender, EventArgs e)
+        {
+
+        }
+
+       
+
+        private void customButton2_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(textBoxBackup.Texts))
             {
@@ -27,22 +41,6 @@ namespace Proyecto_Taller_2.Presentacion
             }
 
             MessageBox.Show("Backuo generado correctamente ✅", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void customButton3_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show(
-            "¿Seguro que desea salir sin guardar el backup?",
-            "Confirmar salida",
-             MessageBoxButtons.YesNo,
-             MessageBoxIcon.Question
-        );
-
-        }
-
-        private void rjTextBox1__TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

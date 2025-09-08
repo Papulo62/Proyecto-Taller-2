@@ -18,6 +18,7 @@ namespace Proyecto_Taller_2.Models
         [Column("nombre")]
         public string nombre { get; set; }
 
+
         [Column("imagen_perfil")]
         public string imagen_perfil { get; set; }
 
@@ -35,5 +36,10 @@ namespace Proyecto_Taller_2.Models
 
         [Column("activo")]
         public bool activo { get; set; }
+
+        [Column("apellido")]
+        public string apellido { get; set; }
     }
+
+    
 }

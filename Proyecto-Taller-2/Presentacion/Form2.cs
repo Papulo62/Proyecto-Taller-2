@@ -46,18 +46,21 @@ namespace Proyecto_Taller_2
                     btnPropietarios.Visible = false; 
                     btnUsuarios.Visible = false;
                     btnVeterinario.Visible = false;  
-                    btnTurnos.Visible = true;   
-                    btnReportes.Visible = true; 
-                    btnMascotas.Visible = true; 
+                    btnTurnos.Visible = false;   
+                    btnReportes.Visible = false; 
+                    btnMascotas.Visible = false;
+                    btnBackup.Visible = false;
                 }
             
                 else if (usuarioLogueado.rolId == 3)
                 {
-                    
-                    btnPropietarios.Visible = false; 
+                    btnBackup.Visible = false;
+                    btnConsultas.Visible = false;
+                    btnPropietarios.Visible = true; 
                     btnUsuarios.Visible = false; 
-                    btnVeterinario.Visible = true;   
-                    btnTurnos.Visible = false;  
+                    btnVeterinario.Visible = false;   
+                    btnTurnos.Visible = true;
+                    btnVacunas.Visible = false;
                     btnReportes.Visible = false; 
                     btnMascotas.Visible = true;   
                 }
