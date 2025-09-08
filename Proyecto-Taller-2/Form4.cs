@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Proyecto_Taller_2
 {
-    public partial class Form4 : Form
+    public partial class Form4 : UserControl
     {
         public Form4()
         {
@@ -103,6 +103,11 @@ namespace Proyecto_Taller_2
             {
                 e.Handled = true; // Bloquea el caracter
             }
+        }
+
+        private void Form4_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

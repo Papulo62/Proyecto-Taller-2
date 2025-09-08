@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Proyecto_Taller_2
 {
-    public partial class Form3 : Form
+    public partial class Form3 : UserControl
     {
         public Form3()
         {
