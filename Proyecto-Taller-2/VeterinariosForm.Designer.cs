@@ -1,6 +1,6 @@
 ﻿namespace Proyecto_Taller_2
 {
-    partial class Form4
+    partial class VeterinariosForm
     {
         /// <summary>
         /// Required designer variable.
@@ -53,6 +53,7 @@
             this.label8.Size = new System.Drawing.Size(303, 45);
             this.label8.TabIndex = 21;
             this.label8.Text = "Nuevo Veterinario";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label2
             // 
@@ -261,12 +262,11 @@
             this.rjTextBox1._TextChanged += new System.EventHandler(this.rjTextBox1__TextChanged);
             this.rjTextBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rjTextBox1_KeyPress);
             // 
-            // Form4
+            // VeterinariosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.customButton3);
             this.Controls.Add(this.customButton2);
             this.Controls.Add(this.pictureBox1);
@@ -280,8 +280,8 @@
             this.Controls.Add(this.rjTextBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label8);
-            this.Name = "Form4";
-            this.Text = "Form4";
+            this.Name = "VeterinariosForm";
+            this.Size = new System.Drawing.Size(800, 450);
             this.Load += new System.EventHandler(this.Form4_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
