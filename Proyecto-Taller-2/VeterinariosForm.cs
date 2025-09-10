@@ -41,12 +41,12 @@ namespace Proyecto_Taller_2
             }
 
             // Validar Especialidad
-            if (string.IsNullOrWhiteSpace(rjTextBox3.Texts))
+            /*if (string.IsNullOrWhiteSpace(rjTextBox3.Texts))
             {
                 MessageBox.Show("Ingrese la especialidad del veterinario.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 rjTextBox3.Focus();
                 return;
-            }
+            }*/
 
             // Validar Matrícula
             if (string.IsNullOrWhiteSpace(rjTextBox4.Texts) || !int.TryParse(rjTextBox4.Texts, out _))
@@ -113,6 +113,16 @@ namespace Proyecto_Taller_2
         private void label8_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customButton3_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

@@ -34,11 +34,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.customButton3 = new Proyecto_Taller_2.CustomButton();
             this.customButton2 = new Proyecto_Taller_2.CustomButton();
             this.customButton1 = new Proyecto_Taller_2.CustomButton();
             this.rjTextBox4 = new CustomControls.RJControls.RJTextBox();
-            this.rjTextBox3 = new CustomControls.RJControls.RJTextBox();
             this.rjTextBox2 = new CustomControls.RJControls.RJTextBox();
             this.rjTextBox1 = new CustomControls.RJControls.RJTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -111,6 +111,16 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(79, 284);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(250, 26);
+            this.comboBox1.TabIndex = 41;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // customButton3
             // 
             this.customButton3.BackColor = System.Drawing.SystemColors.ActiveBorder;
@@ -128,6 +138,7 @@
             this.customButton3.Text = "Cerrar";
             this.customButton3.TextColor = System.Drawing.Color.Black;
             this.customButton3.UseVisualStyleBackColor = false;
+            this.customButton3.Click += new System.EventHandler(this.customButton3_Click);
             // 
             // customButton2
             // 
@@ -191,29 +202,6 @@
             this.rjTextBox4._TextChanged += new System.EventHandler(this.rjTextBox4__TextChanged);
             this.rjTextBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rjTextBox4_KeyPress);
             // 
-            // rjTextBox3
-            // 
-            this.rjTextBox3.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox3.BorderColor = System.Drawing.Color.Black;
-            this.rjTextBox3.BorderFocusColor = System.Drawing.Color.Black;
-            this.rjTextBox3.BorderRadius = 8;
-            this.rjTextBox3.BorderSize = 1;
-            this.rjTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox3.Location = new System.Drawing.Point(79, 272);
-            this.rjTextBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox3.Multiline = true;
-            this.rjTextBox3.Name = "rjTextBox3";
-            this.rjTextBox3.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox3.PasswordChar = false;
-            this.rjTextBox3.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox3.PlaceholderText = "";
-            this.rjTextBox3.Size = new System.Drawing.Size(250, 30);
-            this.rjTextBox3.TabIndex = 31;
-            this.rjTextBox3.Texts = "";
-            this.rjTextBox3.UnderlinedStyle = false;
-            this.rjTextBox3._TextChanged += new System.EventHandler(this.rjTextBox3__TextChanged);
-            // 
             // rjTextBox2
             // 
             this.rjTextBox2.BackColor = System.Drawing.SystemColors.Window;
@@ -267,6 +255,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.customButton3);
             this.Controls.Add(this.customButton2);
             this.Controls.Add(this.pictureBox1);
@@ -274,7 +263,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.rjTextBox4);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.rjTextBox3);
             this.Controls.Add(this.rjTextBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rjTextBox1);
@@ -296,7 +284,6 @@
         private CustomControls.RJControls.RJTextBox rjTextBox1;
         private System.Windows.Forms.Label label1;
         private CustomControls.RJControls.RJTextBox rjTextBox2;
-        private CustomControls.RJControls.RJTextBox rjTextBox3;
         private System.Windows.Forms.Label label4;
         private CustomControls.RJControls.RJTextBox rjTextBox4;
         private System.Windows.Forms.Label label3;
@@ -304,5 +291,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private CustomButton customButton2;
         private CustomButton customButton3;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

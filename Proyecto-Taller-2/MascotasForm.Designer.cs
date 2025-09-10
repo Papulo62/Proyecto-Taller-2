@@ -60,7 +60,7 @@ namespace Proyecto_Taller_2
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(300, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(293, 50);
+            this.label1.Size = new System.Drawing.Size(288, 50);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nueva Mascota";
             // 
@@ -71,7 +71,7 @@ namespace Proyecto_Taller_2
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(131, 93);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 18);
+            this.label4.Size = new System.Drawing.Size(63, 18);
             this.label4.TabIndex = 4;
             this.label4.Text = "Nombre:";
             // 
@@ -91,7 +91,7 @@ namespace Proyecto_Taller_2
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(131, 166);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 18);
+            this.label2.Size = new System.Drawing.Size(63, 18);
             this.label2.TabIndex = 18;
             this.label2.Text = "Especie:";
             // 
@@ -102,7 +102,7 @@ namespace Proyecto_Taller_2
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(131, 239);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 18);
+            this.label3.Size = new System.Drawing.Size(44, 18);
             this.label3.TabIndex = 19;
             this.label3.Text = "Raza:";
             // 
@@ -131,7 +131,7 @@ namespace Proyecto_Taller_2
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(131, 311);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 18);
+            this.label5.Size = new System.Drawing.Size(45, 18);
             this.label5.TabIndex = 22;
             this.label5.Text = "Sexo:";
             // 
@@ -142,6 +142,7 @@ namespace Proyecto_Taller_2
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(250, 20);
             this.dateTimePicker1.TabIndex = 24;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // pictureBox1
             // 
@@ -162,9 +163,10 @@ namespace Proyecto_Taller_2
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(499, 386);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(160, 18);
+            this.label6.Size = new System.Drawing.Size(146, 18);
             this.label6.TabIndex = 26;
             this.label6.Text = "Fecha de nacimiento:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
@@ -173,7 +175,7 @@ namespace Proyecto_Taller_2
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(131, 386);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(157, 18);
+            this.label7.Size = new System.Drawing.Size(142, 18);
             this.label7.TabIndex = 27;
             this.label7.Text = "Estado reproductivo:";
             // 
@@ -275,7 +277,7 @@ namespace Proyecto_Taller_2
             this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(131, 461);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(48, 18);
+            this.label8.Size = new System.Drawing.Size(43, 18);
             this.label8.TabIndex = 32;
             this.label8.Text = "Peso:";
             this.label8.Click += new System.EventHandler(this.label8_Click);
@@ -287,7 +289,7 @@ namespace Proyecto_Taller_2
             this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(503, 461);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(90, 18);
+            this.label9.Size = new System.Drawing.Size(81, 18);
             this.label9.TabIndex = 33;
             this.label9.Text = "Está vivo?: ";
             // 

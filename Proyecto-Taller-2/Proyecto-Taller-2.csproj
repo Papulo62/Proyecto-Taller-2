@@ -40,6 +40,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -88,6 +89,24 @@
     </Compile>
     <Compile Include="PropietariosForm.Designer.cs">
       <DependentUpon>PropietariosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reportes.Designer.cs">
+      <DependentUpon>Reportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Turnos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Turnos.Designer.cs">
+      <DependentUpon>Turnos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TurnosForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TurnosForm.Designer.cs">
+      <DependentUpon>TurnosForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuarios.cs">
       <SubType>UserControl</SubType>
@@ -144,6 +163,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PropietariosForm.resx">
       <DependentUpon>PropietariosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes.resx">
+      <DependentUpon>Reportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Turnos.resx">
+      <DependentUpon>Turnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TurnosForm.resx">
+      <DependentUpon>TurnosForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
