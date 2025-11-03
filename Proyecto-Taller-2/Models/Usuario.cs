@@ -31,6 +31,9 @@ namespace Proyecto_Taller_2.Models
         [Column("id_rol")] 
         public int rolId { get; set; }
 
+        [ForeignKey("rolId")] // Usa la clave foránea definida arriba
+        public Rol Rol { get; set; } // Esto resuelve el error CS1061
+
         [Column("fecha_creacion")]
         public DateTime fecha_creacion { get; set; }
 

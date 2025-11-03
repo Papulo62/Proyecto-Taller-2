@@ -16,6 +16,8 @@ namespace Proyecto_Taller_2.Models
 
         public DbSet<Rol> Rol { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Mascota> Mascota { get; set; }
+        public DbSet<Veterinario> Veterinario { get; set; }
     }
 
     public sealed class Configuration : System.Data.Entity.Migrations.DbMigrationsConfiguration<MiDbContext>
