@@ -37,7 +37,7 @@ namespace Proyecto_Taller_2.Models
         public string EstadoReproductivo { get; set; }
 
         [Column("peso_en_kg")]
-        public float Peso { get; set; }
+        public decimal Peso { get; set; }
 
         [Column("activo")]
         public bool Activo { get; set; }

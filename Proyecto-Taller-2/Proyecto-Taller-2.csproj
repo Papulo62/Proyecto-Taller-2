@@ -205,6 +205,7 @@
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Consulta.cs" />
+    <Compile Include="Models\Especialidad.cs" />
     <Compile Include="Models\Especie.cs" />
     <Compile Include="Models\Mascota.cs" />
     <Compile Include="Models\MiDbContext.cs" />
@@ -316,11 +317,11 @@
     <Compile Include="Presentacion\VacunacionForm.Designer.cs">
       <DependentUpon>VacunacionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\Veterinario.cs">
+    <Compile Include="Presentacion\Veterinarios.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentacion\Veterinario.Designer.cs">
-      <DependentUpon>Veterinario.cs</DependentUpon>
+    <Compile Include="Presentacion\Veterinarios.Designer.cs">
+      <DependentUpon>Veterinarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\VeterinariosForm.cs">
       <SubType>UserControl</SubType>
@@ -393,10 +394,9 @@
     <EmbeddedResource Include="Presentacion\VacunacionForm.resx">
       <DependentUpon>VacunacionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\Veterinario.resx">
-      <DependentUpon>Veterinario.cs</DependentUpon>
+    <EmbeddedResource Include="Presentacion\Veterinarios.resx">
+      <DependentUpon>Veterinarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\Veterinarios.resx" />
     <EmbeddedResource Include="Presentacion\VeterinariosForm.resx">
       <DependentUpon>VeterinariosForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -49,7 +49,7 @@ namespace Proyecto_Taller_2.Presentacion
             this.label10 = new System.Windows.Forms.Label();
             this.txtSintomas = new CustomControls.RJControls.RJTextBox();
             this.btnClose = new Proyecto_Taller_2.CustomButton();
-            this.btnAdd = new Proyecto_Taller_2.CustomButton();
+            this.btnGuardar = new Proyecto_Taller_2.CustomButton();
             this.SuspendLayout();
             // 
             // label1
@@ -304,30 +304,31 @@ namespace Proyecto_Taller_2.Presentacion
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnAdd
+            // btnGuardar
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnAdd.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnAdd.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnAdd.BorderRadius = 8;
-            this.btnAdd.BorderSize = 0;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(631, 514);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(120, 40);
-            this.btnAdd.TabIndex = 23;
-            this.btnAdd.Text = "Guardar";
-            this.btnAdd.TextColor = System.Drawing.Color.White;
-            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnGuardar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnGuardar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnGuardar.BorderRadius = 8;
+            this.btnGuardar.BorderSize = 0;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.ForeColor = System.Drawing.Color.White;
+            this.btnGuardar.Location = new System.Drawing.Point(631, 514);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(120, 40);
+            this.btnGuardar.TabIndex = 23;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TextColor = System.Drawing.Color.White;
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // ConsultasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtSintomas);
             this.Controls.Add(this.label10);
@@ -380,6 +381,6 @@ namespace Proyecto_Taller_2.Presentacion
         private System.Windows.Forms.Label label10;
         private CustomControls.RJControls.RJTextBox txtSintomas;
         private CustomButton btnClose;
-        private CustomButton btnAdd;
+        private CustomButton btnGuardar;
     }
 }

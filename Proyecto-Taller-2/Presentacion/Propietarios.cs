@@ -43,11 +43,11 @@ namespace Proyecto_Taller_2
             catch (Exception ex)
             {
                 MessageBox.Show(
-       $"Error al cargar los propietarios:\n{ex.Message}\n\nDetalles internos:\n{ex.InnerException?.Message}",
-       "Error",
-       MessageBoxButtons.OK,
-       MessageBoxIcon.Error
-   );
+                    $"Error al cargar los propietarios:\n{ex.Message}\n\nDetalles internos:\n{ex.InnerException?.Message}",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
 
             }
         }

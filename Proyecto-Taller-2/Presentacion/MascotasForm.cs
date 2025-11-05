@@ -151,7 +151,7 @@ namespace Proyecto_Taller_2
                         id_raza = (int)cmbRaza.SelectedValue,
                         Sexo = cmbSexo.SelectedItem.ToString(),
                         EstadoReproductivo = cmbEstadoReproductivo.SelectedItem.ToString(),
-                        Peso = float.Parse(txtPeso.Texts),
+                        Peso = decimal.Parse(txtPeso.Texts),
                         FechaNacimiento = dptNacimiento.Value.Date,
                         id_propietario = (int)cmbPropietario.SelectedValue,
                         Activo = true

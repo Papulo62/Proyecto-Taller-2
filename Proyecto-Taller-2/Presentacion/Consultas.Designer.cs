@@ -34,20 +34,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewConsultas = new Proyecto_Taller_2.CustomDataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnConsultasAdd = new Proyecto_Taller_2.CustomButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.rjTextBox1 = new CustomControls.RJControls.RJTextBox();
+            this.btnEditar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsultas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,14 +78,8 @@
             this.dataGridViewConsultas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewConsultas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewConsultas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7,
-            this.Column8});
+            this.btnEditar,
+            this.btnEliminar});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Inter", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -115,46 +103,6 @@
             this.dataGridViewConsultas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewConsultas.Size = new System.Drawing.Size(844, 150);
             this.dataGridViewConsultas.TabIndex = 1;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Mascota";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Veterinario";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Fecha";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Motivo";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Sintomas";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Diagnostico";
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Tratamiento";
-            this.Column7.Name = "Column7";
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Proximo control";
-            this.Column8.Name = "Column8";
             // 
             // btnConsultasAdd
             // 
@@ -246,6 +194,22 @@
             this.rjTextBox1.Texts = "";
             this.rjTextBox1.UnderlinedStyle = false;
             // 
+            // btnEditar
+            // 
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.HeaderText = "Editar";
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseColumnTextForButtonValue = true;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.HeaderText = "Eliminar";
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseColumnTextForButtonValue = true;
+            // 
             // Consultas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -273,19 +237,13 @@
 
         private System.Windows.Forms.Label label1;
         private CustomDataGridView dataGridViewConsultas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private CustomButton btnConsultasAdd;
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
         private CustomControls.RJControls.RJTextBox rjTextBox1;
+        private System.Windows.Forms.DataGridViewButtonColumn btnEditar;
+        private System.Windows.Forms.DataGridViewButtonColumn btnEliminar;
     }
 }

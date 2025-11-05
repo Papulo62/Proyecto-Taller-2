@@ -12,21 +12,21 @@ namespace Proyecto_Taller_2.Models
     public class Veterinario
     {
         [Key]
+        [Column("id_veterinario")]
         public int IdVeterinario { get; set; }
 
-        // 🟢 Cambiar a PascalCase (Nombre)
-        public string Nombre { get; set; }
+        [Column("id_especialidad")]
+        public int id_especialidad { get; set; }
 
-        // 🟢 CAMBIO CRÍTICO: DNI está en mayúsculas en SQL
-        public string DNI { get; set; }
+        [Column("matricula")]
+        public string matricula { get; set; }
 
-        public string Especialidad { get; set; }
+        [Column("id_usuario")]
 
-        public string Matricula { get; set; }
+        public int id_usuario { get; set; }
 
-        public string Imagen { get; set; }
 
-        public bool Activo { get; set; }
+        public bool activo { get; set; }
 
         // Aquí puedes añadir propiedades de navegación (DbSet<Turno>) si las necesitas
         // public ICollection<Turno> Turnos { get; set; } = new List<Turno>();

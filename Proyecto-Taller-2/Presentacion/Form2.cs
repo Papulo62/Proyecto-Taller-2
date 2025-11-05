@@ -119,7 +119,7 @@ namespace Proyecto_Taller_2
 
         private void iconButton6_Click_1(object sender, EventArgs e)
         {
-            CargarUserControl(new Veterinario());
+            CargarUserControl(new Veterinarios());
         }
 
         private void iconButton9_Click(object sender, EventArgs e)

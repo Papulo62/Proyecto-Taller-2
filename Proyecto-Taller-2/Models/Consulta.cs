@@ -38,8 +38,6 @@ namespace Proyecto_Taller_2.Models
         [Column("proximo_control")]
         public DateTime proximo_control { get; set; }
 
-        [Column("url_archivo")]
-        public string url_archivo { get; set; }
 
         [Column("sintomas")]
         public string sintomas { get; set; }

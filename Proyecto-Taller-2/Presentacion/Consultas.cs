@@ -20,6 +20,8 @@ namespace Proyecto_Taller_2.Presentacion
         {
             InitializeComponent();
             _context = new MiDbContext();
+            CargarConsultas();
+            dataGridViewConsultas.CellContentClick += dataGridViewConsultas_CellContentClick;
         }
 
         private void Consultas_Load(object sender, EventArgs e)
@@ -33,6 +35,7 @@ namespace Proyecto_Taller_2.Presentacion
             try
             {
                 var lista = _context.Consulta.ToList();
+                MessageBox.Show(lista.Count.ToString());
                 dataGridViewConsultas.DataSource = lista;
 
             }

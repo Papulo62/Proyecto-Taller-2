@@ -27,6 +27,7 @@ namespace Proyecto_Taller_2.Presentacion
             InitializeComponent();
             _context = new MiDbContext();
             _esEdicion = false;
+            MostrarCombobox();
         }
 
         public ConsultasForm(int idConsulta) : this()
@@ -34,6 +35,35 @@ namespace Proyecto_Taller_2.Presentacion
             _idConsulta = idConsulta;
             _esEdicion = true;
             CargarDatosConsulta();
+        }
+
+        private void MostrarCombobox()
+        {
+            var mascotas = _context.Mascota.ToList();
+            comboBoxMascota.DataSource = mascotas;
+            comboBoxMascota.DisplayMember = "Nombre";
+            comboBoxMascota.ValueMember = "IdMascota";
+            comboBoxMascota.SelectedIndex = -1;
+
+            var veterinarios = _context.Veterinario
+      .Join(
+          _context.Usuario,
+          v => v.id_usuario,  
+          u => u.Id,              
+          (v, u) => new
+          {
+              v.IdVeterinario,
+              NombreCompleto = u.nombre + " " + u.apellido,
+              u.imagen_perfil
+          }
+      )
+      .ToList();
+
+            comboBoxVeterinario.DataSource = veterinarios;
+            comboBoxVeterinario.DisplayMember = "NombreCompleto";
+            comboBoxVeterinario.ValueMember = "IdVeterinario";
+            comboBoxVeterinario.SelectedIndex = -1;
+
         }
 
         private void ConsultasForm_Load(object sender, EventArgs e)
@@ -109,9 +139,9 @@ namespace Proyecto_Taller_2.Presentacion
                     fecha_consulta = dateTimePickerFecha.Value,
                     motivo = txtMotivo.Texts.Trim(),
                     diagnostico = txtDiagnostico.Texts.Trim(),
+                    tratamiento = txtTratamiento.Texts.Trim(),
                     sintomas = txtSintomas.Texts.Trim(),
                     proximo_control = dateTimePickerProxControl.Value,
-                    url_archivo = _rutaArchivoSeleccionado
                 };
 
                 _context.Consulta.Add(nuevaConsulta);
@@ -122,8 +152,23 @@ namespace Proyecto_Taller_2.Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al crear la consulta: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Exception inner = ex;
+                string detalles = "";
+
+                while (inner != null)
+                {
+                    detalles += $"→ {inner.Message}\n";
+                    inner = inner.InnerException;
+                }
+
+                MessageBox.Show(
+                    $"Error al crear la consulta:\n{ex.Message}\n\nDetalles internos:\n{detalles}",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
+
         }
 
         private void CargarDatosConsulta()
@@ -138,9 +183,9 @@ namespace Proyecto_Taller_2.Presentacion
                     dateTimePickerFecha.Value = consulta.fecha_consulta;
                     txtMotivo.Texts = consulta.motivo;
                     txtDiagnostico.Texts = consulta.diagnostico;
+                    txtTratamiento.Texts = consulta.tratamiento;
                     txtSintomas.Texts = consulta.sintomas;
                     dateTimePickerProxControl.Value = consulta.proximo_control;
-                    _rutaArchivoSeleccionado = consulta.url_archivo;
                 }
                 else
                 {
@@ -168,9 +213,9 @@ namespace Proyecto_Taller_2.Presentacion
                     consulta.fecha_consulta = dateTimePickerFecha.Value;
                     consulta.motivo = txtMotivo.Texts.Trim();
                     consulta.diagnostico = txtDiagnostico.Texts.Trim();
+                    consulta.tratamiento = txtTratamiento.Texts.Trim();
                     consulta.sintomas = txtSintomas.Texts.Trim();
                     consulta.proximo_control = dateTimePickerProxControl.Value;
-                    consulta.url_archivo = _rutaArchivoSeleccionado;
 
                     _context.SaveChanges();
 
@@ -188,28 +233,9 @@ namespace Proyecto_Taller_2.Presentacion
             }
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            if (_esEdicion)
-                ActualizarConsulta();
-            else
-                CrearConsulta();
-        }
+      
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show(
-                "¿Seguro que desea salir sin guardar los cambios?",
-                "Confirmar salida",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
-
-            if (result == DialogResult.Yes)
-            {
-                Navegar<Consultas>();
-            }
-        }
+    
 
         private void btnArchivo_Click(object sender, EventArgs e)
         {
@@ -239,6 +265,14 @@ namespace Proyecto_Taller_2.Presentacion
             {
                 Navegar<Consultas>();
             }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (_esEdicion)
+                ActualizarConsulta();
+            else
+                CrearConsulta();
         }
     }
 }

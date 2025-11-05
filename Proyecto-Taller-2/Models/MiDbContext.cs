@@ -26,7 +26,7 @@ namespace Proyecto_Taller_2.Models
         public DbSet<Estado> Estado { get; set; }*/
         public DbSet<Especie> Especie { get; set; }
         public DbSet<Veterinario> Veterinario { get; set; }
-        //public DbSet<Especialidad> Especialidad { get; set; }
+        public DbSet<Especialidad> Especialidad { get; set; }
 
     }
 
