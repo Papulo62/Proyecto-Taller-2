@@ -1,4 +1,5 @@
 ﻿using Proyecto_Taller_2.Models;
+using Proyecto_Taller_2.Presentacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Proyecto_Taller_2
 {
-    public partial class Mascotas : UserControl
+    public partial class Mascotas : BaseUserControl
     {
 
         private MiDbContext _context;
@@ -24,11 +25,10 @@ namespace Proyecto_Taller_2
         {
             InitializeComponent();
             _context = new MiDbContext();
-
-
-            // Eventos
+        // Eventos
             txtBuscar.Controls[0].KeyDown += txtBuscar_KeyDown;
             btnBuscar.Click += btnBuscar_Click;
+            AplicarFiltros();
         }
 
         private void Filtro_SelectedIndexChanged(object sender, EventArgs e)
@@ -117,7 +117,8 @@ namespace Proyecto_Taller_2
                         Nombre = m.Nombre,
                         Sexo = m.Sexo,
                         Raza = r.nombre_raza,
-                        Especie = e.nombre_especie
+                        Especie = e.nombre_especie,
+                        Peso = m.Peso,
                     };
 
                 // 🔹 A. Filtrar por sexo
@@ -225,12 +226,11 @@ namespace Proyecto_Taller_2
             try
             {
 
-
                 int idMascota = (int)customDataGridView1.Rows[e.RowIndex].Cells["IdMascota"].Value;
 
                 if (e.ColumnIndex == 0)
                 {
-                    EditarMascota?.Invoke(idMascota);
+                    Navegar(new MascotasForm(idMascota));
                 }
                 else if (e.ColumnIndex == 1)
                 {
@@ -250,6 +250,10 @@ namespace Proyecto_Taller_2
             {
                 MessageBox.Show($"Error: {ex.Message}");
             }
+        }
+        private void btnUserAdd_Click(object sender, EventArgs e)
+        {
+            Navegar<MascotasForm>();
         }
     }
 }

@@ -137,11 +137,11 @@ namespace Proyecto_Taller_2
 
                 // C. APLICAR ORDENACIÓN POR FECHA DE CREACIÓN
                 // 🟢 CORRECCIÓN: Usar el nombre exacto del modelo (fecha_creacion)
-                if (ordenFecha == "Más Nuevo")
+                if (ordenFecha == "Ordenar de mas nuevo")
                 {
                     query = query.OrderByDescending(u => u.fecha_creacion);
                 }
-                else if (ordenFecha == "Más Antiguo")
+                else if (ordenFecha == "Ordenar de mas antiguo")
                 {
                     query = query.OrderBy(u => u.fecha_creacion);
                 }

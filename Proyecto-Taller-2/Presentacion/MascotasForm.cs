@@ -1,41 +1,49 @@
-﻿using System;
+﻿using Proyecto_Taller_2.Models;
+using Proyecto_Taller_2.Presentacion;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Proyecto_Taller_2.Models;
-using Proyecto_Taller_2.Presentacion;
+using Proyecto_Taller_2.Utils;
 
 namespace Proyecto_Taller_2
 {
-    public partial class MascotasForm : UserControl
+    public partial class MascotasForm : BaseUserControl
     {
-
         private MiDbContext _context;
+        private bool _esEdicion = false;
+        private int _idMascota;
+        private string _rutaImagenSeleccionada = "";
         public MascotasForm()
         {
             InitializeComponent();
             txtNombre.KeyPress += txtNombre_KeyPress;
             txtPeso.KeyPress += txtPeso_KeyPress;
             this.btnAgregarFoto.Click += new System.EventHandler(this.btnAgregarFoto_Click);
-            cmbVivo.SelectedIndex = 0;
             _context = new MiDbContext();
+            cmbVivo.SelectedIndex = 0;
+            _esEdicion = false;
             mostrarCombobox();
         }
 
-        private int _idMascota;
-        private bool _esEdicion = false;
-        private string rutaImagenSeleccionada = "";
+        public MascotasForm(int idUsuario) : this()
+        {
+            _idMascota = idUsuario;
+            _esEdicion = true;
+            CargarDatosMascota();
+        }
 
         private void mostrarCombobox()
         {
             var razas = _context.Raza.ToList();
             cmbRaza.DataSource = razas;
-            cmbRaza.DisplayMember = "nombre_raza"; 
+            cmbRaza.DisplayMember = "nombre_raza";
             cmbRaza.ValueMember = "id_raza";
             cmbRaza.SelectedIndex = -1;
 
@@ -49,7 +57,7 @@ namespace Proyecto_Taller_2
 
             cmbPropietario.DataSource = propietarios;
             cmbPropietario.DisplayMember = "NombreCompleto";
-            cmbPropietario.ValueMember = "Id";  
+            cmbPropietario.ValueMember = "Id";
             cmbPropietario.SelectedIndex = -1;
         }
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -78,6 +86,59 @@ namespace Proyecto_Taller_2
                 }
             }
         }
+
+        private void CargarDatosMascota()
+        {
+            try
+            {
+                var mascota = _context.Mascota.Find(_idMascota);
+                if (mascota != null)
+                {
+                    txtNombre.Texts = mascota.Nombre;
+                    cmbRaza.SelectedValue = mascota.id_raza;
+                    int indexSexo = cmbSexo.FindStringExact(mascota.Sexo);
+                    if (indexSexo != -1)
+                    {
+                        cmbSexo.SelectedIndex = indexSexo; // 2. Asigna la posición encontrada
+                    }
+                    int indexEstado = cmbEstadoReproductivo.FindStringExact(mascota.EstadoReproductivo);
+                    if (indexEstado != -1)
+                    {
+                        cmbEstadoReproductivo.SelectedIndex = indexEstado; // Asigna la posición encontrada
+                    }
+                    txtPeso.Texts = mascota.Peso.ToString(CultureInfo.InvariantCulture);
+                    cmbPropietario.SelectedValue = mascota.id_propietario;
+                    dptNacimiento.Value = mascota.FechaNacimiento;
+                    cmbVivo.SelectedValue = mascota.Activo ? "Sí" : "No";   
+
+                    if (!string.IsNullOrEmpty(mascota.foto))
+                    {
+                        _rutaImagenSeleccionada = mascota.foto;
+                        try
+                        {
+                            if (System.IO.File.Exists(mascota.foto))
+                            {
+                                picFoto.Image = Image.FromFile(mascota.foto);
+                            }
+                        }
+                        catch
+                        {
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("La mascota no existe.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar los datos del la mascota: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        
+
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtNombre.Texts))
@@ -145,6 +206,7 @@ namespace Proyecto_Taller_2
             {
                 using (var context = new MiDbContext())
                 {
+
                     Mascota nuevaMascota = new Mascota
                     {
                         Nombre = txtNombre.Texts.Trim(),
@@ -154,6 +216,7 @@ namespace Proyecto_Taller_2
                         Peso = decimal.Parse(txtPeso.Texts),
                         FechaNacimiento = dptNacimiento.Value.Date,
                         id_propietario = (int)cmbPropietario.SelectedValue,
+                        
                         Activo = true
                     };
 
@@ -207,21 +270,24 @@ namespace Proyecto_Taller_2
 
         private void btnAgregarFoto_Click(object sender, EventArgs e)
         {
-            // Crear el diálogo para seleccionar archivos
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Title = "Seleccionar imagen de perfil";
-            dialog.Filter = "Archivos de imagen (*.jpg; *.jpeg; *.png; *.bmp)|*.jpg;*.jpeg;*.png;*.bmp";
-            dialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
-
-            // Mostrar el diálogo
-            if (dialog.ShowDialog() == DialogResult.OK)
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                // Mostrar la imagen seleccionada en el PictureBox
-                picFoto.Image = Image.FromFile(dialog.FileName);
-                picFoto.SizeMode = PictureBoxSizeMode.Zoom;
+                openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+                openFileDialog.Title = "Seleccionar imagen de perfil";
 
-                // Guardar la ruta (por si querés usarla después)
-                rutaImagenSeleccionada = dialog.FileName;
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        _rutaImagenSeleccionada = openFileDialog.FileName;
+
+                        picFoto.Image = Image.FromFile(openFileDialog.FileName);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al cargar la imagen: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
 
