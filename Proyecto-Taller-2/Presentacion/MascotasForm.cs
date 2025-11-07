@@ -1,16 +1,14 @@
-﻿using Proyecto_Taller_2.Models;
-using Proyecto_Taller_2.Presentacion;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Proyecto_Taller_2.Utils;
+using Proyecto_Taller_2.Models;
+using Proyecto_Taller_2.Presentacion;
 
 namespace Proyecto_Taller_2
 {
@@ -42,8 +40,9 @@ namespace Proyecto_Taller_2
         private void mostrarCombobox()
         {
             var razas = _context.Raza.ToList();
+            MessageBox.Show($"Se encontraron {razas.Count} razas");
             cmbRaza.DataSource = razas;
-            cmbRaza.DisplayMember = "nombre_raza";
+            cmbRaza.DisplayMember = "nombre_raza"; 
             cmbRaza.ValueMember = "id_raza";
             cmbRaza.SelectedIndex = -1;
 
@@ -57,7 +56,7 @@ namespace Proyecto_Taller_2
 
             cmbPropietario.DataSource = propietarios;
             cmbPropietario.DisplayMember = "NombreCompleto";
-            cmbPropietario.ValueMember = "Id";
+            cmbPropietario.ValueMember = "Id";  
             cmbPropietario.SelectedIndex = -1;
         }
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -215,8 +214,6 @@ namespace Proyecto_Taller_2
                         EstadoReproductivo = cmbEstadoReproductivo.SelectedItem.ToString(),
                         Peso = decimal.Parse(txtPeso.Texts),
                         FechaNacimiento = dptNacimiento.Value.Date,
-                        id_propietario = (int)cmbPropietario.SelectedValue,
-                        
                         Activo = true
                     };
 

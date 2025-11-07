@@ -310,28 +310,6 @@ namespace Proyecto_Taller_2
             this.txtNombre.Texts = "";
             this.txtNombre.UnderlinedStyle = false;
             // 
-            // cmbPropietario
-            // 
-            this.cmbPropietario.DisplayMember = "nombre_raza";
-            this.cmbPropietario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbPropietario.FormattingEnabled = true;
-            this.cmbPropietario.Location = new System.Drawing.Point(134, 493);
-            this.cmbPropietario.Name = "cmbPropietario";
-            this.cmbPropietario.Size = new System.Drawing.Size(250, 24);
-            this.cmbPropietario.TabIndex = 36;
-            this.cmbPropietario.ValueMember = "id_raza";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(131, 461);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(175, 16);
-            this.label2.TabIndex = 37;
-            this.label2.Text = "Seleccionar Propietario:";
-            // 
             // MascotasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
