@@ -25,7 +25,7 @@ namespace Proyecto_Taller_2
         {
             InitializeComponent();
             _context = new MiDbContext();
-        // Eventos
+            // Eventos
             txtBuscar.Controls[0].KeyDown += txtBuscar_KeyDown;
             btnBuscar.Click += btnBuscar_Click;
             AplicarFiltros();
@@ -50,6 +50,9 @@ namespace Proyecto_Taller_2
             cmbFiltroEspecie.Items.Add("Ver Todo");
             cmbFiltroEspecie.Items.Add("Perro");
             cmbFiltroEspecie.Items.Add("Gato");
+            cmbFiltroEspecie.Items.Add("Ave");
+            cmbFiltroEspecie.Items.Add("Reptil");
+            cmbFiltroEspecie.Items.Add("Roedor");
             // Agrega aquí todas las demás especies que necesites
             cmbFiltroEspecie.SelectedIndex = 0; // Selecciona "Ver Todo"
         }

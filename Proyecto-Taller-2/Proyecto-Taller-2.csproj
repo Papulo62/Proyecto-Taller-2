@@ -209,11 +209,13 @@
     <Compile Include="Models\Consulta.cs" />
     <Compile Include="Models\Especialidad.cs" />
     <Compile Include="Models\Especie.cs" />
+    <Compile Include="Models\Estado.cs" />
     <Compile Include="Models\Mascota.cs" />
     <Compile Include="Models\MiDbContext.cs" />
     <Compile Include="Models\Propietario.cs" />
     <Compile Include="Models\Raza.cs" />
     <Compile Include="Models\Rol.cs" />
+    <Compile Include="Models\Turno.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Veterinario.cs" />
     <Compile Include="Presentacion\Backup.cs">
@@ -252,9 +254,7 @@
     <Compile Include="Presentacion\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\Mascotas.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Presentacion\Mascotas.cs" />
     <Compile Include="Presentacion\Mascotas.Designer.cs">
       <DependentUpon>Mascotas.cs</DependentUpon>
     </Compile>
@@ -289,9 +289,7 @@
     <Compile Include="Presentacion\Turnos.Designer.cs">
       <DependentUpon>Turnos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\TurnosForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Presentacion\TurnosForm.cs" />
     <Compile Include="Presentacion\TurnosForm.Designer.cs">
       <DependentUpon>TurnosForm.cs</DependentUpon>
     </Compile>

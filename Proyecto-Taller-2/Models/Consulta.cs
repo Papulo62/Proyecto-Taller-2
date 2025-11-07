@@ -41,5 +41,15 @@ namespace Proyecto_Taller_2.Models
 
         [Column("sintomas")]
         public string sintomas { get; set; }
+
+        [Column("activo")] 
+        public bool activo { get; set; } = true;
+
+        [ForeignKey("id_mascota")]
+        public virtual Mascota Mascota { get; set; }
+
+        [ForeignKey("id_veterinario")]
+        public virtual Veterinario Veterinario { get; set; }
+
     }
 }

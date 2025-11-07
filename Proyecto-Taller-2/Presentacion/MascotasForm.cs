@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Proyecto_Taller_2.Models;
 using Proyecto_Taller_2.Presentacion;
+using System.Globalization;
 
 namespace Proyecto_Taller_2
 {
