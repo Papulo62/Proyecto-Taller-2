@@ -244,6 +244,12 @@
     <Compile Include="Presentacion\Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\HistorialClinico.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentacion\HistorialClinico.Designer.cs">
+      <DependentUpon>HistorialClinico.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
