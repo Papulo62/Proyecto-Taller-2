@@ -15,9 +15,11 @@ namespace Proyecto_Taller_2
         {
             InitializeComponent();
             _context = new MiDbContext();
-
+            CargarVeterinarios();
             this.Load += Veterinarios_Load;
-
+            // Eventos
+            txtBuscar.Controls[0].KeyDown += txtBuscar_KeyDown;
+            btnBuscar.Click += btnBuscar_Click;
             customDataGridView1.CellContentClick += customDataGridView1_CellContentClick;
             customButton1.Click += customButton1_Click;
         }
@@ -25,26 +27,95 @@ namespace Proyecto_Taller_2
         private void Veterinarios_Load(object sender, EventArgs e)
         {
             CargarVeterinarios();
+            CargarEspecialidadesEnCombo();
+            cmbEspecialidad.SelectedIndexChanged += (s, ev) => AplicarFiltros();
+
+        }
+        private void CargarEspecialidadesEnCombo()
+        {
+            var especialidades = _context.Especialidad
+            .Select(e => new { id_especialidad = e.id_especialidad, nombre_especialidad = e.nombre_especialidad })
+            .ToList();
+            especialidades.Insert(0, new { id_especialidad = 0, nombre_especialidad = "Ver Todo" });
+            cmbEspecialidad.DataSource = especialidades;
+            cmbEspecialidad.DisplayMember = "nombre_especialidad"; 
+            cmbEspecialidad.ValueMember = "id_especialidad"; 
+                                                     
         }
 
         private void CargarVeterinarios()
         {
+            
+            AplicarFiltros();
+        }
+
+        private void AplicarFiltros()
+        {
+            
+            int idEspSeleccionada = (cmbEspecialidad.SelectedValue as int?) ?? 0;
+            string textoBusqueda = (txtBuscar.Texts ?? "").Trim().ToLower();
+
             try
             {
-                var veterinarios = _context.Veterinario
-                    .Where(v => v.activo == true)
-                    .ToList();
+               
+                var query = from v in _context.Veterinario
+                            join u in _context.Usuario on v.id_usuario equals u.Id
+                            join e in _context.Especialidad on v.id_especialidad equals e.id_especialidad
+                            where v.activo == true
+                            select new
+                            {
+                                
+                                NombreCompleto = u.nombre + " " + u.apellido,
+                                Especialidad = e.nombre_especialidad,
+                                v.matricula,
+                                v.id_especialidad,
+                                v.IdVeterinario,
+                               
+                            };
 
-                customDataGridView1.DataSource = veterinarios;
+                // 3. APLICAR FILTRO POR ESPECIALIDAD
+                if (idEspSeleccionada != 0)
+                {
+                    query = query.Where(x => x.id_especialidad == idEspSeleccionada);
+                }
+
+                // 4. APLICAR FILTRO DE BÚSQUEDA POR TEXTO (Nombre/Apellido/Matrícula)
+                if (!string.IsNullOrEmpty(textoBusqueda))
+                {
+                    query = query.Where(x =>
+                        x.NombreCompleto.ToLower().Contains(textoBusqueda) ||
+                        x.matricula.ToLower().Contains(textoBusqueda)
+                    );
+                }
+
+                // 5. ASIGNAR RESULTADOS
+                customDataGridView1.DataSource = query.OrderBy(x => x.NombreCompleto).ToList();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    $"Error al cargar los veterinarios:\n{ex.Message}\n\nDetalles internos:\n{ex.InnerException?.Message}",
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
+                MessageBox.Show($"Error al aplicar filtros: {ex.Message}");
+            }
+        }
+
+        // ===============================
+        //  BOTÓN BUSCAR
+        // ===============================
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+            AplicarFiltros();
+        }
+
+        // ===============================
+        //  BUSCAR CON ENTER
+        // ===============================
+        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+
+                AplicarFiltros();
             }
         }
 
@@ -55,6 +126,7 @@ namespace Proyecto_Taller_2
                 var veterinario = _context.Veterinario.Find(idVeterinario);
                 if (veterinario != null)
                 {
+                    veterinario.activo = false;
                     var confirm = MessageBox.Show(
                         "¿Está seguro de que desea eliminar este veterinario?",
                         "Confirmar eliminación",

@@ -44,5 +44,9 @@ namespace Proyecto_Taller_2.Models
 
         [Column("fecha_nacimiento")]
         public DateTime FechaNacimiento { get; set; }
+
+        [ForeignKey("id_propietario")]
+        public virtual Propietario Propietario { get; set; }
+
     }
 }

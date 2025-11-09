@@ -71,7 +71,7 @@ namespace Proyecto_Taller_2
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(131, 93);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 16);
+            this.label4.Size = new System.Drawing.Size(66, 16);
             this.label4.TabIndex = 4;
             this.label4.Text = "Nombre:";
             // 
@@ -82,18 +82,20 @@ namespace Proyecto_Taller_2
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(131, 172);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 16);
+            this.label3.Size = new System.Drawing.Size(47, 16);
             this.label3.TabIndex = 19;
             this.label3.Text = "Raza:";
             // 
             // cmbRaza
             // 
+            this.cmbRaza.DisplayMember = "nombre_raza";
             this.cmbRaza.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbRaza.FormattingEnabled = true;
             this.cmbRaza.Location = new System.Drawing.Point(134, 204);
             this.cmbRaza.Name = "cmbRaza";
             this.cmbRaza.Size = new System.Drawing.Size(250, 24);
             this.cmbRaza.TabIndex = 20;
+            this.cmbRaza.ValueMember = "id_raza";
             // 
             // cmbSexo
             // 
@@ -114,7 +116,7 @@ namespace Proyecto_Taller_2
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(131, 248);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 16);
+            this.label5.Size = new System.Drawing.Size(46, 16);
             this.label5.TabIndex = 22;
             this.label5.Text = "Sexo:";
             // 
@@ -144,7 +146,7 @@ namespace Proyecto_Taller_2
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(499, 386);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(156, 16);
+            this.label6.Size = new System.Drawing.Size(155, 16);
             this.label6.TabIndex = 26;
             this.label6.Text = "Fecha de nacimiento:";
             // 
@@ -155,7 +157,7 @@ namespace Proyecto_Taller_2
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(131, 308);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(152, 16);
+            this.label7.Size = new System.Drawing.Size(151, 16);
             this.label7.TabIndex = 27;
             this.label7.Text = "Estado reproductivo:";
             // 
@@ -166,7 +168,7 @@ namespace Proyecto_Taller_2
             this.cmbEstadoReproductivo.Items.AddRange(new object[] {
             "Castrado ",
             "No castrado "});
-            this.cmbEstadoReproductivo.Location = new System.Drawing.Point(134, 343);
+            this.cmbEstadoReproductivo.Location = new System.Drawing.Point(134, 338);
             this.cmbEstadoReproductivo.Name = "cmbEstadoReproductivo";
             this.cmbEstadoReproductivo.Size = new System.Drawing.Size(250, 24);
             this.cmbEstadoReproductivo.TabIndex = 28;
@@ -176,9 +178,9 @@ namespace Proyecto_Taller_2
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(131, 386);
+            this.label8.Location = new System.Drawing.Point(131, 377);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(48, 16);
+            this.label8.Size = new System.Drawing.Size(47, 16);
             this.label8.TabIndex = 32;
             this.label8.Text = "Peso:";
             // 
@@ -189,7 +191,7 @@ namespace Proyecto_Taller_2
             this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(503, 461);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(88, 16);
+            this.label9.Size = new System.Drawing.Size(87, 16);
             this.label9.TabIndex = 33;
             this.label9.Text = "Está vivo?: ";
             // 
@@ -214,7 +216,7 @@ namespace Proyecto_Taller_2
             this.txtPeso.BorderSize = 1;
             this.txtPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPeso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtPeso.Location = new System.Drawing.Point(134, 420);
+            this.txtPeso.Location = new System.Drawing.Point(134, 410);
             this.txtPeso.Margin = new System.Windows.Forms.Padding(4);
             this.txtPeso.Multiline = true;
             this.txtPeso.Name = "txtPeso";
@@ -307,26 +309,6 @@ namespace Proyecto_Taller_2
             this.txtNombre.TabIndex = 10;
             this.txtNombre.Texts = "";
             this.txtNombre.UnderlinedStyle = false;
-            // 
-            // cmbPropietario
-            // 
-            this.cmbPropietario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbPropietario.FormattingEnabled = true;
-            this.cmbPropietario.Location = new System.Drawing.Point(134, 493);
-            this.cmbPropietario.Name = "cmbPropietario";
-            this.cmbPropietario.Size = new System.Drawing.Size(250, 24);
-            this.cmbPropietario.TabIndex = 36;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(131, 461);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 16);
-            this.label2.TabIndex = 37;
-            this.label2.Text = "Propietario:";
             // 
             // MascotasForm
             // 

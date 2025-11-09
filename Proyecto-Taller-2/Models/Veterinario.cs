@@ -25,7 +25,8 @@ namespace Proyecto_Taller_2.Models
 
         public int id_usuario { get; set; }
 
-
+        [ForeignKey("id_usuario")]
+        public virtual Usuario Usuario { get; set; }
         public bool activo { get; set; }
 
         // Aquí puedes añadir propiedades de navegación (DbSet<Turno>) si las necesitas

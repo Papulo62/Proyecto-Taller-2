@@ -1,4 +1,4 @@
-﻿namespace Proyecto_Taller_2
+﻿namespace Proyecto_Taller_2.Presentacion
 {
     partial class TurnosForm
     {
@@ -31,7 +31,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxHora = new System.Windows.Forms.ComboBox();
             this.comboBoxMascota = new System.Windows.Forms.ComboBox();
@@ -44,6 +43,8 @@
             this.btnCerrarTurno = new Proyecto_Taller_2.CustomButton();
             this.btnGuardarTurno = new Proyecto_Taller_2.CustomButton();
             this.txtMotivo = new CustomControls.RJControls.RJTextBox();
+            this.comboBoxEstado = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label8
@@ -74,12 +75,6 @@
             this.label6.Size = new System.Drawing.Size(111, 18);
             this.label6.TabIndex = 27;
             this.label6.Text = "Fecha del turno:";
-            // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Location = new System.Drawing.Point(474, 243);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 28;
             // 
             // label1
             // 
@@ -175,7 +170,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(471, 131);
+            this.label5.Location = new System.Drawing.Point(439, 207);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(150, 18);
             this.label5.TabIndex = 36;
@@ -240,7 +235,7 @@
             this.txtMotivo.BorderSize = 1;
             this.txtMotivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMotivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtMotivo.Location = new System.Drawing.Point(474, 153);
+            this.txtMotivo.Location = new System.Drawing.Point(442, 229);
             this.txtMotivo.Margin = new System.Windows.Forms.Padding(4);
             this.txtMotivo.Multiline = true;
             this.txtMotivo.Name = "txtMotivo";
@@ -252,13 +247,38 @@
             this.txtMotivo.TabIndex = 37;
             this.txtMotivo.Texts = "";
             this.txtMotivo.UnderlinedStyle = false;
-            this.txtMotivo._TextChanged += new System.EventHandler(this.txtMotivo__TextChanged);
+            // 
+            // comboBoxEstado
+            // 
+            this.comboBoxEstado.FormattingEnabled = true;
+            this.comboBoxEstado.Items.AddRange(new object[] {
+            "Pedro",
+            "Juan ",
+            "Tomas ",
+            "Luis"});
+            this.comboBoxEstado.Location = new System.Drawing.Point(442, 144);
+            this.comboBoxEstado.Name = "comboBoxEstado";
+            this.comboBoxEstado.Size = new System.Drawing.Size(250, 21);
+            this.comboBoxEstado.TabIndex = 44;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(439, 123);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(56, 18);
+            this.label7.TabIndex = 45;
+            this.label7.Text = "Estado:";
             // 
             // TurnosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.comboBoxEstado);
             this.Controls.Add(this.btnCerrarTurno);
             this.Controls.Add(this.btnGuardarTurno);
             this.Controls.Add(this.comboBoxVeterinario);
@@ -271,13 +291,11 @@
             this.Controls.Add(this.comboBoxMascota);
             this.Controls.Add(this.comboBoxHora);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label8);
             this.Name = "TurnosForm";
             this.Size = new System.Drawing.Size(774, 511);
-            this.Load += new System.EventHandler(this.Turnos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,7 +306,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxHora;
         private System.Windows.Forms.ComboBox comboBoxMascota;
@@ -301,5 +318,7 @@
         private System.Windows.Forms.ComboBox comboBoxVeterinario;
         private CustomButton btnCerrarTurno;
         private CustomButton btnGuardarTurno;
+        private System.Windows.Forms.ComboBox comboBoxEstado;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -22,7 +22,7 @@ namespace Proyecto_Taller_2
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -61,63 +61,63 @@ namespace Proyecto_Taller_2
             }
         }
 
-       private void CargarGraficoTorta()
-{
-    try
-    {
-        chartTiposMascotas.Series.Clear();
-        chartTiposMascotas.Titles.Clear();
-
-        Title titulo = new Title
+        private void CargarGraficoTorta()
         {
-            Text = "Distribución de Mascotas por Raza",
-            Font = new Font("Inter", 12, FontStyle.Bold),
-            ForeColor = Color.FromArgb(64, 64, 64)
-        };
-        chartTiposMascotas.Titles.Add(titulo);
+            try
+            {
+                chartTiposMascotas.Series.Clear();
+                chartTiposMascotas.Titles.Clear();
 
-        Series series = new Series
-        {
-            Name = "Mascotas",
-            ChartType = SeriesChartType.Pie,
-            IsValueShownAsLabel = true
-        };
+                Title titulo = new Title
+                {
+                    Text = "Distribución de Mascotas por Raza",
+                    Font = new Font("Inter", 12, FontStyle.Bold),
+                    ForeColor = Color.FromArgb(64, 64, 64)
+                };
+                chartTiposMascotas.Titles.Add(titulo);
 
-        var datos = (from m in _context.Mascota
-                     join r in _context.Raza on m.id_raza equals r.id_raza
-                     group m by r.nombre_raza into g
-                     select new
-                     {
-                         Raza = g.Key,
-                         Cantidad = g.Count()
-                     }).ToList();
+                Series series = new Series
+                {
+                    Name = "Mascotas",
+                    ChartType = SeriesChartType.Pie,
+                    IsValueShownAsLabel = true
+                };
 
-        foreach (var d in datos)
-        {
-            string nombreRaza = string.IsNullOrEmpty(d.Raza) ? "Desconocida" : d.Raza;
-            series.Points.AddXY(nombreRaza, d.Cantidad);
+                var datos = (from m in _context.Mascota
+                             join r in _context.Raza on m.id_raza equals r.id_raza
+                             group m by r.nombre_raza into g
+                             select new
+                             {
+                                 Raza = g.Key,
+                                 Cantidad = g.Count()
+                             }).ToList();
+
+                foreach (var d in datos)
+                {
+                    string nombreRaza = string.IsNullOrEmpty(d.Raza) ? "Desconocida" : d.Raza;
+                    series.Points.AddXY(nombreRaza, d.Cantidad);
+                }
+
+                series.Label = "#PERCENT{P1}";
+                series.LegendText = "#VALX (#VAL)";
+                chartTiposMascotas.Series.Add(series);
+
+                if (chartTiposMascotas.Legends.Count == 0)
+                    chartTiposMascotas.Legends.Add(new Legend());
+
+                chartTiposMascotas.Legends[0].Docking = Docking.Right;
+                chartTiposMascotas.Legends[0].Font = new Font("Inter", 9);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    $"Error al cargar el gráfico de torta:\n{ex.Message}\n\nDetalles internos:\n{ex.InnerException?.Message}",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
         }
-
-        series.Label = "#PERCENT{P1}";
-        series.LegendText = "#VALX (#VAL)";
-        chartTiposMascotas.Series.Add(series);
-
-        if (chartTiposMascotas.Legends.Count == 0)
-            chartTiposMascotas.Legends.Add(new Legend());
-
-        chartTiposMascotas.Legends[0].Docking = Docking.Right;
-        chartTiposMascotas.Legends[0].Font = new Font("Inter", 9);
-    }
-    catch (Exception ex)
-    {
-        MessageBox.Show(
-            $"Error al cargar el gráfico de torta:\n{ex.Message}\n\nDetalles internos:\n{ex.InnerException?.Message}",
-            "Error",
-            MessageBoxButtons.OK,
-            MessageBoxIcon.Error
-        );
-    }
-}
 
 
         private void CargarGraficoBarras()
