@@ -44,15 +44,15 @@ namespace Proyecto_Taller_2.Presentacion
             comboBoxPropietario.ValueMember = "Id";
             comboBoxPropietario.SelectedIndex = -1;
 
-            comboBoxVeterinario.DataSource = _context.Veterinario
-                .Select(v => new
+            comboBoxVeterinario.DataSource = _context.Usuario
+                .Select(u => new
                 {
-                    v.IdVeterinario,
-                    NombreCompleto = v.Usuario.nombre + " " + v.Usuario.apellido
+                    u.Id,
+                    NombreCompleto = u.nombre + " " + u.apellido
                 })
                 .ToList();
             comboBoxVeterinario.DisplayMember = "NombreCompleto";
-            comboBoxVeterinario.ValueMember = "IdVeterinario";
+            comboBoxVeterinario.ValueMember = "Id";
             comboBoxVeterinario.SelectedIndex = -1;
 
             comboBoxHora.Items.AddRange(new[]
@@ -95,7 +95,7 @@ namespace Proyecto_Taller_2.Presentacion
                 var nuevoTurno = new Turno
                 {
                     fecha_inicio = fechaCompleta,
-                    fecha_fin = fechaCompleta.AddMinutes(30), // por ejemplo, 30 min de duración
+                    fecha_fin = fechaCompleta.AddMinutes(30), 
                     descripcion_turno = txtMotivo.Texts.Trim(),
                     activo = true,
                     id_mascota = (int)comboBoxMascota.SelectedValue,

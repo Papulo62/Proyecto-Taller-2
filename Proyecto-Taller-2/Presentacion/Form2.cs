@@ -143,11 +143,15 @@ namespace Proyecto_Taller_2
 
             if (resultado == DialogResult.Yes)
             {
-                
+
                 this.Hide();
+
                 LoginForm loginForm = new LoginForm();
-                loginForm.ShowDialog();
-                this.Close();
+                if (loginForm.ShowDialog() == DialogResult.OK) 
+                {
+                   
+                    this.Show();
+                }
             }
         }
 
@@ -168,7 +172,7 @@ namespace Proyecto_Taller_2
 
         private void btnVacunas_Click(object sender, EventArgs e)
         {
-            CargarUserControl(new Vacunacion());
+            CargarUserControl(new HistorialClinico());
         }
 
         private void btnBackup_Click(object sender, EventArgs e)

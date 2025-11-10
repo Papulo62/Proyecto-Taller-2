@@ -50,6 +50,7 @@ namespace Proyecto_Taller_2
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.rjTextBox1 = new CustomControls.RJControls.RJTextBox();
+            this.rjTextBox2 = new CustomControls.RJControls.RJTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.customDataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -254,11 +255,34 @@ namespace Proyecto_Taller_2
             this.rjTextBox1.Texts = "";
             this.rjTextBox1.UnderlinedStyle = false;
             // 
+            // rjTextBox2
+            // 
+            this.rjTextBox2.BackColor = System.Drawing.SystemColors.Window;
+            this.rjTextBox2.BorderColor = System.Drawing.Color.Black;
+            this.rjTextBox2.BorderFocusColor = System.Drawing.Color.Black;
+            this.rjTextBox2.BorderRadius = 8;
+            this.rjTextBox2.BorderSize = 1;
+            this.rjTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.rjTextBox2.Location = new System.Drawing.Point(277, 197);
+            this.rjTextBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.rjTextBox2.Multiline = true;
+            this.rjTextBox2.Name = "rjTextBox2";
+            this.rjTextBox2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.rjTextBox2.PasswordChar = false;
+            this.rjTextBox2.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.rjTextBox2.PlaceholderText = "";
+            this.rjTextBox2.Size = new System.Drawing.Size(250, 30);
+            this.rjTextBox2.TabIndex = 14;
+            this.rjTextBox2.Texts = "";
+            this.rjTextBox2.UnderlinedStyle = false;
+            // 
             // Vacunacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.rjTextBox2);
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -296,5 +320,6 @@ namespace Proyecto_Taller_2
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
         private CustomControls.RJControls.RJTextBox rjTextBox1;
+        private CustomControls.RJControls.RJTextBox rjTextBox2;
     }
 }

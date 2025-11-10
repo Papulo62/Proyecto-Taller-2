@@ -99,12 +99,12 @@ namespace Proyecto_Taller_2
                     int indexSexo = cmbSexo.FindStringExact(mascota.Sexo);
                     if (indexSexo != -1)
                     {
-                        cmbSexo.SelectedIndex = indexSexo; // 2. Asigna la posición encontrada
+                        cmbSexo.SelectedIndex = indexSexo; 
                     }
                     int indexEstado = cmbEstadoReproductivo.FindStringExact(mascota.EstadoReproductivo);
                     if (indexEstado != -1)
                     {
-                        cmbEstadoReproductivo.SelectedIndex = indexEstado; // Asigna la posición encontrada
+                        cmbEstadoReproductivo.SelectedIndex = indexEstado; 
                     }
                     txtPeso.Texts = mascota.Peso.ToString(CultureInfo.InvariantCulture);
                     cmbPropietario.SelectedValue = mascota.id_propietario;
@@ -140,6 +140,16 @@ namespace Proyecto_Taller_2
 
 
         private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (_esEdicion)
+                ActualizarMascota();
+            else
+                CrearMascota();
+
+
+        }
+
+        private void CrearMascota()
         {
             if (string.IsNullOrWhiteSpace(txtNombre.Texts))
             {
@@ -215,6 +225,7 @@ namespace Proyecto_Taller_2
                         EstadoReproductivo = cmbEstadoReproductivo.SelectedItem.ToString(),
                         Peso = decimal.Parse(txtPeso.Texts),
                         FechaNacimiento = dptNacimiento.Value.Date,
+                        id_propietario = (int)cmbPropietario.SelectedValue,
                         Activo = true
                     };
 
@@ -237,11 +248,116 @@ namespace Proyecto_Taller_2
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al guardar la mascota: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string mensajeCompleto = $"Error al guardar la mascota: {ex.Message}";
+                Exception inner = ex.InnerException;
+                while (inner != null)
+                {
+                    mensajeCompleto += $"\n→ {inner.Message}";
+                    inner = inner.InnerException;
+                }
+
+                MessageBox.Show(mensajeCompleto, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
         }
+
+        private void ActualizarMascota()
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtNombre.Texts))
+                {
+                    MessageBox.Show("Debe ingresar el nombre de la mascota.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtNombre.Focus();
+                    return;
+                }
+
+                if (!System.Text.RegularExpressions.Regex.IsMatch(txtNombre.Texts, @"^[a-zA-Z\s]+$"))
+                {
+                    MessageBox.Show("El nombre solo puede contener letras.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtNombre.Focus();
+                    return;
+                }
+
+                if (cmbRaza.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe seleccionar una raza.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cmbRaza.Focus();
+                    return;
+                }
+
+                if (cmbSexo.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe seleccionar el sexo de la mascota.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cmbSexo.Focus();
+                    return;
+                }
+
+                if (cmbEstadoReproductivo.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe seleccionar el estado reproductivo.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cmbEstadoReproductivo.Focus();
+                    return;
+                }
+
+                if (!decimal.TryParse(txtPeso.Texts, out decimal peso) || peso <= 0)
+                {
+                    MessageBox.Show("El peso debe ser un número válido mayor a 0.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtPeso.Focus();
+                    return;
+                }
+
+                if (dptNacimiento.Value.Date > DateTime.Now.Date)
+                {
+                    MessageBox.Show("La fecha de nacimiento no puede ser futura.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    dptNacimiento.Focus();
+                    return;
+                }
+
+                if (cmbVivo.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe indicar si la mascota está viva.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cmbVivo.Focus();
+                    return;
+                }
+
+                var mascota = _context.Mascota.Find(_idMascota);
+                if (mascota != null)
+                {
+                    mascota.Nombre = txtNombre.Texts.Trim();
+                    mascota.id_raza = (int)cmbRaza.SelectedValue;
+                    mascota.Sexo = cmbSexo.SelectedItem.ToString();
+                    mascota.EstadoReproductivo = cmbEstadoReproductivo.SelectedItem.ToString();
+                    decimal.Parse(txtPeso.Texts.Trim());
+                    mascota.FechaNacimiento = dptNacimiento.Value.Date;
+                    mascota.id_propietario = (int)cmbPropietario.SelectedValue;
+                    mascota.Activo = cmbVivo.SelectedItem.ToString() == "Sí";
+                    mascota.foto = _rutaImagenSeleccionada;
+
+                    _context.SaveChanges();
+
+                    MessageBox.Show("Mascota actualizada correctamente ✅", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    Navegar<Mascotas>();
+                }
+                else
+                {
+                    MessageBox.Show("La mascota seleccionada no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                string mensajeCompleto = $"Error al actualizar la mascota: {ex.Message}";
+                Exception inner = ex.InnerException;
+                while (inner != null)
+                {
+                    mensajeCompleto += $"\n→ {inner.Message}";
+                    inner = inner.InnerException;
+                }
+
+                MessageBox.Show(mensajeCompleto, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         private void customButton3_Click(object sender, EventArgs e)
         {

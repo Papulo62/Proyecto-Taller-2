@@ -36,6 +36,7 @@ namespace Proyecto_Taller_2.Models
         [Column("telefono_alternativo")]
         public string telefono_alternativo { get; set; }
 
-
+        [Column("activo")]
+        public bool Activo { get; set; }
     }
 }

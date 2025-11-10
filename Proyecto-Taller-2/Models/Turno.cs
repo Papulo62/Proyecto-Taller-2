@@ -30,6 +30,5 @@ public class Turno
     [ForeignKey("id_estado")]
     public virtual Estado Estado { get; set; }
 
-    [Column("estado_turno")]
-    public string estado_turno { get; set; } // ← si querés mantener el texto “Pendiente”, “Confirmado”, etc.
+ 
 }

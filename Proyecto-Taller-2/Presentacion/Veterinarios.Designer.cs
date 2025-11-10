@@ -44,6 +44,9 @@
             this.customDataGridView1 = new Proyecto_Taller_2.CustomDataGridView();
             this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.lblPagina = new System.Windows.Forms.Label();
+            this.btnAnterior = new Proyecto_Taller_2.CustomButton();
+            this.btnSiguiente = new Proyecto_Taller_2.CustomButton();
             ((System.ComponentModel.ISupportInitialize)(this.customDataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,7 +106,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(106, 82);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 16);
+            this.label3.Size = new System.Drawing.Size(60, 16);
             this.label3.TabIndex = 12;
             this.label3.Text = "Buscar:";
             // 
@@ -113,7 +116,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(536, 82);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(175, 16);
+            this.label2.Size = new System.Drawing.Size(176, 16);
             this.label2.TabIndex = 11;
             this.label2.Text = "Filtrar Por Especialidad:";
             // 
@@ -227,11 +230,62 @@
             this.Eliminar.UseColumnTextForButtonValue = true;
             this.Eliminar.Width = 125;
             // 
+            // lblPagina
+            // 
+            this.lblPagina.AutoSize = true;
+            this.lblPagina.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPagina.Location = new System.Drawing.Point(386, 511);
+            this.lblPagina.Name = "lblPagina";
+            this.lblPagina.Size = new System.Drawing.Size(62, 18);
+            this.lblPagina.TabIndex = 22;
+            this.lblPagina.Text = "Correo:";
+            // 
+            // btnAnterior
+            // 
+            this.btnAnterior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnAnterior.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnAnterior.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnAnterior.BorderRadius = 8;
+            this.btnAnterior.BorderSize = 0;
+            this.btnAnterior.FlatAppearance.BorderSize = 0;
+            this.btnAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnterior.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnterior.ForeColor = System.Drawing.Color.White;
+            this.btnAnterior.Location = new System.Drawing.Point(109, 500);
+            this.btnAnterior.Name = "btnAnterior";
+            this.btnAnterior.Size = new System.Drawing.Size(150, 40);
+            this.btnAnterior.TabIndex = 21;
+            this.btnAnterior.Text = "Anterior";
+            this.btnAnterior.TextColor = System.Drawing.Color.White;
+            this.btnAnterior.UseVisualStyleBackColor = false;
+            // 
+            // btnSiguiente
+            // 
+            this.btnSiguiente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnSiguiente.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnSiguiente.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnSiguiente.BorderRadius = 8;
+            this.btnSiguiente.BorderSize = 0;
+            this.btnSiguiente.FlatAppearance.BorderSize = 0;
+            this.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSiguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSiguiente.ForeColor = System.Drawing.Color.White;
+            this.btnSiguiente.Location = new System.Drawing.Point(628, 500);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(150, 40);
+            this.btnSiguiente.TabIndex = 20;
+            this.btnSiguiente.Text = "Siguiente";
+            this.btnSiguiente.TextColor = System.Drawing.Color.White;
+            this.btnSiguiente.UseVisualStyleBackColor = false;
+            // 
             // Veterinarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.lblPagina);
+            this.Controls.Add(this.btnAnterior);
+            this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.customDataGridView1);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.label3);
@@ -260,5 +314,8 @@
         private CustomDataGridView customDataGridView1;
         private System.Windows.Forms.DataGridViewButtonColumn Editar;
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
+        private System.Windows.Forms.Label lblPagina;
+        private CustomButton btnAnterior;
+        private CustomButton btnSiguiente;
     }
 }

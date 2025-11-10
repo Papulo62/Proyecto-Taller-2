@@ -18,7 +18,6 @@ namespace Proyecto_Taller_2.Presentacion
         private string nombreMascotaActual;
         private bool estaEnTabConsultas = true;
 
-        // Constructor sin parámetros
         public HistorialClinico()
         {
             InitializeComponent();
@@ -26,7 +25,16 @@ namespace Proyecto_Taller_2.Presentacion
             InicializarVista();
         }
 
-        // Constructor con parámetros para recibir la mascota
+        public HistorialClinico(int idMascota) : this()
+        {
+            mascotaIdActual = idMascota;
+
+            var mascota = _context.Mascota.FirstOrDefault(m => m.IdMascota == idMascota);
+            nombreMascotaActual = mascota != null ? mascota.Nombre : "Desconocida";
+
+            CargarHistorial();
+        }
+
         public HistorialClinico(int idMascota, string nombreMascota) : this()
         {
             mascotaIdActual = idMascota;
@@ -36,19 +44,17 @@ namespace Proyecto_Taller_2.Presentacion
 
         private void InicializarVista()
         {
-            // Configurar pestañas
             btnConsultas.BackColor = Color.FromArgb(76, 175, 80);
             btnConsultas.ForeColor = Color.White;
             btnTurnos.BackColor = Color.LightGray;
             btnTurnos.ForeColor = Color.Black;
 
-            // Ocultar panel de detalles inicialmente
             panelDetalles.Visible = false;
         }
 
         private void CargarHistorial()
         {
-            lblNombreMascota.Text = $"🐶 Historial Clínico - {nombreMascotaActual}";
+            lblNombreMascota.Text = $" Historial Clínico - {nombreMascotaActual}";
 
             if (estaEnTabConsultas)
             {
@@ -74,9 +80,8 @@ namespace Proyecto_Taller_2.Presentacion
 
                 foreach (var consulta in consultas)
                 {
-                    // Obtener nombre del veterinario
                     var veterinario = _context.Usuario.FirstOrDefault(u => u.Id == consulta.id_veterinario);
-                    string nombreVet = veterinario != null ? $"Dr. {veterinario.nombre_usuario}" : "N/A";
+                    string nombreVet = veterinario != null ? $"Dr. {veterinario.nombre}" : "N/A";
 
                     dataGridViewHistorial.Rows.Add(
                         consulta.Id,
@@ -117,20 +122,19 @@ namespace Proyecto_Taller_2.Presentacion
 
                 foreach (var turno in turnos)
                 {
-                    // Obtener nombre del veterinario/usuario
-                    var usuario = _context.Usuario.FirstOrDefault(u => u.id_usuario == turno.id_usuario);
-                    string nombreUsuario = usuario != null ? $"Dr. {usuario.nombre_usuario}" : "N/A";
+                    var usuario = _context.Usuario.FirstOrDefault(u => u.Id == turno.id_usuario);
+                    string nombreUsuario = usuario != null ? $"Dr. {usuario.nombre}" : "N/A";
 
-                    // Obtener estado
-                    var estado = _context.Estado.FirstOrDefault(e => e.id_estado == turno.id_estado);
-                    string estadoTexto = estado != null ? estado.nombre_estado : turno.estado_turno;
+                    var estado = _context.Estado.FirstOrDefault(e => e.IdEstado == turno.id_estado);
+                   
+                    string estadoNombre = estado != null ? estado.Nombre : "N/A";
 
                     dataGridViewHistorial.Rows.Add(
                         turno.id_turno,
                         turno.fecha_inicio.ToString("dd/MM/yyyy HH:mm"),
                         turno.descripcion_turno,
                         nombreUsuario,
-                        estadoTexto,
+                        estadoNombre,
                         turno.activo ? "Activo" : "Finalizado",
                         "",
                         turno.fecha_fin.HasValue ? turno.fecha_fin.Value.ToString("dd/MM/yyyy HH:mm") : "N/A"
@@ -154,13 +158,11 @@ namespace Proyecto_Taller_2.Presentacion
         {
             estaEnTabConsultas = true;
 
-            // Cambiar estilos de botones
             btnConsultas.BackColor = Color.FromArgb(76, 175, 80);
             btnConsultas.ForeColor = Color.White;
             btnTurnos.BackColor = Color.LightGray;
             btnTurnos.ForeColor = Color.Black;
 
-            // Configurar columnas para consultas
             ConfigurarColumnasConsultas();
             CargarConsultas();
         }
@@ -169,26 +171,22 @@ namespace Proyecto_Taller_2.Presentacion
         {
             estaEnTabConsultas = false;
 
-            // Cambiar estilos de botones
             btnTurnos.BackColor = Color.FromArgb(76, 175, 80);
             btnTurnos.ForeColor = Color.White;
             btnConsultas.BackColor = Color.LightGray;
             btnConsultas.ForeColor = Color.Black;
 
-            // Configurar columnas para turnos
             ConfigurarColumnasTurnos();
             CargarTurnos();
         }
 
         private void ConfigurarColumnasConsultas()
         {
-            // Mostrar columnas de consultas
             colDiagnostico.Visible = true;
             colTratamiento.Visible = true;
             colSintomas.Visible = true;
             colProximoControl.Visible = true;
 
-            // Ajustar encabezados
             colDiagnostico.HeaderText = "Diagnóstico";
             colTratamiento.HeaderText = "Tratamiento";
             colSintomas.HeaderText = "Síntomas";
@@ -197,12 +195,11 @@ namespace Proyecto_Taller_2.Presentacion
 
         private void ConfigurarColumnasTurnos()
         {
-            // Ajustar encabezados para turnos
             colDiagnostico.HeaderText = "Estado";
             colDiagnostico.Visible = true;
 
             colTratamiento.HeaderText = "Activo";
-            colTratamiento.Visible = true;
+            colTratamiento.Visible = false;
 
             colSintomas.Visible = false;
 
@@ -229,48 +226,82 @@ namespace Proyecto_Taller_2.Presentacion
             {
                 lblDetallesTitulo.Text = "Detalles de la Consulta";
 
-                txtDiagnostico.Text = row.Cells["colDiagnostico"].Value?.ToString() ?? "No especificado";
-                txtTratamiento.Text = row.Cells["colTratamiento"].Value?.ToString() ?? "No especificado";
-                txtObservaciones.Text = row.Cells["colSintomas"].Value?.ToString() ?? "No especificado";
+                int idConsulta = Convert.ToInt32(row.Cells["colId"].Value);
+                var consulta = _context.Consulta.FirstOrDefault(c => c.Id == idConsulta);
 
-                lblProximoControl.Visible = true;
-                lblProximoControlValor.Visible = true;
-                lblProximoControlValor.Text = row.Cells["colProximoControl"].Value?.ToString() ?? "N/A";
+                if (consulta != null)
+                {
+                    txtDiagnostico.Text = !string.IsNullOrEmpty(consulta.diagnostico)
+                        ? consulta.diagnostico
+                        : "No especificado";
+
+                    txtTratamiento.Text = !string.IsNullOrEmpty(consulta.tratamiento)
+                        ? consulta.tratamiento
+                        : "No especificado";
+
+                    txtObservaciones.Text = !string.IsNullOrEmpty(consulta.sintomas)
+                        ? consulta.sintomas
+                        : "No se registraron síntomas";
+
+                    lblProximoControl.Visible = true;
+                    lblProximoControlValor.Visible = true;
+                    lblProximoControlValor.Text = consulta.proximo_control.ToString("dd/MM/yyyy");
+
+                    if (consulta.proximo_control < DateTime.Now)
+                    {
+                        lblProximoControlValor.ForeColor = Color.FromArgb(244, 67, 54); 
+                    }
+                    else
+                    {
+                        lblProximoControlValor.ForeColor = Color.FromArgb(76, 175, 80); 
+                    }
+                }
+
+                label2.Text = "Diagnóstico:";
+                label3.Text = "Tratamiento:";
+                label4.Text = "Síntomas/Observaciones:";
             }
             else
             {
                 lblDetallesTitulo.Text = "Detalles del Turno";
 
-                string estado = row.Cells["colDiagnostico"].Value?.ToString() ?? "";
-                string activo = row.Cells["colTratamiento"].Value?.ToString() ?? "";
-                string descripcion = row.Cells["colMotivo"].Value?.ToString() ?? "";
-                string fechaFin = row.Cells["colProximoControl"].Value?.ToString() ?? "";
+                int idTurno = Convert.ToInt32(row.Cells["colId"].Value);
+                var turno = _context.Turno.FirstOrDefault(t => t.id_turno == idTurno);
 
-                txtDiagnostico.Text = $"Estado: {estado}";
-                txtTratamiento.Text = $"Estado del turno: {activo}";
-                txtObservaciones.Text = $"Descripción: {descripcion}\r\n\r\nFecha de finalización: {fechaFin}";
+                if (turno != null)
+                {
+                    var estado = _context.Estado.FirstOrDefault(e => e.IdEstado == turno.id_estado);
+                    string estadoNombre = estado != null ? estado.Nombre : "Desconocido";
 
-                lblProximoControl.Visible = false;
-                lblProximoControlValor.Visible = false;
+                    txtDiagnostico.Text = estadoNombre;
+
+                    string infoFechas = $"Fecha Inicio: {turno.fecha_inicio:dd/MM/yyyy HH:mm}\n";
+                    if (turno.fecha_fin.HasValue)
+                    {
+                        infoFechas += $"Fecha Fin: {turno.fecha_fin.Value:dd/MM/yyyy HH:mm}";
+                    }
+                    else
+                    {
+                        infoFechas += "Fecha Fin: Pendiente";
+                    }
+                    infoFechas += $"\n\nEstado: {(turno.activo ? "✓ Activo" : "✗ Inactivo")}";
+
+                    txtTratamiento.Text = infoFechas;
+
+                    txtObservaciones.Text = !string.IsNullOrEmpty(turno.descripcion_turno)
+                        ? turno.descripcion_turno
+                        : "Sin descripción";
+
+                    lblProximoControl.Visible = false;
+                    lblProximoControlValor.Visible = false;
+                }
+
+                label2.Text = "Estado del Turno:";
+                label3.Text = "Información de Fechas:";
+                label4.Text = "Descripción:";
             }
         }
 
-        private void btnNuevaConsulta_Click(object sender, EventArgs e)
-        {
-            if (mascotaIdActual == 0)
-            {
-                MessageBox.Show("Debe seleccionar una mascota primero.", "Advertencia",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            // Abrir formulario de nueva consulta pasando el ID de la mascota
-            // Ajusta esto según tu implementación
-            Navegar(new ConsultasForm(mascotaIdActual));
-
-            // O si tu formulario no recibe parámetros en el constructor:
-            // Navegar<ConsultasForm>();
-        }
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
@@ -318,8 +349,8 @@ namespace Proyecto_Taller_2.Presentacion
 
                 foreach (var consulta in consultas)
                 {
-                    var veterinario = _context.Usuario.FirstOrDefault(u => u.id_usuario == consulta.id_veterinario);
-                    string nombreVet = veterinario != null ? veterinario.nombre_usuario : "N/A";
+                    var veterinario = _context.Usuario.FirstOrDefault(u => u.Id == consulta.id_veterinario);
+                    string nombreVet = veterinario != null ? veterinario.nombre : "N/A";
 
                     writer.WriteLine($"Fecha: {consulta.fecha_consulta:dd/MM/yyyy}");
                     writer.WriteLine($"Veterinario: Dr. {nombreVet}");
@@ -342,13 +373,15 @@ namespace Proyecto_Taller_2.Presentacion
 
                 foreach (var turno in turnos)
                 {
-                    var usuario = _context.Usuario.FirstOrDefault(u => u.id_usuario == turno.id_usuario);
-                    string nombreUsuario = usuario != null ? usuario.nombre_usuario : "N/A";
+                    var usuario = _context.Usuario.FirstOrDefault(u => u.Id == turno.id_usuario);
+                    var estado = _context.Estado.FirstOrDefault(e => e.IdEstado == turno.id_estado);
+                    string nombreUsuario = usuario != null ? usuario.nombre : "N/A";
+                    string estadoNombre = estado != null ? estado.Nombre : "N/A";
 
                     writer.WriteLine($"Fecha: {turno.fecha_inicio:dd/MM/yyyy HH:mm}");
                     writer.WriteLine($"Veterinario: Dr. {nombreUsuario}");
                     writer.WriteLine($"Descripción: {turno.descripcion_turno}");
-                    writer.WriteLine($"Estado: {turno.estado_turno}");
+                    writer.WriteLine($"Estado: {estado}");
                     writer.WriteLine($"Activo: {(turno.activo ? "Sí" : "No")}");
                     writer.WriteLine("-------------------------------------------------");
                 }
@@ -360,20 +393,6 @@ namespace Proyecto_Taller_2.Presentacion
             ConfigurarColumnasConsultas();
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                if (components != null)
-                {
-                    components.Dispose();
-                }
-                if (_context != null)
-                {
-                    _context.Dispose();
-                }
-            }
-            base.Dispose(disposing);
-        }
+       
     }
 }

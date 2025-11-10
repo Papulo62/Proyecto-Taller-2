@@ -1,5 +1,5 @@
 ﻿
-namespace Proyecto_Taller_2
+namespace Proyecto_Taller_2.Presentacion
 {
     partial class Propietarios
     {
@@ -46,6 +46,9 @@ namespace Proyecto_Taller_2
             this.label2 = new System.Windows.Forms.Label();
             this.cmbOrdenamiento = new System.Windows.Forms.ComboBox();
             this.txtBuscar = new CustomControls.RJControls.RJTextBox();
+            this.lblPagina = new System.Windows.Forms.Label();
+            this.btnAnterior = new Proyecto_Taller_2.CustomButton();
+            this.btnSiguiente = new Proyecto_Taller_2.CustomButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +79,7 @@ namespace Proyecto_Taller_2
             this.labelTitle.ForeColor = System.Drawing.Color.Black;
             this.labelTitle.Location = new System.Drawing.Point(316, 14);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(243, 53);
+            this.labelTitle.Size = new System.Drawing.Size(246, 53);
             this.labelTitle.TabIndex = 2;
             this.labelTitle.Text = "Propietarios";
             // 
@@ -127,7 +130,7 @@ namespace Proyecto_Taller_2
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridView1.Size = new System.Drawing.Size(643, 308);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -188,7 +191,7 @@ namespace Proyecto_Taller_2
             this.label3.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(139, 99);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 18);
+            this.label3.Size = new System.Drawing.Size(62, 18);
             this.label3.TabIndex = 12;
             this.label3.Text = "Buscar:";
             // 
@@ -198,7 +201,7 @@ namespace Proyecto_Taller_2
             this.label2.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(562, 99);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 18);
+            this.label2.Size = new System.Drawing.Size(89, 18);
             this.label2.TabIndex = 11;
             this.label2.Text = "Filtrar Por :";
             // 
@@ -238,11 +241,62 @@ namespace Proyecto_Taller_2
             this.txtBuscar.Texts = "";
             this.txtBuscar.UnderlinedStyle = false;
             // 
+            // lblPagina
+            // 
+            this.lblPagina.AutoSize = true;
+            this.lblPagina.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPagina.Location = new System.Drawing.Point(419, 501);
+            this.lblPagina.Name = "lblPagina";
+            this.lblPagina.Size = new System.Drawing.Size(62, 18);
+            this.lblPagina.TabIndex = 22;
+            this.lblPagina.Text = "Correo:";
+            // 
+            // btnAnterior
+            // 
+            this.btnAnterior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnAnterior.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnAnterior.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnAnterior.BorderRadius = 8;
+            this.btnAnterior.BorderSize = 0;
+            this.btnAnterior.FlatAppearance.BorderSize = 0;
+            this.btnAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnterior.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnterior.ForeColor = System.Drawing.Color.White;
+            this.btnAnterior.Location = new System.Drawing.Point(142, 490);
+            this.btnAnterior.Name = "btnAnterior";
+            this.btnAnterior.Size = new System.Drawing.Size(150, 40);
+            this.btnAnterior.TabIndex = 21;
+            this.btnAnterior.Text = "Anterior";
+            this.btnAnterior.TextColor = System.Drawing.Color.White;
+            this.btnAnterior.UseVisualStyleBackColor = false;
+            // 
+            // btnSiguiente
+            // 
+            this.btnSiguiente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnSiguiente.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnSiguiente.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnSiguiente.BorderRadius = 8;
+            this.btnSiguiente.BorderSize = 0;
+            this.btnSiguiente.FlatAppearance.BorderSize = 0;
+            this.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSiguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSiguiente.ForeColor = System.Drawing.Color.White;
+            this.btnSiguiente.Location = new System.Drawing.Point(661, 490);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(150, 40);
+            this.btnSiguiente.TabIndex = 20;
+            this.btnSiguiente.Text = "Siguiente";
+            this.btnSiguiente.TextColor = System.Drawing.Color.White;
+            this.btnSiguiente.UseVisualStyleBackColor = false;
+            // 
             // Propietarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.lblPagina);
+            this.Controls.Add(this.btnAnterior);
+            this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -271,5 +325,8 @@ namespace Proyecto_Taller_2
         private CustomControls.RJControls.RJTextBox txtBuscar;
         private System.Windows.Forms.DataGridViewButtonColumn btnEditar;
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
+        private System.Windows.Forms.Label lblPagina;
+        private CustomButton btnAnterior;
+        private CustomButton btnSiguiente;
     }
 }

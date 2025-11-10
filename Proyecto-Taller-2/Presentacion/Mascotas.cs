@@ -1,51 +1,53 @@
 ﻿using Proyecto_Taller_2.Models;
-using Proyecto_Taller_2.Presentacion;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Proyecto_Taller_2
+namespace Proyecto_Taller_2.Presentacion
 {
     public partial class Mascotas : BaseUserControl
     {
-
         private MiDbContext _context;
         private int _idMascota;
+
+        private int _nroPagina = 1;
+        private int _cantidadPagina = 2;
+        private int _totalRegistros = 0;
+
         public event Action CargarNuevaMascota;
         public event Action<int> EditarMascota;
-
 
         public Mascotas()
         {
             InitializeComponent();
             _context = new MiDbContext();
+
             // Eventos
             txtBuscar.Controls[0].KeyDown += txtBuscar_KeyDown;
             btnBuscar.Click += btnBuscar_Click;
+
             AplicarFiltros();
         }
 
         private void Filtro_SelectedIndexChanged(object sender, EventArgs e)
         {
+            _nroPagina = 1;
             AplicarFiltros();
         }
 
         private void CargarFiltrosIniciales()
         {
-            // Limpiar y cargar cmbFiltroSexo
+            // Filtro Sexo
             cmbFiltroSexo.Items.Clear();
             cmbFiltroSexo.Items.Add("Ver Todo");
             cmbFiltroSexo.Items.Add("Macho");
             cmbFiltroSexo.Items.Add("Hembra");
-            cmbFiltroSexo.SelectedIndex = 0; // Selecciona "Ver Todo"
+            cmbFiltroSexo.SelectedIndex = 0;
 
-            // Limpiar y cargar cmbFiltroEspecie
+            // Filtro Especie
             cmbFiltroEspecie.Items.Clear();
             cmbFiltroEspecie.Items.Add("Ver Todo");
             cmbFiltroEspecie.Items.Add("Perro");
@@ -53,8 +55,7 @@ namespace Proyecto_Taller_2
             cmbFiltroEspecie.Items.Add("Ave");
             cmbFiltroEspecie.Items.Add("Reptil");
             cmbFiltroEspecie.Items.Add("Roedor");
-            // Agrega aquí todas las demás especies que necesites
-            cmbFiltroEspecie.SelectedIndex = 0; // Selecciona "Ver Todo"
+            cmbFiltroEspecie.SelectedIndex = 0;
         }
 
         private void Mascotas_Load(object sender, EventArgs e)
@@ -63,43 +64,17 @@ namespace Proyecto_Taller_2
             cmbFiltroSexo.SelectedIndexChanged += Filtro_SelectedIndexChanged;
             cmbFiltroEspecie.SelectedIndexChanged += Filtro_SelectedIndexChanged;
 
-            // Opcional: Asegurar que los ComboBox tengan un valor seleccionado al inicio (e.g., "Ver Todo")
             if (cmbFiltroSexo.Items.Count > 0 && cmbFiltroSexo.SelectedIndex == -1)
-            {
                 cmbFiltroSexo.SelectedIndex = 0;
-            }
+
             if (cmbFiltroEspecie.Items.Count > 0 && cmbFiltroEspecie.SelectedIndex == -1)
-            {
                 cmbFiltroEspecie.SelectedIndex = 0;
-            }
+
             AplicarFiltros();
-
-
         }
 
-        // ===============================
-        //  CARGAR LISTADO DE MASCOTAS
-        // ===============================
-        private void CargarMascotas()
-        {
-            try
-            {
-                var mascotas = _context.Mascota.Where(m => m.Activo).ToList();
-                customDataGridView1.DataSource = mascotas;
-
-                // Ocultar columnas que no quieras mostrar
-                if (customDataGridView1.Columns["IdMascota"] != null)
-                    customDataGridView1.Columns["IdMascota"].Visible = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar las mascotas: " + ex.Message);
-            }
-        }
-
-        // ===========================================
-        // APLICAR FILTROS COMBINADOS (NOMBRE, ESPECIE, SEXO)
-        // ===========================================
+   
+   
         private void AplicarFiltros()
         {
             string textoBusqueda = txtBuscar.Texts.Trim();
@@ -108,12 +83,11 @@ namespace Proyecto_Taller_2
 
             try
             {
-                // 🔹 Unimos Mascota → Raza → Especie en una sola consulta
                 var consulta =
                     from m in _context.Mascota
                     join r in _context.Raza on m.id_raza equals r.id_raza
                     join e in _context.Especie on r.id_especie equals e.id_especie
-                    where m.Activo
+                   
                     select new
                     {
                         IdMascota = m.IdMascota,
@@ -122,21 +96,16 @@ namespace Proyecto_Taller_2
                         Raza = r.nombre_raza,
                         Especie = e.nombre_especie,
                         Peso = m.Peso,
+                        Activo = m.Activo,
                     };
 
-                // 🔹 A. Filtrar por sexo
+                // 🔹 Filtros
                 if (sexoSeleccionadoLimpio != "VER TODO")
-                {
                     consulta = consulta.Where(m => m.Sexo.ToUpper() == sexoSeleccionadoLimpio);
-                }
 
-                // 🔹 B. Filtrar por especie
                 if (especieSeleccionadaLimpio != "VER TODO")
-                {
                     consulta = consulta.Where(m => m.Especie.ToUpper() == especieSeleccionadaLimpio);
-                }
 
-                // 🔹 C. Filtro de texto
                 if (!string.IsNullOrEmpty(textoBusqueda))
                 {
                     string busquedaUpper = textoBusqueda.ToUpper();
@@ -146,11 +115,21 @@ namespace Proyecto_Taller_2
                         m.Especie.ToUpper().Contains(busquedaUpper));
                 }
 
-                // 🔹 Mostrar resultados
-                customDataGridView1.DataSource = consulta.ToList();
+                _totalRegistros = consulta.Count();
+
+                var pagina = consulta
+                    .OrderBy(m => m.IdMascota)
+                    .Skip((_nroPagina - 1) * _cantidadPagina)
+                    .Take(_cantidadPagina)
+                    .ToList();
+
+                customDataGridView1.DataSource = pagina;
 
                 if (customDataGridView1.Columns["IdMascota"] != null)
                     customDataGridView1.Columns["IdMascota"].Visible = false;
+
+                int totalPaginas = (int)Math.Ceiling((double)_totalRegistros / _cantidadPagina);
+                lblPagina.Text = $"Página {_nroPagina} de {totalPaginas}";
             }
             catch (Exception ex)
             {
@@ -158,42 +137,48 @@ namespace Proyecto_Taller_2
             }
         }
 
+     
 
-        // ===============================
-        //  ELIMINAR (LÓGICO)
-        // ===============================
-        private void EliminarMascota(int idMascota)
+        private void AlternarEstadoMascota(int idMascota)
         {
             try
             {
-
                 var mascota = _context.Mascota.Find(idMascota);
                 if (mascota != null)
                 {
+                    mascota.Activo = !mascota.Activo;
 
-                    mascota.Activo = false;
                     _context.SaveChanges();
 
-                    MessageBox.Show("Mascota eliminada correctamente.");
-                    CargarMascotas();
+                    string mensaje = mascota.Activo
+                        ? "La mascota ha sido activada nuevamente."
+                        : "La mascota ha sido desactivada correctamente.";
+
+                    MessageBox.Show(mensaje, "Estado actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    AplicarFiltros();
                 }
                 else
                 {
-                    MessageBox.Show("La mascota seleccionada no existe.");
+                    MessageBox.Show("No se encontró la mascota seleccionada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al eliminar la mascota: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al cambiar el estado de la mascota: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+
+        
 
         // ===============================
         //  BOTÓN BUSCAR
         // ===============================
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            // Llama al método de filtrado combinado
+            _nroPagina = 1;
             AplicarFiltros();
         }
 
@@ -205,7 +190,7 @@ namespace Proyecto_Taller_2
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
-                // Llama al método de filtrado combinado
+                _nroPagina = 1;
                 AplicarFiltros();
             }
         }
@@ -228,7 +213,6 @@ namespace Proyecto_Taller_2
         {
             try
             {
-
                 int idMascota = (int)customDataGridView1.Rows[e.RowIndex].Cells["IdMascota"].Value;
 
                 if (e.ColumnIndex == 0)
@@ -237,26 +221,60 @@ namespace Proyecto_Taller_2
                 }
                 else if (e.ColumnIndex == 1)
                 {
-                    var result = MessageBox.Show("¿Está seguro de que desea eliminar esta mascota?",
-                        "Confirmar desactivación",
+                    var mascota = _context.Mascota.Find(idMascota);
+                    if (mascota == null)
+                    {
+                        MessageBox.Show("No se encontró la mascota seleccionada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    string accion = mascota.Activo ? "desactivar" : "activar";
+                    var result = MessageBox.Show(
+                        $"¿Está seguro de que desea {accion} esta mascota?",
+                        "Confirmar acción",
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question,
                         MessageBoxDefaultButton.Button2);
 
                     if (result == DialogResult.Yes)
                     {
-                        EliminarMascota(idMascota);
+                        AlternarEstadoMascota(idMascota);
                     }
                 }
+                else if (e.ColumnIndex == 2)
+                {
+                    Navegar(new HistorialClinico(idMascota));
+                }
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}");
             }
         }
+
         private void btnUserAdd_Click(object sender, EventArgs e)
         {
             Navegar<MascotasForm>();
+        }
+
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            int totalPaginas = (int)Math.Ceiling((double)_totalRegistros / _cantidadPagina);
+            if (_nroPagina < totalPaginas)
+            {
+                _nroPagina++;
+                AplicarFiltros();
+            }
+        }
+
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            if (_nroPagina > 1)
+            {
+                _nroPagina--;
+                AplicarFiltros();
+            }
         }
     }
 }

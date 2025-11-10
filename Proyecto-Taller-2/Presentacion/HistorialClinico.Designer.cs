@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblNombreMascota = new System.Windows.Forms.Label();
             this.panelTabs = new System.Windows.Forms.Panel();
             this.btnTurnos = new System.Windows.Forms.Button();
@@ -54,8 +54,8 @@
             this.txtDiagnostico = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblDetallesTitulo = new System.Windows.Forms.Label();
-            this.btnNuevaConsulta = new Proyecto_Taller_2.CustomButton();
             this.btnExportar = new Proyecto_Taller_2.CustomButton();
+            this.btnCerrar = new Proyecto_Taller_2.CustomButton();
             this.panelTabs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHistorial)).BeginInit();
             this.panelDetalles.SuspendLayout();
@@ -68,7 +68,7 @@
             this.lblNombreMascota.ForeColor = System.Drawing.Color.Black;
             this.lblNombreMascota.Location = new System.Drawing.Point(20, 15);
             this.lblNombreMascota.Name = "lblNombreMascota";
-            this.lblNombreMascota.Size = new System.Drawing.Size(469, 46);
+            this.lblNombreMascota.Size = new System.Drawing.Size(469, 45);
             this.lblNombreMascota.TabIndex = 0;
             this.lblNombreMascota.Text = "🐶 Historial Clínico - Firulais";
             // 
@@ -113,24 +113,24 @@
             // 
             // dataGridViewHistorial
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridViewHistorial.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridViewHistorial.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewHistorial.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewHistorial.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewHistorial.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridViewHistorial.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewHistorial.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewHistorial.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewHistorial.ColumnHeadersHeight = 35;
             this.dataGridViewHistorial.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colId,
@@ -141,14 +141,14 @@
             this.colTratamiento,
             this.colSintomas,
             this.colProximoControl});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewHistorial.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewHistorial.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewHistorial.EnableHeadersVisualStyles = false;
             this.dataGridViewHistorial.GridColor = System.Drawing.Color.LightGray;
             this.dataGridViewHistorial.Location = new System.Drawing.Point(28, 140);
@@ -246,7 +246,7 @@
             this.lblProximoControlValor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.lblProximoControlValor.Location = new System.Drawing.Point(185, 240);
             this.lblProximoControlValor.Name = "lblProximoControlValor";
-            this.lblProximoControlValor.Size = new System.Drawing.Size(107, 19);
+            this.lblProximoControlValor.Size = new System.Drawing.Size(92, 21);
             this.lblProximoControlValor.TabIndex = 8;
             this.lblProximoControlValor.Text = "01/11/2025";
             // 
@@ -256,7 +256,7 @@
             this.lblProximoControl.Font = new System.Drawing.Font("Inter", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProximoControl.Location = new System.Drawing.Point(20, 240);
             this.lblProximoControl.Name = "lblProximoControl";
-            this.lblProximoControl.Size = new System.Drawing.Size(148, 19);
+            this.lblProximoControl.Size = new System.Drawing.Size(134, 21);
             this.lblProximoControl.TabIndex = 7;
             this.lblProximoControl.Text = "Próximo Control:";
             // 
@@ -278,7 +278,7 @@
             this.label4.Font = new System.Drawing.Font("Inter", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(420, 70);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(150, 19);
+            this.label4.Size = new System.Drawing.Size(126, 21);
             this.label4.TabIndex = 5;
             this.label4.Text = "Observaciones:";
             // 
@@ -300,7 +300,7 @@
             this.label3.Font = new System.Drawing.Font("Inter", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(24, 140);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(116, 19);
+            this.label3.Size = new System.Drawing.Size(104, 21);
             this.label3.TabIndex = 3;
             this.label3.Text = "Tratamiento:";
             // 
@@ -322,7 +322,7 @@
             this.label2.Font = new System.Drawing.Font("Inter", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(24, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 19);
+            this.label2.Size = new System.Drawing.Size(103, 21);
             this.label2.TabIndex = 1;
             this.label2.Text = "Diagnóstico:";
             // 
@@ -333,29 +333,9 @@
             this.lblDetallesTitulo.ForeColor = System.Drawing.Color.Black;
             this.lblDetallesTitulo.Location = new System.Drawing.Point(20, 20);
             this.lblDetallesTitulo.Name = "lblDetallesTitulo";
-            this.lblDetallesTitulo.Size = new System.Drawing.Size(249, 26);
+            this.lblDetallesTitulo.Size = new System.Drawing.Size(241, 27);
             this.lblDetallesTitulo.TabIndex = 0;
             this.lblDetallesTitulo.Text = "Detalles de la Consulta";
-            // 
-            // btnNuevaConsulta
-            // 
-            this.btnNuevaConsulta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnNuevaConsulta.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnNuevaConsulta.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnNuevaConsulta.BorderRadius = 8;
-            this.btnNuevaConsulta.BorderSize = 0;
-            this.btnNuevaConsulta.FlatAppearance.BorderSize = 0;
-            this.btnNuevaConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevaConsulta.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevaConsulta.ForeColor = System.Drawing.Color.White;
-            this.btnNuevaConsulta.Location = new System.Drawing.Point(543, 85);
-            this.btnNuevaConsulta.Name = "btnNuevaConsulta";
-            this.btnNuevaConsulta.Size = new System.Drawing.Size(150, 40);
-            this.btnNuevaConsulta.TabIndex = 4;
-            this.btnNuevaConsulta.Text = "Nueva Consulta";
-            this.btnNuevaConsulta.TextColor = System.Drawing.Color.White;
-            this.btnNuevaConsulta.UseVisualStyleBackColor = false;
-            this.btnNuevaConsulta.Click += new System.EventHandler(this.btnNuevaConsulta_Click);
             // 
             // btnExportar
             // 
@@ -377,13 +357,32 @@
             this.btnExportar.UseVisualStyleBackColor = false;
             this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
+            // btnCerrar
+            // 
+            this.btnCerrar.BackColor = System.Drawing.Color.Silver;
+            this.btnCerrar.BackgroundColor = System.Drawing.Color.Silver;
+            this.btnCerrar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnCerrar.BorderRadius = 8;
+            this.btnCerrar.BorderSize = 0;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.ForeColor = System.Drawing.Color.Black;
+            this.btnCerrar.Location = new System.Drawing.Point(543, 85);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(150, 40);
+            this.btnCerrar.TabIndex = 4;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.TextColor = System.Drawing.Color.Black;
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            // 
             // HistorialClinico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.btnExportar);
-            this.Controls.Add(this.btnNuevaConsulta);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.panelDetalles);
             this.Controls.Add(this.dataGridViewHistorial);
             this.Controls.Add(this.panelTabs);
@@ -417,7 +416,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblProximoControl;
         private System.Windows.Forms.Label lblProximoControlValor;
-        private CustomButton btnNuevaConsulta;
         private CustomButton btnExportar;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFecha;
@@ -427,5 +425,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colTratamiento;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSintomas;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProximoControl;
+        private CustomButton btnCerrar;
     }
 }

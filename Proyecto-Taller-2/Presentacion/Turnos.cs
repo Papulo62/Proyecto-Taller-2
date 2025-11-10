@@ -10,6 +10,9 @@ namespace Proyecto_Taller_2
     public partial class Turnos : BaseUserControl
     {
         private MiDbContext _context;
+        private int _nroPagina = 1;
+        private int _cantidadPagina = 5; 
+        private int _totalRegistros = 0;
 
         public Turnos()
         {
@@ -22,7 +25,8 @@ namespace Proyecto_Taller_2
             CargarFiltrosIniciales();
             customDataGridView1.CellContentClick += dataGridViewTurnos_CellContentClick;
             btnAgregarTurno.Click += btnAgregarTurno_Click;
-
+            btnSiguiente.Click += btnSiguiente_Click;
+            btnAnterior.Click += btnAnterior_Click;
         }
 
         private void CargarFiltrosIniciales()
@@ -32,9 +36,9 @@ namespace Proyecto_Taller_2
             cmbFiltroFecha.Items.Add("Hoy");
             cmbFiltroFecha.Items.Add("Esta Semana");
             cmbFiltroFecha.Items.Add("Este Mes");
-            cmbFiltroFecha.SelectedIndex = 0; // “Ver Todo”
+            cmbFiltroFecha.SelectedIndex = 0; // "Ver Todo"
 
-            cmbFiltroFecha.DropDownStyle = ComboBoxStyle.DropDownList; // que no se pueda escribir
+            cmbFiltroFecha.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbFiltroFecha.SelectedIndexChanged += cmbFiltroFecha_SelectedIndexChanged_1;
         }
 
@@ -46,7 +50,6 @@ namespace Proyecto_Taller_2
         private void Turnos_Load(object sender, EventArgs e)
         {
             CargarFiltrosIniciales();
-            cmbFiltroFecha.SelectedIndexChanged += cmbFiltroFecha_SelectedIndexChanged_1;
             AplicarFiltros();
         }
 
@@ -55,7 +58,7 @@ namespace Proyecto_Taller_2
             try
             {
                 string filtroFecha = cmbFiltroFecha.SelectedItem?.ToString();
-                string textoBusqueda = (txtBuscar.Texts ?? "").Trim().ToLower(); // <-- usar Texts
+                string textoBusqueda = (txtBuscar.Texts ?? "").Trim().ToLower();
 
                 DateTime hoy = DateTime.Today;
                 DateTime inicio = DateTime.MinValue;
@@ -78,12 +81,11 @@ namespace Proyecto_Taller_2
                     fin = inicio.AddMonths(1);
                 }
 
-                // Incluir relaciones para que las propiedades de navegación estén disponibles
                 var query = _context.Turno
-                    .Include("Mascota")
-                    .Include("Usuario")
-                    .Include("Estado")
-                    .Where(t => t.activo);
+                .Include("Mascota")
+                .Include("Usuario")
+                .Include("Estado")
+                .AsQueryable(); 
 
                 if (filtroFecha != "Ver Todo")
                 {
@@ -92,7 +94,6 @@ namespace Proyecto_Taller_2
 
                 if (!string.IsNullOrEmpty(textoBusqueda))
                 {
-                    // IMPORTANT: usamos ToLower() en el servidor — EF lo traduce
                     query = query.Where(t =>
                         t.Mascota.Nombre.ToLower().Contains(textoBusqueda) ||
                         t.Usuario.nombre.ToLower().Contains(textoBusqueda) ||
@@ -102,7 +103,13 @@ namespace Proyecto_Taller_2
                     );
                 }
 
-                var lista = query
+                // Paginación
+                _totalRegistros = query.Count();
+
+                var turnosPagina = query
+                    .OrderBy(t => t.fecha_inicio)
+                    .Skip((_nroPagina - 1) * _cantidadPagina)
+                    .Take(_cantidadPagina)
                     .Select(t => new
                     {
                         Mascota = t.Mascota.Nombre,
@@ -110,12 +117,16 @@ namespace Proyecto_Taller_2
                         Fecha = t.fecha_inicio,
                         Motivo = t.descripcion_turno,
                         Estado = t.Estado.Nombre,
-                        t.id_turno
+                        t.id_turno,
+                        t.activo
                     })
-                    .OrderBy(t => t.Fecha)
                     .ToList();
 
-                customDataGridView1.DataSource = lista;
+                customDataGridView1.DataSource = turnosPagina;
+
+                // Actualizar información de paginación
+                int totalPaginas = (int)Math.Ceiling((double)_totalRegistros / _cantidadPagina);
+                lblPagina.Text = $"Página {_nroPagina} de {totalPaginas}";
             }
             catch (Exception ex)
             {
@@ -123,13 +134,13 @@ namespace Proyecto_Taller_2
             }
         }
 
-
         // ===============================
         //  BOTÓN BUSCAR
         // ===============================
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             // Llama al método de filtrado combinado
+            _nroPagina = 1; // Reiniciar a la primera página
             AplicarFiltros();
         }
 
@@ -141,91 +152,66 @@ namespace Proyecto_Taller_2
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
-                // Llama al método de filtrado combinado
+                _nroPagina = 1; // Reiniciar a la primera página
                 AplicarFiltros();
             }
         }
 
-        private void CargarTurnos()
+        // ===============================
+        //  BOTÓN ANTERIOR
+        // ===============================
+        private void btnAnterior_Click(object sender, EventArgs e)
         {
-            try
+            if (_nroPagina > 1)
             {
-                var turnosBD = _context.Turno
-                    .Where(t => t.activo == true)
-                    .Select(t => new
-                    {
-                        t.id_turno,
-                        t.fecha_inicio,
-                        t.fecha_fin,
-                        t.descripcion_turno,
-                        MascotaNombre = t.Mascota.Nombre,
-                        PropietarioNombre = t.Mascota.Propietario.nombre,
-                        PropietarioApellido = t.Mascota.Propietario.apellido,
-                        VeterinarioNombre = t.Usuario.nombre,
-                        VeterinarioApellido = t.Usuario.apellido
-                    })
-                    .ToList(); // acá ejecuta en SQL
-
-                // Ahora sí, se puede usar ToString() y concatenaciones
-                var turnos = turnosBD.Select(t => new
-                {
-                    t.id_turno,
-                    Fecha = t.fecha_inicio.ToString("dd/MM/yyyy HH:mm"),
-                    Mascota = t.MascotaNombre,
-                    Propietario = $"{t.PropietarioNombre} {t.PropietarioApellido}",
-                    Veterinario = $"{t.VeterinarioNombre} {t.VeterinarioApellido}",
-                    Motivo = t.descripcion_turno
-                }).ToList();
-
-                customDataGridView1.DataSource = turnos;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _nroPagina--;
+                AplicarFiltros();
             }
         }
 
+        // ===============================
+        //  BOTÓN SIGUIENTE
+        // ===============================
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            int totalPaginas = (int)Math.Ceiling((double)_totalRegistros / _cantidadPagina);
+            if (_nroPagina < totalPaginas)
+            {
+                _nroPagina++;
+                AplicarFiltros();
+            }
+        }
 
-
-        private void EliminarTurno(int idTurno)
+        // ===============================
+        //  ALTERNAR ESTADO DE TURNO
+        // ===============================
+        private void AlternarEstadoTurno(int idTurno)
         {
             try
             {
                 var turno = _context.Turno.Find(idTurno);
                 if (turno != null)
                 {
-                    var confirm = MessageBox.Show(
-                        "¿Está seguro de que desea eliminar este turno?",
-                        "Confirmar eliminación",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question,
-                        MessageBoxDefaultButton.Button2
-                    );
-
-                    if (confirm == DialogResult.Yes)
-                    {
-                        turno.activo = false;
-                        _context.SaveChanges();
-                        MessageBox.Show("Turno eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        CargarTurnos();
-                    }
+                    turno.activo = !turno.activo;
+                    _context.SaveChanges();
+                    string mensaje = turno.activo ? "Turno activado." : "Turno desactivado.";
+                    MessageBox.Show(mensaje, "Estado actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    AplicarFiltros();
                 }
                 else
                 {
-                    MessageBox.Show("El turno seleccionado no existe.");
+                    MessageBox.Show("No se encontró el turno seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al eliminar el turno: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al cambiar el estado del turno: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void btnAgregarTurno_Click(object sender, EventArgs e)
-        {
-            Navegar<TurnosForm>();
-        }
-
+        // ===============================
+        //  CÉLULAS DEL DATA GRID (editar o alternar estado)
+        // ===============================
         private void dataGridViewTurnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -234,13 +220,18 @@ namespace Proyecto_Taller_2
 
                 int idTurno = Convert.ToInt32(customDataGridView1.Rows[e.RowIndex].Cells["id_turno"].Value);
 
-                if (e.ColumnIndex == 0)
+                if (e.ColumnIndex == 0) // Editar turno
                 {
                     Navegar(new TurnosForm(idTurno));
                 }
-                else if (e.ColumnIndex == 1)
+                else if (e.ColumnIndex == 1) // Alternar estado
                 {
-                    EliminarTurno(idTurno);
+                    var result = MessageBox.Show("¿Está seguro de que desea desactivar/activar este turno?",
+                        "Confirmar acción", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                    if (result == DialogResult.Yes)
+                    {
+                        AlternarEstadoTurno(idTurno);
+                    }
                 }
             }
             catch (Exception ex)
@@ -249,5 +240,12 @@ namespace Proyecto_Taller_2
             }
         }
 
+        // ===============================
+        //  AGREGAR TURNO
+        // ===============================
+        private void btnAgregarTurno_Click(object sender, EventArgs e)
+        {
+            Navegar<TurnosForm>();
+        }
     }
 }

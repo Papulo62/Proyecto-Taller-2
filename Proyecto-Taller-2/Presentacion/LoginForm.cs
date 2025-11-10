@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using BCrypt.Net;
 using Proyecto_Taller_2.Models;
 
 namespace Proyecto_Taller_2
@@ -24,7 +25,6 @@ namespace Proyecto_Taller_2
                 string correo = txtCorreo.Texts.Trim();
                 string contraseña = txtContraseña.Texts.Trim();
 
-              
                 if (string.IsNullOrEmpty(correo) || string.IsNullOrEmpty(contraseña))
                 {
                     MessageBox.Show("Por favor, complete todos los campos.", "Campos vacíos",
@@ -32,34 +32,44 @@ namespace Proyecto_Taller_2
                     return;
                 }
 
-             
                 var usuario = _context.Usuario
-                    .FirstOrDefault(u => u.correo == correo && u.contraseña == contraseña && u.activo);
+                    .FirstOrDefault(u => u.correo == correo && u.activo);
 
-                if (usuario != null)
+                if (usuario == null)
                 {
-                    UsuarioLogueado = usuario;
-                    this.DialogResult = DialogResult.OK;
-                    
-                   
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Correo o contraseña incorrectos.", "Error de autenticación",
+                    MessageBox.Show("Usuario no encontrado o inactivo.", "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtContraseña.Texts = "";
-                    txtCorreo.Focus();
+                    return;
                 }
+
+                if (string.IsNullOrEmpty(usuario.contraseña))
+                {
+                    MessageBox.Show("La contraseña de este usuario no está configurada. Debe restablecerla.",
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                bool esValida = BCrypt.Net.BCrypt.Verify(contraseña, usuario.contraseña);
+
+                if (!esValida)
+                {
+                    MessageBox.Show("Datos incorrectos.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                UsuarioLogueado = usuario;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(
-       (ex.InnerException != null ? ex.InnerException.Message : ex.Message),
-       "Error al abrir la conexión",
-       MessageBoxButtons.OK,
-       MessageBoxIcon.Error
-   );
+                    ex.InnerException?.Message ?? ex.Message,
+                    "Error al abrir la conexión",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
         }
 

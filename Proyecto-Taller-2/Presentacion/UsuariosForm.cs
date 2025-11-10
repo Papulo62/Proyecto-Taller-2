@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BCrypt.Net;
 using Proyecto_Taller_2.Models;
 
 namespace Proyecto_Taller_2.Presentacion
@@ -54,7 +55,7 @@ namespace Proyecto_Taller_2.Presentacion
                     nombre = txtNombre.Texts.Trim(),
                     apellido = txtApellido.Texts.Trim(),
                     correo = txtCorreo.Texts.Trim(),
-                    contraseña = txtContraseña.Texts,
+                    contraseña = HashPassword(txtContraseña.Texts),
                     rolId = (int)comboBoxRol.SelectedValue,
                     fecha_creacion = DateTime.Now,
                     imagen_perfil = _rutaImagenSeleccionada,
@@ -84,7 +85,7 @@ namespace Proyecto_Taller_2.Presentacion
                     txtNombre.Texts = usuario.nombre;
                     txtApellido.Texts = usuario.apellido;
                     txtCorreo.Texts = usuario.correo;
-                    txtContraseña.Texts = usuario.contraseña;
+                    txtContraseña.Texts = "";
                     comboBoxRol.SelectedValue = usuario.rolId;
 
                     if (!string.IsNullOrEmpty(usuario.imagen_perfil))
@@ -126,9 +127,11 @@ namespace Proyecto_Taller_2.Presentacion
                     usuario.nombre = txtNombre.Texts.Trim();
                     usuario.apellido = txtApellido.Texts.Trim();
                     usuario.correo = txtCorreo.Texts.Trim();
-                    usuario.contraseña = txtContraseña.Texts;
                     usuario.rolId = (int)comboBoxRol.SelectedValue;
                     usuario.imagen_perfil = _rutaImagenSeleccionada;
+
+                    if (!string.IsNullOrWhiteSpace(txtContraseña.Texts))
+                        usuario.contraseña = HashPassword(txtContraseña.Texts);
 
                     _context.SaveChanges();
                     MessageBox.Show("Usuario actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -213,7 +216,12 @@ namespace Proyecto_Taller_2.Presentacion
             }
         }
 
-       
+
+        private string HashPassword(string password)
+        {
+            return BCrypt.Net.BCrypt.HashPassword(password);
+        }
+
 
         private void label2_Click(object sender, EventArgs e)
         {
