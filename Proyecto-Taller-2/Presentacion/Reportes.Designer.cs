@@ -31,6 +31,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.labelTitle = new System.Windows.Forms.Label();
             this.panelFiltros = new System.Windows.Forms.Panel();
             this.btnExportar = new Proyecto_Taller_2.CustomButton();
@@ -43,8 +45,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewReporte = new System.Windows.Forms.DataGridView();
             this.lblTotalRegistros = new System.Windows.Forms.Label();
+            this.chartReporte = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panelFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReporte)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartReporte)).BeginInit();
             this.SuspendLayout();
             // 
             // labelTitle
@@ -208,9 +212,8 @@
             this.dataGridViewReporte.Name = "dataGridViewReporte";
             this.dataGridViewReporte.ReadOnly = true;
             this.dataGridViewReporte.RowHeadersVisible = false;
-            this.dataGridViewReporte.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridViewReporte.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewReporte.Size = new System.Drawing.Size(815, 450);
+            this.dataGridViewReporte.Size = new System.Drawing.Size(815, 250);
             this.dataGridViewReporte.TabIndex = 2;
             // 
             // lblTotalRegistros
@@ -223,21 +226,40 @@
             this.lblTotalRegistros.TabIndex = 3;
             this.lblTotalRegistros.Text = "Total de Registros: 0";
             // 
+            // chartReporte
+            // 
+            chartArea1.BackColor = System.Drawing.Color.White;
+            chartArea1.Name = "ChartArea1";
+            this.chartReporte.ChartAreas.Add(chartArea1);
+            legend1.BackColor = System.Drawing.Color.White;
+            legend1.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend1.IsTextAutoFit = false;
+            legend1.Name = "Legend1";
+            this.chartReporte.Legends.Add(legend1);
+            this.chartReporte.Location = new System.Drawing.Point(30, 510);
+            this.chartReporte.Name = "chartReporte";
+            this.chartReporte.Size = new System.Drawing.Size(815, 300);
+            this.chartReporte.TabIndex = 4;
+            this.chartReporte.Text = "chart1";
+            // 
             // Reportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Controls.Add(this.chartReporte);
             this.Controls.Add(this.lblTotalRegistros);
             this.Controls.Add(this.dataGridViewReporte);
             this.Controls.Add(this.panelFiltros);
             this.Controls.Add(this.labelTitle);
             this.Name = "Reportes";
-            this.Size = new System.Drawing.Size(872, 720);
+            this.Size = new System.Drawing.Size(872, 830);
             this.Load += new System.EventHandler(this.Reportes_Load);
             this.panelFiltros.ResumeLayout(false);
             this.panelFiltros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReporte)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartReporte)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,5 +279,6 @@
         private CustomButton btnExportar;
         private System.Windows.Forms.DataGridView dataGridViewReporte;
         private System.Windows.Forms.Label lblTotalRegistros;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartReporte;
     }
 }

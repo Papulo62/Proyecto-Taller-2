@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using Proyecto_Taller_2.Models;
 
 namespace Proyecto_Taller_2.Presentacion
@@ -23,36 +24,19 @@ namespace Proyecto_Taller_2.Presentacion
             InicializarVista();
         }
 
-        private int rolId = 2; 
-
         private void InicializarVista()
         {
             dateTimePickerFin.Value = DateTime.Now;
             dateTimePickerInicio.Value = DateTime.Now.AddMonths(-1);
 
             comboBoxTipoReporte.Items.Clear();
-
-            if (rolId == 1)
-            {
-                comboBoxTipoReporte.Items.Add("Turnos Agendados");
-            }
-            else if (rolId == 2) 
-            {
-                comboBoxTipoReporte.Items.Add("Consultas Realizadas");
-                comboBoxTipoReporte.Items.Add("Turnos Agendados");
-                comboBoxTipoReporte.Items.Add("Mascotas Registradas");
-            }
-            else if (rolId == 3) 
-            {
-                comboBoxTipoReporte.Items.Add("Consultas Realizadas");
-                comboBoxTipoReporte.Items.Add("Turnos Agendados");
-                comboBoxTipoReporte.Items.Add("Mascotas Registradas");
-                comboBoxTipoReporte.Items.Add("Consultas por Veterinario");
-            }
+            comboBoxTipoReporte.Items.Add("Consultas Realizadas");
+            comboBoxTipoReporte.Items.Add("Turnos Agendados");
+            comboBoxTipoReporte.Items.Add("Mascotas Registradas");
+            comboBoxTipoReporte.Items.Add("Consultas por Veterinario");
 
             comboBoxTipoReporte.SelectedIndex = 0;
         }
-
 
         private void btnGenerarReporte_Click(object sender, EventArgs e)
         {
@@ -127,6 +111,8 @@ namespace Proyecto_Taller_2.Presentacion
                 );
             }
 
+            GenerarGraficoConsultasPorDia(consultas);
+
             if (consultas.Count == 0)
             {
                 MessageBox.Show("No se encontraron consultas en el rango de fechas seleccionado.",
@@ -161,17 +147,16 @@ namespace Proyecto_Taller_2.Presentacion
                 dataGridViewReporte.Rows.Add(
                     turno.id_turno,
                     turno.fecha_inicio.ToString("dd/MM/yyyy HH:mm"),
-                    turno.fecha_fin.HasValue
-                    ? turno.fecha_fin.Value.ToString("dd/MM/yyyy HH:mm")
-    :               "N/A",
-
+                    turno.fecha_fin.HasValue ? turno.fecha_fin.Value.ToString("dd/MM/yyyy HH:mm") : "N/A",
                     mascota?.Nombre ?? "N/A",
                     propietario != null ? $"{propietario.nombre} {propietario.apellido}" : "N/A",
-                    veterinarioNombre, 
+                    veterinarioNombre,
                     turno.descripcion_turno,
                     estadoTexto
                 );
             }
+
+            GenerarGraficoTurnosPorEstado(turnos);
 
             if (turnos.Count == 0)
             {
@@ -198,7 +183,6 @@ namespace Proyecto_Taller_2.Presentacion
                 var propietario = _context.Propietario.FirstOrDefault(p => p.Id == mascota.id_propietario);
                 var edad = CalcularEdad(mascota.FechaNacimiento);
 
-                // Contar consultas de esta mascota
                 var totalConsultas = _context.Consulta.Count(c => c.id_mascota == mascota.IdMascota && c.activo);
 
                 dataGridViewReporte.Rows.Add(
@@ -213,6 +197,8 @@ namespace Proyecto_Taller_2.Presentacion
                     totalConsultas
                 );
             }
+
+            GenerarGraficoMascotasPorGenero(mascotas);
 
             if (mascotas.Count == 0)
             {
@@ -249,24 +235,22 @@ namespace Proyecto_Taller_2.Presentacion
                 var usuario = _context.Usuario.FirstOrDefault(u => u.Id == veterinario.id_usuario);
                 string veterinarioNombre = usuario != null ? $"{usuario.nombre} {usuario.apellido}" : "N/A";
 
-      
                 TimeSpan diferencia = item.UltimaConsulta - item.PrimeraConsulta;
                 int diasActivo = (int)diferencia.TotalDays;
 
-         
                 double promedioConsultas = diasActivo > 0 ? (double)item.TotalConsultas / diasActivo : item.TotalConsultas;
 
                 dataGridViewReporte.Rows.Add(
                     posicion++,
-                   veterinarioNombre,
-                    veterinario?.id_usuario.ToString() ?? "N/A",
+                    veterinarioNombre,
                     item.TotalConsultas,
                     item.PrimeraConsulta.ToString("dd/MM/yyyy"),
                     item.UltimaConsulta.ToString("dd/MM/yyyy"),
-                    diasActivo,
                     $"{promedioConsultas:F2}"
                 );
             }
+
+            GenerarGraficoConsultasPorVeterinario(consultas);
 
             if (consultas.Count == 0)
             {
@@ -275,11 +259,190 @@ namespace Proyecto_Taller_2.Presentacion
             }
         }
 
+
+        private void GenerarGraficoConsultasPorDia(List<Consulta> consultas)
+        {
+            chartReporte.Series.Clear();
+            chartReporte.Titles.Clear();
+
+            Title titulo = new Title
+            {
+                Text = "Consultas por Día",
+                Font = new Font("Inter", 12, FontStyle.Bold),
+                ForeColor = Color.FromArgb(64, 64, 64)
+            };
+            chartReporte.Titles.Add(titulo);
+
+            Series series = new Series
+            {
+                Name = "Consultas",
+                ChartType = SeriesChartType.Column,
+                Color = Color.FromArgb(76, 175, 80)
+            };
+
+            var consultasPorDia = consultas
+                .GroupBy(c => c.fecha_consulta.Date)
+                .OrderBy(g => g.Key)
+                .Select(g => new { Fecha = g.Key, Cantidad = g.Count() })
+                .ToList();
+
+            foreach (var item in consultasPorDia)
+            {
+                series.Points.AddXY(item.Fecha.ToString("dd/MM"), item.Cantidad);
+            }
+
+            series.IsValueShownAsLabel = true;
+            chartReporte.Series.Add(series);
+
+            ConfigurarEjesGrafico();
+        }
+
+        private void GenerarGraficoTurnosPorEstado(List<Turno> turnos)
+        {
+            chartReporte.Series.Clear();
+            chartReporte.Titles.Clear();
+
+            Title titulo = new Title
+            {
+                Text = "Turnos por Estado",
+                Font = new Font("Inter", 12, FontStyle.Bold),
+                ForeColor = Color.FromArgb(64, 64, 64)
+            };
+            chartReporte.Titles.Add(titulo);
+
+            Series series = new Series
+            {
+                Name = "Estados",
+                ChartType = SeriesChartType.Pie,
+                IsValueShownAsLabel = true
+            };
+
+            var turnosPorEstado = turnos
+                .GroupBy(t => t.id_estado)
+                .Select(g => new
+                {
+                    EstadoId = g.Key,
+                    Cantidad = g.Count()
+                })
+                .ToList();
+
+            foreach (var item in turnosPorEstado)
+            {
+                var estado = _context.Estado.FirstOrDefault(e => e.IdEstado == item.EstadoId);
+                string estadoNombre = estado != null ? estado.Nombre : "Sin Estado";
+                series.Points.AddXY(estadoNombre, item.Cantidad);
+            }
+
+            series.Label = "#PERCENT{P1}";
+            series.LegendText = "#VALX (#VAL)";
+
+            chartReporte.Series.Add(series);
+        }
+
+        private void GenerarGraficoMascotasPorGenero(List<Mascota> mascotas)
+        {
+            chartReporte.Series.Clear();
+            chartReporte.Titles.Clear();
+
+            Title titulo = new Title
+            {
+                Text = "Mascotas por Género",
+                Font = new Font("Inter", 12, FontStyle.Bold),
+                ForeColor = Color.FromArgb(64, 64, 64)
+            };
+            chartReporte.Titles.Add(titulo);
+
+            Series series = new Series
+            {
+                Name = "Género",
+                ChartType = SeriesChartType.Doughnut,
+                IsValueShownAsLabel = true
+            };
+
+            var mascotasPorGenero = mascotas
+                .GroupBy(m => m.Sexo)
+                .Select(g => new { Genero = g.Key, Cantidad = g.Count() })
+                .ToList();
+
+            foreach (var item in mascotasPorGenero)
+            {
+                series.Points.AddXY(item.Genero ?? "No especificado", item.Cantidad);
+            }
+
+            series.Label = "#PERCENT{P1}";
+            series.LegendText = "#VALX (#VAL)";
+
+            chartReporte.Series.Add(series);
+        }
+
+        private void GenerarGraficoConsultasPorVeterinario(dynamic consultas)
+        {
+            chartReporte.Series.Clear();
+            chartReporte.Titles.Clear();
+
+            Title titulo = new Title
+            {
+                Text = "Consultas por Veterinario",
+                Font = new Font("Inter", 12, FontStyle.Bold),
+                ForeColor = Color.FromArgb(64, 64, 64)
+            };
+            chartReporte.Titles.Add(titulo);
+
+            Series series = new Series
+            {
+                Name = "Consultas",
+                ChartType = SeriesChartType.Bar,
+                Color = Color.FromArgb(33, 150, 243)
+            };
+
+
+            var listaConsultas = ((IEnumerable<dynamic>)consultas).ToList();
+
+            var datos = listaConsultas.Select(c =>
+            {
+                int vetId = (int)c.VeterinarioId;
+                int total = (int)c.TotalConsultas;
+
+                var v = _context.Veterinario.FirstOrDefault(x => x.IdVeterinario == vetId);
+                var u = _context.Usuario.FirstOrDefault(x => x.Id == v.id_usuario);
+
+                return new
+                {
+                    Nombre = $"{u.nombre} {u.apellido}",
+                    Total = total
+                };
+            }).ToList();
+
+            foreach (var d in datos)
+            {
+                series.Points.AddXY(d.Nombre, d.Total);
+            }
+
+
+
+            series.IsValueShownAsLabel = true;
+            chartReporte.Series.Add(series);
+
+            ConfigurarEjesGrafico();
+        }
+
+        private void ConfigurarEjesGrafico()
+        {
+            if (chartReporte.ChartAreas.Count > 0)
+            {
+                chartReporte.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+                chartReporte.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
+                chartReporte.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Inter", 8);
+                chartReporte.ChartAreas[0].AxisY.LabelStyle.Font = new Font("Inter", 9);
+            }
+        }
+
+        // ============= FIN DE MÉTODOS DE GRÁFICOS =============
+
         private void ConfigurarColumnasConsultas()
         {
             dataGridViewReporte.Columns.Clear();
 
-            // Columnas específicas para Consultas
             dataGridViewReporte.Columns.Add("colId", "ID");
             dataGridViewReporte.Columns.Add("colFecha", "Fecha");
             dataGridViewReporte.Columns.Add("colMascota", "Mascota");
@@ -289,7 +452,6 @@ namespace Proyecto_Taller_2.Presentacion
             dataGridViewReporte.Columns.Add("colDiagnostico", "Diagnóstico");
             dataGridViewReporte.Columns.Add("colTratamiento", "Tratamiento");
 
-            // Configurar anchos
             dataGridViewReporte.Columns["colId"].Visible = false;
             dataGridViewReporte.Columns["colFecha"].Width = 130;
             dataGridViewReporte.Columns["colMascota"].Width = 100;
@@ -304,7 +466,6 @@ namespace Proyecto_Taller_2.Presentacion
         {
             dataGridViewReporte.Columns.Clear();
 
-            // Columnas específicas para Turnos
             dataGridViewReporte.Columns.Add("colId", "ID");
             dataGridViewReporte.Columns.Add("colFechaInicio", "Fecha Inicio");
             dataGridViewReporte.Columns.Add("colFechaFin", "Fecha Fin");
@@ -314,7 +475,6 @@ namespace Proyecto_Taller_2.Presentacion
             dataGridViewReporte.Columns.Add("colDescripcion", "Descripción");
             dataGridViewReporte.Columns.Add("colEstado", "Estado");
 
-            // Configurar anchos
             dataGridViewReporte.Columns["colId"].Visible = false;
             dataGridViewReporte.Columns["colFechaInicio"].Width = 130;
             dataGridViewReporte.Columns["colFechaFin"].Width = 130;
@@ -329,7 +489,6 @@ namespace Proyecto_Taller_2.Presentacion
         {
             dataGridViewReporte.Columns.Clear();
 
-            // Columnas específicas para Mascotas
             dataGridViewReporte.Columns.Add("colId", "ID");
             dataGridViewReporte.Columns.Add("colFechaNac", "Fecha Nacimiento");
             dataGridViewReporte.Columns.Add("colNombre", "Nombre");
@@ -340,7 +499,6 @@ namespace Proyecto_Taller_2.Presentacion
             dataGridViewReporte.Columns.Add("colEdad", "Edad");
             dataGridViewReporte.Columns.Add("colConsultas", "Total Consultas");
 
-            // Configurar anchos
             dataGridViewReporte.Columns["colId"].Visible = false;
             dataGridViewReporte.Columns["colFechaNac"].Width = 130;
             dataGridViewReporte.Columns["colNombre"].Width = 120;
@@ -356,24 +514,18 @@ namespace Proyecto_Taller_2.Presentacion
         {
             dataGridViewReporte.Columns.Clear();
 
-            // Columnas específicas para Veterinarios
             dataGridViewReporte.Columns.Add("colPosicion", "#");
             dataGridViewReporte.Columns.Add("colNombre", "Nombre");
-            dataGridViewReporte.Columns.Add("colDni", "DNI");
             dataGridViewReporte.Columns.Add("colTotal", "Total Consultas");
             dataGridViewReporte.Columns.Add("colPrimera", "Primera Consulta");
             dataGridViewReporte.Columns.Add("colUltima", "Última Consulta");
-            dataGridViewReporte.Columns.Add("colDias", "Días Activo");
             dataGridViewReporte.Columns.Add("colPromedio", "Promedio/Día");
 
-            // Configurar anchos
             dataGridViewReporte.Columns["colPosicion"].Width = 40;
             dataGridViewReporte.Columns["colNombre"].Width = 180;
-            dataGridViewReporte.Columns["colDni"].Width = 100;
             dataGridViewReporte.Columns["colTotal"].Width = 120;
             dataGridViewReporte.Columns["colPrimera"].Width = 120;
             dataGridViewReporte.Columns["colUltima"].Width = 120;
-            dataGridViewReporte.Columns["colDias"].Width = 100;
             dataGridViewReporte.Columns["colPromedio"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
@@ -425,7 +577,6 @@ namespace Proyecto_Taller_2.Presentacion
         {
             using (var writer = new System.IO.StreamWriter(rutaArchivo, false, Encoding.UTF8))
             {
-                // Escribir título del reporte
                 writer.WriteLine($"REPORTE: {comboBoxTipoReporte.SelectedItem}");
                 writer.WriteLine($"Fecha: {DateTime.Now:dd/MM/yyyy HH:mm}");
                 writer.WriteLine($"Período: {dateTimePickerInicio.Value:dd/MM/yyyy} - {dateTimePickerFin.Value:dd/MM/yyyy}");
@@ -433,7 +584,6 @@ namespace Proyecto_Taller_2.Presentacion
                 writer.WriteLine("==================================================");
                 writer.WriteLine();
 
-                // Escribir encabezados
                 var encabezados = new List<string>();
                 foreach (DataGridViewColumn col in dataGridViewReporte.Columns)
                 {
@@ -442,7 +592,6 @@ namespace Proyecto_Taller_2.Presentacion
                 }
                 writer.WriteLine(string.Join(";", encabezados));
 
-                // Escribir datos
                 foreach (DataGridViewRow row in dataGridViewReporte.Rows)
                 {
                     if (!row.IsNewRow)
@@ -453,7 +602,6 @@ namespace Proyecto_Taller_2.Presentacion
                             if (cell.OwningColumn.Visible)
                             {
                                 string valor = cell.Value?.ToString() ?? "";
-                                // Escapar punto y coma si está en el texto
                                 valores.Add(valor.Replace(";", ","));
                             }
                         }
@@ -465,9 +613,7 @@ namespace Proyecto_Taller_2.Presentacion
 
         private void Reportes_Load(object sender, EventArgs e)
         {
-            // Generar reporte inicial
             btnGenerarReporte_Click(sender, e);
         }
-
     }
 }

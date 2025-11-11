@@ -147,11 +147,17 @@ namespace Proyecto_Taller_2
                 this.Hide();
 
                 LoginForm loginForm = new LoginForm();
-                if (loginForm.ShowDialog() == DialogResult.OK) 
+                DialogResult LoginResult = loginForm.ShowDialog();
+                if(LoginResult == DialogResult.OK)
                 {
-                   
+                    usuarioLogueado = loginForm.UsuarioLogueado;
                     this.Show();
                 }
+                else
+                {
+                    Application.Exit();
+                }
+                loginForm.Dispose();
             }
         }
 

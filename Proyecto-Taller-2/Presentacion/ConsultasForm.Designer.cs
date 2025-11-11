@@ -45,8 +45,6 @@ namespace Proyecto_Taller_2.Presentacion
             this.txtDiagnostico = new CustomControls.RJControls.RJTextBox();
             this.txtTratamiento = new CustomControls.RJControls.RJTextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.iblArchivoSeleccionado = new CustomControls.RJControls.RJTextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.txtSintomas = new CustomControls.RJControls.RJTextBox();
             this.btnClose = new Proyecto_Taller_2.CustomButton();
             this.btnGuardar = new Proyecto_Taller_2.CustomButton();
@@ -232,37 +230,6 @@ namespace Proyecto_Taller_2.Presentacion
             this.label9.TabIndex = 18;
             this.label9.Text = "Proxima consulta:";
             // 
-            // iblArchivoSeleccionado
-            // 
-            this.iblArchivoSeleccionado.BackColor = System.Drawing.SystemColors.Window;
-            this.iblArchivoSeleccionado.BorderColor = System.Drawing.Color.Black;
-            this.iblArchivoSeleccionado.BorderFocusColor = System.Drawing.Color.Black;
-            this.iblArchivoSeleccionado.BorderRadius = 8;
-            this.iblArchivoSeleccionado.BorderSize = 1;
-            this.iblArchivoSeleccionado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iblArchivoSeleccionado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.iblArchivoSeleccionado.Location = new System.Drawing.Point(143, 472);
-            this.iblArchivoSeleccionado.Margin = new System.Windows.Forms.Padding(4);
-            this.iblArchivoSeleccionado.Multiline = true;
-            this.iblArchivoSeleccionado.Name = "iblArchivoSeleccionado";
-            this.iblArchivoSeleccionado.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.iblArchivoSeleccionado.PasswordChar = false;
-            this.iblArchivoSeleccionado.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.iblArchivoSeleccionado.PlaceholderText = "Ingrese el historial clinico:";
-            this.iblArchivoSeleccionado.Size = new System.Drawing.Size(250, 30);
-            this.iblArchivoSeleccionado.TabIndex = 19;
-            this.iblArchivoSeleccionado.Texts = "";
-            this.iblArchivoSeleccionado.UnderlinedStyle = false;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(140, 431);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(123, 18);
-            this.label10.TabIndex = 20;
-            this.label10.Text = "Historial clínico:";
-            // 
             // txtSintomas
             // 
             this.txtSintomas.BackColor = System.Drawing.SystemColors.Window;
@@ -331,8 +298,6 @@ namespace Proyecto_Taller_2.Presentacion
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtSintomas);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.iblArchivoSeleccionado);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtTratamiento);
             this.Controls.Add(this.txtDiagnostico);
@@ -377,8 +342,6 @@ namespace Proyecto_Taller_2.Presentacion
         private CustomControls.RJControls.RJTextBox txtDiagnostico;
         private CustomControls.RJControls.RJTextBox txtTratamiento;
         private System.Windows.Forms.Label label9;
-        private CustomControls.RJControls.RJTextBox iblArchivoSeleccionado;
-        private System.Windows.Forms.Label label10;
         private CustomControls.RJControls.RJTextBox txtSintomas;
         private CustomButton btnClose;
         private CustomButton btnGuardar;

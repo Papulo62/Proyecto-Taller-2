@@ -42,7 +42,6 @@ namespace Proyecto_Taller_2
             this.cmbEstadoReproductivo = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.cmbVivo = new System.Windows.Forms.ComboBox();
             this.txtPeso = new CustomControls.RJControls.RJTextBox();
             this.customButton3 = new Proyecto_Taller_2.CustomButton();
             this.btnGuardar = new Proyecto_Taller_2.CustomButton();
@@ -50,6 +49,7 @@ namespace Proyecto_Taller_2
             this.txtNombre = new CustomControls.RJControls.RJTextBox();
             this.cmbPropietario = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.cmbVivo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -195,18 +195,6 @@ namespace Proyecto_Taller_2
             this.label9.TabIndex = 33;
             this.label9.Text = "Está vivo?: ";
             // 
-            // cmbVivo
-            // 
-            this.cmbVivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbVivo.FormattingEnabled = true;
-            this.cmbVivo.Items.AddRange(new object[] {
-            "Si",
-            "No"});
-            this.cmbVivo.Location = new System.Drawing.Point(502, 493);
-            this.cmbVivo.Name = "cmbVivo";
-            this.cmbVivo.Size = new System.Drawing.Size(250, 24);
-            this.cmbVivo.TabIndex = 35;
-            // 
             // txtPeso
             // 
             this.txtPeso.BackColor = System.Drawing.SystemColors.Window;
@@ -247,6 +235,7 @@ namespace Proyecto_Taller_2
             this.customButton3.Text = "Cerrar";
             this.customButton3.TextColor = System.Drawing.Color.Black;
             this.customButton3.UseVisualStyleBackColor = false;
+            this.customButton3.Click += new System.EventHandler(this.customButton3_Click_1);
             // 
             // btnGuardar
             // 
@@ -331,6 +320,18 @@ namespace Proyecto_Taller_2
             this.label2.TabIndex = 37;
             this.label2.Text = "Propietario:";
             // 
+            // cmbVivo
+            // 
+            this.cmbVivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbVivo.FormattingEnabled = true;
+            this.cmbVivo.Items.AddRange(new object[] {
+            "Si",
+            "No"});
+            this.cmbVivo.Location = new System.Drawing.Point(502, 493);
+            this.cmbVivo.Name = "cmbVivo";
+            this.cmbVivo.Size = new System.Drawing.Size(250, 24);
+            this.cmbVivo.TabIndex = 35;
+            // 
             // MascotasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -386,8 +387,8 @@ namespace Proyecto_Taller_2
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private CustomControls.RJControls.RJTextBox txtPeso;
-        private System.Windows.Forms.ComboBox cmbVivo;
         private System.Windows.Forms.ComboBox cmbPropietario;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmbVivo;
     }
 }

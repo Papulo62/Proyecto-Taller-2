@@ -405,5 +405,21 @@ namespace Proyecto_Taller_2
             }
         }
 
+        private void customButton3_Click_1(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+             "¿Seguro que desea salir sin guardar la mascota?",
+             "Confirmar salida",
+             MessageBoxButtons.YesNo,
+             MessageBoxIcon.Question
+         );
+
+            if (result == DialogResult.Yes)
+            {
+                Form2 formPrincipal = (Form2)this.ParentForm;
+
+                formPrincipal.CargarUserControl(new Mascotas());
+            }
+        }
     }
 }

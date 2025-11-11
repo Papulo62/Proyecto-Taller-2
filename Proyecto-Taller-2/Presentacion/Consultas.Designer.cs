@@ -141,6 +141,7 @@
             this.btnConsultasAdd.Text = "nueva consulta";
             this.btnConsultasAdd.TextColor = System.Drawing.Color.White;
             this.btnConsultasAdd.UseVisualStyleBackColor = false;
+            this.btnConsultasAdd.Click += new System.EventHandler(this.btnConsultasAdd_Click);
             // 
             // btnBuscar
             // 

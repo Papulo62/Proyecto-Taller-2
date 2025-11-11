@@ -220,5 +220,10 @@ namespace Proyecto_Taller_2.Presentacion
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnConsultasAdd_Click(object sender, EventArgs e)
+        {
+            Navegar<ConsultasForm>();
+        }
     }
 }

@@ -341,6 +341,8 @@ namespace Proyecto_Taller_2
             // 
             // panelContainer
             // 
+            this.panelContainer.AutoScroll = true;
+            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(288, 62);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(873, 599);
